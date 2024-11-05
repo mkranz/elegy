@@ -1,0 +1,2530 @@
+{
+    "languages": null,
+    "filetype": "pdf",
+    "pdf_toc": [
+        {
+            "title": "Chapter I:  Introduction",
+            "level": 0,
+            "page": 3
+        },
+        {
+            "title": "Welcome",
+            "level": 1,
+            "page": 4
+        },
+        {
+            "title": "Fiction & Rules",
+            "level": 1,
+            "page": 4
+        },
+        {
+            "title": "Elegies",
+            "level": 1,
+            "page": 4
+        },
+        {
+            "title": "Your vampire",
+            "level": 1,
+            "page": 5
+        },
+        {
+            "title": "Chapter II:  Your Character",
+            "level": 0,
+            "page": 7
+        },
+        {
+            "title": "Name",
+            "level": 1,
+            "page": 8
+        },
+        {
+            "title": "Stats",
+            "level": 1,
+            "page": 8
+        },
+        {
+            "title": "Assets",
+            "level": 1,
+            "page": 8
+        },
+        {
+            "title": "List of assets",
+            "level": 1,
+            "page": 11
+        },
+        {
+            "title": "Background Connections",
+            "level": 1,
+            "page": 27
+        },
+        {
+            "title": "Condition Meters",
+            "level": 1,
+            "page": 27
+        },
+        {
+            "title": "Creation Summary",
+            "level": 1,
+            "page": 28
+        },
+        {
+            "title": "Chapter III:  Playing the Game",
+            "level": 0,
+            "page": 29
+        },
+        {
+            "title": "The Flow of Play",
+            "level": 1,
+            "page": 30
+        },
+        {
+            "title": "The Action Roll",
+            "level": 1,
+            "page": 30
+        },
+        {
+            "title": "Progress tracks",
+            "level": 1,
+            "page": 36
+        },
+        {
+            "title": "Harm, stress and hunger",
+            "level": 1,
+            "page": 39
+        },
+        {
+            "title": "Using oracles",
+            "level": 1,
+            "page": 41
+        },
+        {
+            "title": "Other Characters",
+            "level": 1,
+            "page": 42
+        },
+        {
+            "title": "Multiplayer",
+            "level": 1,
+            "page": 42
+        },
+        {
+            "title": "Optional Rule: Moves",
+            "level": 1,
+            "page": 43
+        },
+        {
+            "title": "Chapter IV:  Your World",
+            "level": 0,
+            "page": 57
+        },
+        {
+            "title": "Basic setting",
+            "level": 1,
+            "page": 58
+        },
+        {
+            "title": "Your Truths",
+            "level": 1,
+            "page": 61
+        },
+        {
+            "title": "Lineages",
+            "level": 1,
+            "page": 75
+        },
+        {
+            "title": "The City of Santa Maria",
+            "level": 1,
+            "page": 78
+        },
+        {
+            "title": "Chapter V:  NPCs",
+            "level": 0,
+            "page": 85
+        },
+        {
+            "title": "NPCs",
+            "level": 1,
+            "page": 86
+        },
+        {
+            "title": "Mortals",
+            "level": 1,
+            "page": 89
+        },
+        {
+            "title": "Average Vampires",
+            "level": 1,
+            "page": 91
+        },
+        {
+            "title": "Olympus",
+            "level": 1,
+            "page": 93
+        },
+        {
+            "title": "Agorean Movement",
+            "level": 1,
+            "page": 95
+        },
+        {
+            "title": "Circle of Circe",
+            "level": 1,
+            "page": 99
+        },
+        {
+            "title": "Epitaph Order",
+            "level": 1,
+            "page": 101
+        },
+        {
+            "title": "Crystal Compass",
+            "level": 1,
+            "page": 103
+        },
+        {
+            "title": "Varou",
+            "level": 1,
+            "page": 106
+        },
+        {
+            "title": "Lycanthropes",
+            "level": 1,
+            "page": 108
+        },
+        {
+            "title": "Beast People",
+            "level": 1,
+            "page": 110
+        },
+        {
+            "title": "Mortal Threats",
+            "level": 1,
+            "page": 111
+        },
+        {
+            "title": "Chapter VI:  Gameplay  in Depth",
+            "level": 0,
+            "page": 113
+        },
+        {
+            "title": "The First Session",
+            "level": 1,
+            "page": 114
+        },
+        {
+            "title": "Fiction and Mechanics",
+            "level": 1,
+            "page": 121
+        },
+        {
+            "title": "Quests",
+            "level": 1,
+            "page": 128
+        },
+        {
+            "title": "Chapter VII:  Oracles",
+            "level": 0,
+            "page": 131
+        },
+        {
+            "title": "Names",
+            "level": 1,
+            "page": 132
+        },
+        {
+            "title": "General",
+            "level": 1,
+            "page": 133
+        },
+        {
+            "title": "Characters",
+            "level": 1,
+            "page": 134
+        },
+        {
+            "title": "Story",
+            "level": 1,
+            "page": 135
+        },
+        {
+            "title": "Ambience",
+            "level": 1,
+            "page": 138
+        },
+        {
+            "title": "Location",
+            "level": 1,
+            "page": 140
+        }
+    ],
+    "pages": 147,
+    "ocr_stats": {
+        "ocr_pages": 2,
+        "ocr_failed": 0,
+        "ocr_success": 2,
+        "ocr_engine": "surya"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 22,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "computed_toc": [
+        {
+            "title": "pictures by",
+            "level": 4,
+            "page": 1
+        },
+        {
+            "title": "Contents",
+            "level": 1,
+            "page": 2
+        },
+        {
+            "title": "Welcome",
+            "level": 2,
+            "page": 4
+        },
+        {
+            "title": "What you'll need",
+            "level": 3,
+            "page": 4
+        },
+        {
+            "title": "Fiction & Rules",
+            "level": 2,
+            "page": 4
+        },
+        {
+            "title": "Elegies",
+            "level": 2,
+            "page": 4
+        },
+        {
+            "title": "Your vampire",
+            "level": 2,
+            "page": 5
+        },
+        {
+            "title": "A creature of the night",
+            "level": 3,
+            "page": 5
+        },
+        {
+            "title": "Your sheet",
+            "level": 3,
+            "page": 5
+        },
+        {
+            "title": "Be Awesome",
+            "level": 3,
+            "page": 5
+        },
+        {
+            "title": "Be Who You Want",
+            "level": 3,
+            "page": 5
+        },
+        {
+            "title": "Name",
+            "level": 2,
+            "page": 8
+        },
+        {
+            "title": "Stats",
+            "level": 2,
+            "page": 8
+        },
+        {
+            "title": "Assets",
+            "level": 2,
+            "page": 8
+        },
+        {
+            "title": "Acquiring assets",
+            "level": 3,
+            "page": 8
+        },
+        {
+            "title": "9",
+            "level": 4,
+            "page": 8
+        },
+        {
+            "title": "Narrative \nRequirements",
+            "level": 3,
+            "page": 10
+        },
+        {
+            "title": "Equipment",
+            "level": 3,
+            "page": 10
+        },
+        {
+            "title": "List of assets",
+            "level": 2,
+            "page": 11
+        },
+        {
+            "title": "Acute Senses",
+            "level": 3,
+            "page": 11
+        },
+        {
+            "title": "Agility",
+            "level": 3,
+            "page": 11
+        },
+        {
+            "title": "Animal Drinker",
+            "level": 3,
+            "page": 11
+        },
+        {
+            "title": "Articulate",
+            "level": 3,
+            "page": 11
+        },
+        {
+            "title": "Artist",
+            "level": 3,
+            "page": 12
+        },
+        {
+            "title": "Awe",
+            "level": 3,
+            "page": 12
+        },
+        {
+            "title": "Bagger",
+            "level": 3,
+            "page": 12
+        },
+        {
+            "title": "13",
+            "level": 4,
+            "page": 12
+        },
+        {
+            "title": "Blood Alchemy",
+            "level": 3,
+            "page": 13
+        },
+        {
+            "title": "Buff",
+            "level": 3,
+            "page": 13
+        },
+        {
+            "title": "Cutthroat",
+            "level": 3,
+            "page": 13
+        },
+        {
+            "title": "Decay",
+            "level": 3,
+            "page": 13
+        },
+        {
+            "title": "Driver",
+            "level": 3,
+            "page": 14
+        },
+        {
+            "title": "Empath",
+            "level": 3,
+            "page": 14
+        },
+        {
+            "title": "Fame",
+            "level": 3,
+            "page": 14
+        },
+        {
+            "title": "15",
+            "level": 4,
+            "page": 14
+        },
+        {
+            "title": "Familiar",
+            "level": 3,
+            "page": 15
+        },
+        {
+            "title": "Fierce",
+            "level": 3,
+            "page": 15
+        },
+        {
+            "title": "Gunslinger",
+            "level": 3,
+            "page": 15
+        },
+        {
+            "title": "Ghost whisperer",
+            "level": 3,
+            "page": 16
+        },
+        {
+            "title": "Heart breaker",
+            "level": 3,
+            "page": 16
+        },
+        {
+            "title": "Home invader",
+            "level": 3,
+            "page": 16
+        },
+        {
+            "title": "17",
+            "level": 4,
+            "page": 16
+        },
+        {
+            "title": "Horrendous",
+            "level": 3,
+            "page": 17
+        },
+        {
+            "title": "Hunting field",
+            "level": 3,
+            "page": 17
+        },
+        {
+            "title": "Hypnosis",
+            "level": 3,
+            "page": 17
+        },
+        {
+            "title": "Illusion",
+            "level": 3,
+            "page": 18
+        },
+        {
+            "title": "Lair",
+            "level": 3,
+            "page": 18
+        },
+        {
+            "title": "Lore keeper",
+            "level": 3,
+            "page": 18
+        },
+        {
+            "title": "19",
+            "level": 4,
+            "page": 18
+        },
+        {
+            "title": "Lunacy",
+            "level": 3,
+            "page": 19
+        },
+        {
+            "title": "Magnetism",
+            "level": 3,
+            "page": 19
+        },
+        {
+            "title": "Mannequin",
+            "level": 3,
+            "page": 19
+        },
+        {
+            "title": "Marked",
+            "level": 3,
+            "page": 20
+        },
+        {
+            "title": "Mutation",
+            "level": 3,
+            "page": 20
+        },
+        {
+            "title": "21",
+            "level": 4,
+            "page": 20
+        },
+        {
+            "title": "Path of the Demon",
+            "level": 3,
+            "page": 21
+        },
+        {
+            "title": "Path of the Eye",
+            "level": 3,
+            "page": 21
+        },
+        {
+            "title": "Path of the Guardian",
+            "level": 3,
+            "page": 21
+        },
+        {
+            "title": "Path of the Pursuer",
+            "level": 3,
+            "page": 22
+        },
+        {
+            "title": "Path of Radiance",
+            "level": 3,
+            "page": 22
+        },
+        {
+            "title": "Path of the Spider",
+            "level": 3,
+            "page": 22
+        },
+        {
+            "title": "23",
+            "level": 4,
+            "page": 22
+        },
+        {
+            "title": "Path of the Tongue",
+            "level": 3,
+            "page": 23
+        },
+        {
+            "title": "Picky taste",
+            "level": 3,
+            "page": 23
+        },
+        {
+            "title": "Reanimation",
+            "level": 3,
+            "page": 23
+        },
+        {
+            "title": "Resilient",
+            "level": 3,
+            "page": 23
+        },
+        {
+            "title": "Seer",
+            "level": 3,
+            "page": 24
+        },
+        {
+            "title": "Shadow touch",
+            "level": 3,
+            "page": 24
+        },
+        {
+            "title": "Sixth Sense",
+            "level": 3,
+            "page": 24
+        },
+        {
+            "title": "Stalker",
+            "level": 3,
+            "page": 24
+        },
+        {
+            "title": "25",
+            "level": 4,
+            "page": 24
+        },
+        {
+            "title": "Technomancy",
+            "level": 3,
+            "page": 25
+        },
+        {
+            "title": "Terror",
+            "level": 3,
+            "page": 25
+        },
+        {
+            "title": "Veil",
+            "level": 3,
+            "page": 25
+        },
+        {
+            "title": "Weak Blood",
+            "level": 3,
+            "page": 26
+        },
+        {
+            "title": "Weather command",
+            "level": 3,
+            "page": 26
+        },
+        {
+            "title": "Wilderness",
+            "level": 3,
+            "page": 26
+        },
+        {
+            "title": "27",
+            "level": 4,
+            "page": 26
+        },
+        {
+            "title": "Background Connections",
+            "level": 2,
+            "page": 27
+        },
+        {
+            "title": "Condition Meters",
+            "level": 2,
+            "page": 27
+        },
+        {
+            "title": "Impacts",
+            "level": 3,
+            "page": 27
+        },
+        {
+            "title": "Misfortunes",
+            "level": 4,
+            "page": 27
+        },
+        {
+            "title": "Lasting Effects",
+            "level": 4,
+            "page": 28
+        },
+        {
+            "title": "Creation Summary",
+            "level": 2,
+            "page": 28
+        },
+        {
+            "title": "29",
+            "level": 4,
+            "page": 28
+        },
+        {
+            "title": "The Flow of Play",
+            "level": 2,
+            "page": 30
+        },
+        {
+            "title": "The Action Roll",
+            "level": 2,
+            "page": 30
+        },
+        {
+            "title": "31",
+            "level": 4,
+            "page": 30
+        },
+        {
+            "title": "How to make an Action Roll",
+            "level": 3,
+            "page": 32
+        },
+        {
+            "title": "Benefits",
+            "level": 4,
+            "page": 32
+        },
+        {
+            "title": "Costs",
+            "level": 4,
+            "page": 32
+        },
+        {
+            "title": "33",
+            "level": 4,
+            "page": 32
+        },
+        {
+            "title": "Match",
+            "level": 3,
+            "page": 33
+        },
+        {
+            "title": "Focus",
+            "level": 3,
+            "page": 33
+        },
+        {
+            "title": "Using powers",
+            "level": 3,
+            "page": 33
+        },
+        {
+            "title": "Healing",
+            "level": 4,
+            "page": 33
+        },
+        {
+            "title": "Appearing Human",
+            "level": 4,
+            "page": 34
+        },
+        {
+            "title": "Rituals",
+            "level": 3,
+            "page": 34
+        },
+        {
+            "title": "35",
+            "level": 4,
+            "page": 34
+        },
+        {
+            "title": "Tips for Action Rolls",
+            "level": 3,
+            "page": 35
+        },
+        {
+            "title": "Fiction first, then mechanics",
+            "level": 4,
+            "page": 35
+        },
+        {
+            "title": "Not every action must be rolled",
+            "level": 4,
+            "page": 35
+        },
+        {
+            "title": "Making Group Rolls",
+            "level": 4,
+            "page": 35
+        },
+        {
+            "title": "Make Rolls Matter",
+            "level": 4,
+            "page": 35
+        },
+        {
+            "title": "Progress tracks",
+            "level": 2,
+            "page": 36
+        },
+        {
+            "title": "37",
+            "level": 4,
+            "page": 36
+        },
+        {
+            "title": "Marking progress",
+            "level": 3,
+            "page": 37
+        },
+        {
+            "title": "The Conclusion Roll",
+            "level": 3,
+            "page": 37
+        },
+        {
+            "title": "Strong hit",
+            "level": 4,
+            "page": 37
+        },
+        {
+            "title": "Weak Hit",
+            "level": 4,
+            "page": 37
+        },
+        {
+            "title": "Miss",
+            "level": 4,
+            "page": 37
+        },
+        {
+            "title": "Experience",
+            "level": 3,
+            "page": 38
+        },
+        {
+            "title": "Sample progress tracks\nTroublesome",
+            "level": 4,
+            "page": 38
+        },
+        {
+            "title": "Dangerous",
+            "level": 4,
+            "page": 38
+        },
+        {
+            "title": "Extreme",
+            "level": 4,
+            "page": 38
+        },
+        {
+            "title": "Epic",
+            "level": 4,
+            "page": 38
+        },
+        {
+            "title": "39",
+            "level": 4,
+            "page": 38
+        },
+        {
+            "title": "Harm, stress and hunger",
+            "level": 2,
+            "page": 39
+        },
+        {
+            "title": "Harm",
+            "level": 3,
+            "page": 39
+        },
+        {
+            "title": "Optional Rules",
+            "level": 3,
+            "page": 39
+        },
+        {
+            "title": "Superstitions",
+            "level": 4,
+            "page": 39
+        },
+        {
+            "title": "Authentic Faith",
+            "level": 4,
+            "page": 40
+        },
+        {
+            "title": "Stress",
+            "level": 3,
+            "page": 40
+        },
+        {
+            "title": "Respite",
+            "level": 4,
+            "page": 40
+        },
+        {
+            "title": "Hunger",
+            "level": 3,
+            "page": 40
+        },
+        {
+            "title": "Feeding",
+            "level": 4,
+            "page": 40
+        },
+        {
+            "title": "41",
+            "level": 4,
+            "page": 40
+        },
+        {
+            "title": "Using oracles",
+            "level": 2,
+            "page": 41
+        },
+        {
+            "title": "Seeking Answers",
+            "level": 3,
+            "page": 41
+        },
+        {
+            "title": "Asking the Oracle",
+            "level": 3,
+            "page": 41
+        },
+        {
+            "title": "Yes/No",
+            "level": 4,
+            "page": 41
+        },
+        {
+            "title": "More Randomness",
+            "level": 3,
+            "page": 41
+        },
+        {
+            "title": "Trust Your Instincts",
+            "level": 3,
+            "page": 41
+        },
+        {
+            "title": "Other \nCharacters",
+            "level": 2,
+            "page": 42
+        },
+        {
+            "title": "Connections",
+            "level": 3,
+            "page": 42
+        },
+        {
+            "title": "Multiplayer",
+            "level": 2,
+            "page": 42
+        },
+        {
+            "title": "43",
+            "level": 4,
+            "page": 42
+        },
+        {
+            "title": "Optional Rule: Moves",
+            "level": 2,
+            "page": 43
+        },
+        {
+            "title": "Adventure Moves",
+            "level": 3,
+            "page": 43
+        },
+        {
+            "title": "Secure an advantage",
+            "level": 4,
+            "page": 44
+        },
+        {
+            "title": "Gather information",
+            "level": 4,
+            "page": 44
+        },
+        {
+            "title": "Aid your ally",
+            "level": 4,
+            "page": 44
+        },
+        {
+            "title": "Compel",
+            "level": 4,
+            "page": 44
+        },
+        {
+            "title": "45",
+            "level": 4,
+            "page": 44
+        },
+        {
+            "title": "Use power",
+            "level": 4,
+            "page": 45
+        },
+        {
+            "title": "Perform ritual",
+            "level": 4,
+            "page": 45
+        },
+        {
+            "title": "Rest",
+            "level": 4,
+            "page": 45
+        },
+        {
+            "title": "Advance",
+            "level": 4,
+            "page": 46
+        },
+        {
+            "title": "Heal",
+            "level": 4,
+            "page": 46
+        },
+        {
+            "title": "Respite",
+            "level": 4,
+            "page": 46
+        },
+        {
+            "title": "Feed",
+            "level": 4,
+            "page": 46
+        },
+        {
+            "title": "47",
+            "level": 4,
+            "page": 46
+        },
+        {
+            "title": "Quest Moves",
+            "level": 3,
+            "page": 47
+        },
+        {
+            "title": "Sing an elegy",
+            "level": 4,
+            "page": 47
+        },
+        {
+            "title": "Reach a milestone",
+            "level": 4,
+            "page": 47
+        },
+        {
+            "title": "Fulfill your elegy",
+            "level": 4,
+            "page": 47
+        },
+        {
+            "title": "Forsake your elegy",
+            "level": 4,
+            "page": 48
+        },
+        {
+            "title": "Combat Moves",
+            "level": 3,
+            "page": 48
+        },
+        {
+            "title": "Enter the fray",
+            "level": 4,
+            "page": 48
+        },
+        {
+            "title": "49",
+            "level": 4,
+            "page": 48
+        },
+        {
+            "title": "Clash",
+            "level": 4,
+            "page": 49
+        },
+        {
+            "title": "End the fight",
+            "level": 4,
+            "page": 49
+        },
+        {
+            "title": "Battle",
+            "level": 4,
+            "page": 49
+        },
+        {
+            "title": "Connection Moves",
+            "level": 3,
+            "page": 50
+        },
+        {
+            "title": "Make a connection",
+            "level": 4,
+            "page": 50
+        },
+        {
+            "title": "Develop a relationship",
+            "level": 4,
+            "page": 50
+        },
+        {
+            "title": "Test your relationship",
+            "level": 4,
+            "page": 50
+        },
+        {
+            "title": "51",
+            "level": 4,
+            "page": 50
+        },
+        {
+            "title": "Form a bond",
+            "level": 4,
+            "page": 51
+        },
+        {
+            "title": "Suffer Moves",
+            "level": 3,
+            "page": 52
+        },
+        {
+            "title": "Pay the price",
+            "level": 4,
+            "page": 52
+        },
+        {
+            "title": "Face a setback",
+            "level": 4,
+            "page": 52
+        },
+        {
+            "title": "53",
+            "level": 4,
+            "page": 52
+        },
+        {
+            "title": "Endure harm",
+            "level": 4,
+            "page": 53
+        },
+        {
+            "title": "Face last death",
+            "level": 4,
+            "page": 53
+        },
+        {
+            "title": "Endure hunger",
+            "level": 4,
+            "page": 54
+        },
+        {
+            "title": "Face starvation",
+            "level": 4,
+            "page": 54
+        },
+        {
+            "title": "55",
+            "level": 4,
+            "page": 54
+        },
+        {
+            "title": "Endure stress",
+            "level": 4,
+            "page": 55
+        },
+        {
+            "title": "Face desolation",
+            "level": 4,
+            "page": 55
+        },
+        {
+            "title": "Vampirism",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "Blood",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "Appearance",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "Weaknesses",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "The kiss",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "Substances",
+            "level": 3,
+            "page": 58
+        },
+        {
+            "title": "59",
+            "level": 4,
+            "page": 58
+        },
+        {
+            "title": "The Façade",
+            "level": 3,
+            "page": 59
+        },
+        {
+            "title": "The feudal city",
+            "level": 3,
+            "page": 59
+        },
+        {
+            "title": "Progenitor \nand Progeny",
+            "level": 3,
+            "page": 59
+        },
+        {
+            "title": "Reasons for \nembracement",
+            "level": 3,
+            "page": 60
+        },
+        {
+            "title": "Blood linking",
+            "level": 3,
+            "page": 60
+        },
+        {
+            "title": "61",
+            "level": 4,
+            "page": 60
+        },
+        {
+            "title": "Neutral Grounds",
+            "level": 3,
+            "page": 61
+        },
+        {
+            "title": "Elegy",
+            "level": 3,
+            "page": 61
+        },
+        {
+            "title": "Your Truths",
+            "level": 2,
+            "page": 61
+        },
+        {
+            "title": "History",
+            "level": 3,
+            "page": 62
+        },
+        {
+            "title": "Q\n …in the dark ages.",
+            "level": 4,
+            "page": 62
+        },
+        {
+            "title": "Q\n …somewhere between the 16th and the 19th century.",
+            "level": 4,
+            "page": 62
+        },
+        {
+            "title": "Q\n …at the beginning of the 20th century. ",
+            "level": 4,
+            "page": 62
+        },
+        {
+            "title": "63",
+            "level": 4,
+            "page": 62
+        },
+        {
+            "title": "Origins",
+            "level": 3,
+            "page": 63
+        },
+        {
+            "title": "Q\n …a punishment for humanity's original sins. ",
+            "level": 4,
+            "page": 63
+        },
+        {
+            "title": "Q\n …an eternal enigma.",
+            "level": 4,
+            "page": 63
+        },
+        {
+            "title": "Superstitions",
+            "level": 3,
+            "page": 64
+        },
+        {
+            "title": "Q\n They reflect the real deal.",
+            "level": 4,
+            "page": 64
+        },
+        {
+            "title": "Q\n Religious symbols are dangerous in the hands of actually faithful \npeople.",
+            "level": 4,
+            "page": 64
+        },
+        {
+            "title": "65",
+            "level": 4,
+            "page": 64
+        },
+        {
+            "title": "Genealogy",
+            "level": 3,
+            "page": 65
+        },
+        {
+            "title": "Q\n All vampires are unique and different from one another.",
+            "level": 4,
+            "page": 65
+        },
+        {
+            "title": "Q\n Vampires inherit one power from their progenitor.",
+            "level": 4,
+            "page": 65
+        },
+        {
+            "title": "What Mortals Know",
+            "level": 3,
+            "page": 66
+        },
+        {
+            "title": "Q\n Secret organizations know vampires exist, and hunters are a threat.",
+            "level": 4,
+            "page": 66
+        },
+        {
+            "title": "Q\n Basically no one knows vampires exist.",
+            "level": 4,
+            "page": 66
+        },
+        {
+            "title": "67",
+            "level": 4,
+            "page": 66
+        },
+        {
+            "title": "The Internet",
+            "level": 3,
+            "page": 67
+        },
+        {
+            "title": "Q\n Using the internet is permitted. ",
+            "level": 4,
+            "page": 67
+        },
+        {
+            "title": "Q\n Vampires have their own network, the umbernet.",
+            "level": 4,
+            "page": 67
+        },
+        {
+            "title": "Rebels",
+            "level": 3,
+            "page": 68
+        },
+        {
+            "title": "Q\n Those who don't agree with the queen's rule will be silenced or \npunished.",
+            "level": 4,
+            "page": 68
+        },
+        {
+            "title": "69",
+            "level": 4,
+            "page": 68
+        },
+        {
+            "title": "Blood sorcery",
+            "level": 3,
+            "page": 69
+        },
+        {
+            "title": "Q\n The Circle of Circe is a large, influential group of vampire mystics.",
+            "level": 4,
+            "page": 69
+        },
+        {
+            "title": "Religion",
+            "level": 3,
+            "page": 70
+        },
+        {
+            "title": "Q\n The government has tones of faith.",
+            "level": 4,
+            "page": 70
+        },
+        {
+            "title": "Q\n The Epitaph Order is a large and influential religious organization.",
+            "level": 4,
+            "page": 70
+        },
+        {
+            "title": "Q\n Almost no undead believes in a bigger power.",
+            "level": 4,
+            "page": 70
+        },
+        {
+            "title": "71",
+            "level": 4,
+            "page": 70
+        },
+        {
+            "title": "Deviance",
+            "level": 3,
+            "page": 71
+        },
+        {
+            "title": "Werewolves",
+            "level": 3,
+            "page": 72
+        },
+        {
+            "title": "Q\n Are a subtype of mindless solitary monsters we call beast people.",
+            "level": 4,
+            "page": 72
+        },
+        {
+            "title": "Q\n Tribes of werewolves habit the wild. They call themselves varou.",
+            "level": 4,
+            "page": 72
+        },
+        {
+            "title": "73",
+            "level": 4,
+            "page": 72
+        },
+        {
+            "title": "Mortal Magic",
+            "level": 3,
+            "page": 73
+        },
+        {
+            "title": "Q There are a few occultists in Santa Maria.",
+            "level": 2,
+            "page": 73
+        },
+        {
+            "title": "Q Human beings have no supernatural power.",
+            "level": 2,
+            "page": 73
+        },
+        {
+            "title": "Elegies",
+            "level": 3,
+            "page": 74
+        },
+        {
+            "title": "Q\n …are made verbally and contemplated in meditation.",
+            "level": 4,
+            "page": 74
+        },
+        {
+            "title": "Q\n …are sealed by a bloody handshake.",
+            "level": 4,
+            "page": 74
+        },
+        {
+            "title": "75",
+            "level": 4,
+            "page": 74
+        },
+        {
+            "title": "Lineages",
+            "level": 2,
+            "page": 75
+        },
+        {
+            "title": "Adamas Lineage \n(The Adamant)",
+            "level": 3,
+            "page": 75
+        },
+        {
+            "title": "Cassandra Lineage\n(The Umbra)",
+            "level": 3,
+            "page": 76
+        },
+        {
+            "title": "Deimos Lineage \n(The Horrors)",
+            "level": 3,
+            "page": 76
+        },
+        {
+            "title": "77",
+            "level": 4,
+            "page": 76
+        },
+        {
+            "title": "Kerberos Lineage \n(The Feral)",
+            "level": 3,
+            "page": 77
+        },
+        {
+            "title": "Narcissus Lineage \n(The Aesthetes)",
+            "level": 3,
+            "page": 77
+        },
+        {
+            "title": "The City of Santa Maria",
+            "level": 2,
+            "page": 78
+        },
+        {
+            "title": "Welcome to \nSanta Maria",
+            "level": 3,
+            "page": 78
+        },
+        {
+            "title": "79",
+            "level": 4,
+            "page": 78
+        },
+        {
+            "title": "Downtown District",
+            "level": 3,
+            "page": 79
+        },
+        {
+            "title": "Suburbia District",
+            "level": 3,
+            "page": 80
+        },
+        {
+            "title": "81",
+            "level": 4,
+            "page": 80
+        },
+        {
+            "title": "Waterfront District",
+            "level": 3,
+            "page": 81
+        },
+        {
+            "title": "Old Town District",
+            "level": 3,
+            "page": 82
+        },
+        {
+            "title": "83",
+            "level": 4,
+            "page": 82
+        },
+        {
+            "title": "Industrial District",
+            "level": 3,
+            "page": 83
+        },
+        {
+            "title": "University District",
+            "level": 3,
+            "page": 84
+        },
+        {
+            "title": "85",
+            "level": 4,
+            "page": 84
+        },
+        {
+            "title": "NPCs",
+            "level": 2,
+            "page": 86
+        },
+        {
+            "title": "Components of an NPC",
+            "level": 3,
+            "page": 86
+        },
+        {
+            "title": "Rank",
+            "level": 3,
+            "page": 86
+        },
+        {
+            "title": "87",
+            "level": 4,
+            "page": 86
+        },
+        {
+            "title": "NPC packs",
+            "level": 3,
+            "page": 87
+        },
+        {
+            "title": "Joining forces \nwith NPCs",
+            "level": 3,
+            "page": 87
+        },
+        {
+            "title": "Creating NPCs",
+            "level": 3,
+            "page": 87
+        },
+        {
+            "title": "89",
+            "level": 4,
+            "page": 88
+        },
+        {
+            "title": "Mortals",
+            "level": 2,
+            "page": 89
+        },
+        {
+            "title": "Common mortal",
+            "level": 3,
+            "page": 89
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 89
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 89
+        },
+        {
+            "title": " Blood",
+            "level": 4,
+            "page": 89
+        },
+        {
+            "title": "Gangster",
+            "level": 3,
+            "page": 89
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 89
+        },
+        {
+            "title": "Police agent",
+            "level": 3,
+            "page": 90
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 90
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 90
+        },
+        {
+            "title": "Occultist",
+            "level": 3,
+            "page": 90
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 90
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 90
+        },
+        {
+            "title": "91",
+            "level": 4,
+            "page": 90
+        },
+        {
+            "title": "Average Vampires",
+            "level": 2,
+            "page": 91
+        },
+        {
+            "title": "Newborn",
+            "level": 3,
+            "page": 91
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 91
+        },
+        {
+            "title": "Young",
+            "level": 3,
+            "page": 91
+        },
+        {
+            "title": "Adult",
+            "level": 3,
+            "page": 92
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 92
+        },
+        {
+            "title": "Elder",
+            "level": 3,
+            "page": 92
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 92
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 92
+        },
+        {
+            "title": "93",
+            "level": 4,
+            "page": 92
+        },
+        {
+            "title": "Ancient",
+            "level": 3,
+            "page": 93
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 93
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 93
+        },
+        {
+            "title": "Olympus",
+            "level": 2,
+            "page": 93
+        },
+        {
+            "title": "Queen",
+            "level": 3,
+            "page": 94
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "Captain",
+            "level": 3,
+            "page": 94
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "95",
+            "level": 4,
+            "page": 94
+        },
+        {
+            "title": "Queen's Hand",
+            "level": 3,
+            "page": 95
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 95
+        },
+        {
+            "title": "Agorean \nMovement",
+            "level": 2,
+            "page": 95
+        },
+        {
+            "title": "Director",
+            "level": 3,
+            "page": 96
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 96
+        },
+        {
+            "title": "Militant",
+            "level": 3,
+            "page": 96
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 96
+        },
+        {
+            "title": "97",
+            "level": 4,
+            "page": 96
+        },
+        {
+            "title": "Egregoros",
+            "level": 2,
+            "page": 97
+        },
+        {
+            "title": "High-priestess",
+            "level": 3,
+            "page": 97
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 97
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 97
+        },
+        {
+            "title": "Servient",
+            "level": 3,
+            "page": 98
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "Soldier",
+            "level": 3,
+            "page": 98
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "99",
+            "level": 4,
+            "page": 98
+        },
+        {
+            "title": "Circle of Circe",
+            "level": 2,
+            "page": 99
+        },
+        {
+            "title": "Headmaster",
+            "level": 3,
+            "page": 99
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 99
+        },
+        {
+            "title": "Initiated",
+            "level": 3,
+            "page": 100
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 100
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 100
+        },
+        {
+            "title": "Apprentice",
+            "level": 3,
+            "page": 100
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 100
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 100
+        },
+        {
+            "title": "101",
+            "level": 4,
+            "page": 100
+        },
+        {
+            "title": "Epitaph Order",
+            "level": 2,
+            "page": 101
+        },
+        {
+            "title": "Hierophant",
+            "level": 3,
+            "page": 101
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 101
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 101
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 101
+        },
+        {
+            "title": "Shepherd",
+            "level": 3,
+            "page": 102
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 102
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 102
+        },
+        {
+            "title": "Lamb",
+            "level": 3,
+            "page": 102
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 102
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 102
+        },
+        {
+            "title": "103",
+            "level": 4,
+            "page": 102
+        },
+        {
+            "title": "Crystal Compass",
+            "level": 2,
+            "page": 103
+        },
+        {
+            "title": "Sorcerers",
+            "level": 3,
+            "page": 103
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 103
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 103
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 103
+        },
+        {
+            "title": "Sibyls",
+            "level": 3,
+            "page": 104
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "Necromancers",
+            "level": 3,
+            "page": 104
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "105",
+            "level": 4,
+            "page": 104
+        },
+        {
+            "title": "Gnostics",
+            "level": 3,
+            "page": 105
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 105
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 105
+        },
+        {
+            "title": "Witch doctors",
+            "level": 3,
+            "page": 105
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 105
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 105
+        },
+        {
+            "title": "Varou",
+            "level": 2,
+            "page": 106
+        },
+        {
+            "title": "Elder Chief",
+            "level": 3,
+            "page": 106
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 106
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 106
+        },
+        {
+            "title": "107",
+            "level": 4,
+            "page": 106
+        },
+        {
+            "title": "Chieftain",
+            "level": 3,
+            "page": 107
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 107
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 107
+        },
+        {
+            "title": "Shaman",
+            "level": 3,
+            "page": 107
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 107
+        },
+        {
+            "title": "Dullclaw",
+            "level": 3,
+            "page": 108
+        },
+        {
+            "title": "Lycanthropes",
+            "level": 2,
+            "page": 108
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 108
+        },
+        {
+            "title": "109",
+            "level": 4,
+            "page": 108
+        },
+        {
+            "title": "Adult Lycanthrope",
+            "level": 3,
+            "page": 109
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 109
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 109
+        },
+        {
+            "title": "Young Lycanthrope",
+            "level": 3,
+            "page": 109
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 109
+        },
+        {
+            "title": "Beast People",
+            "level": 2,
+            "page": 110
+        },
+        {
+            "title": "Beast person",
+            "level": 3,
+            "page": 110
+        },
+        {
+            "title": "Drives",
+            "level": 4,
+            "page": 110
+        },
+        {
+            "title": "111",
+            "level": 4,
+            "page": 110
+        },
+        {
+            "title": "Mortal Threats",
+            "level": 2,
+            "page": 111
+        },
+        {
+            "title": "Holy Hunter",
+            "level": 3,
+            "page": 111
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 111
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 111
+        },
+        {
+            "title": "Investigator",
+            "level": 3,
+            "page": 112
+        },
+        {
+            "title": "Traits",
+            "level": 4,
+            "page": 112
+        },
+        {
+            "title": "Features",
+            "level": 4,
+            "page": 112
+        },
+        {
+            "title": " Military tactics and gear",
+            "level": 4,
+            "page": 112
+        },
+        {
+            "title": "Vigilante",
+            "level": 3,
+            "page": 112
+        },
+        {
+            "title": "113",
+            "level": 4,
+            "page": 112
+        },
+        {
+            "title": "The First Session",
+            "level": 2,
+            "page": 114
+        },
+        {
+            "title": "Character and \nworld creation",
+            "level": 3,
+            "page": 114
+        },
+        {
+            "title": "115",
+            "level": 4,
+            "page": 114
+        },
+        {
+            "title": "In multiplayer",
+            "level": 4,
+            "page": 115
+        },
+        {
+            "title": "Background \nconnections",
+            "level": 3,
+            "page": 115
+        },
+        {
+            "title": "Background elegies",
+            "level": 3,
+            "page": 116
+        },
+        {
+            "title": "117",
+            "level": 4,
+            "page": 116
+        },
+        {
+            "title": "Inciting incident",
+            "level": 3,
+            "page": 117
+        },
+        {
+            "title": "The first scene",
+            "level": 3,
+            "page": 118
+        },
+        {
+            "title": "The normal world",
+            "level": 4,
+            "page": 118
+        },
+        {
+            "title": "119",
+            "level": 4,
+            "page": 118
+        },
+        {
+            "title": "In media res",
+            "level": 4,
+            "page": 119
+        },
+        {
+            "title": "Sing an elegy",
+            "level": 3,
+            "page": 119
+        },
+        {
+            "title": "Quest plan",
+            "level": 3,
+            "page": 120
+        },
+        {
+            "title": "121",
+            "level": 4,
+            "page": 120
+        },
+        {
+            "title": "Campaign setup \nsummary",
+            "level": 3,
+            "page": 121
+        },
+        {
+            "title": "Fiction and \nMechanics",
+            "level": 2,
+            "page": 121
+        },
+        {
+            "title": "Leading and following \nwith the fiction",
+            "level": 3,
+            "page": 122
+        },
+        {
+            "title": "Finding your balance",
+            "level": 3,
+            "page": 122
+        },
+        {
+            "title": "123",
+            "level": 4,
+            "page": 122
+        },
+        {
+            "title": "Fictional framing",
+            "level": 3,
+            "page": 123
+        },
+        {
+            "title": "Zooming in and out",
+            "level": 3,
+            "page": 124
+        },
+        {
+            "title": "125",
+            "level": 4,
+            "page": 124
+        },
+        {
+            "title": "127",
+            "level": 4,
+            "page": 126
+        },
+        {
+            "title": "Managing your quests",
+            "level": 3,
+            "page": 128
+        },
+        {
+            "title": "Reaching milestones",
+            "level": 4,
+            "page": 128
+        },
+        {
+            "title": "Marking progress",
+            "level": 4,
+            "page": 128
+        },
+        {
+            "title": "New quests",
+            "level": 3,
+            "page": 128
+        },
+        {
+            "title": "Secondary quests",
+            "level": 4,
+            "page": 128
+        },
+        {
+            "title": "129",
+            "level": 4,
+            "page": 128
+        },
+        {
+            "title": "Unrelated quests",
+            "level": 4,
+            "page": 129
+        },
+        {
+            "title": "Delayed quests",
+            "level": 4,
+            "page": 129
+        },
+        {
+            "title": "Intersecting quests",
+            "level": 4,
+            "page": 129
+        },
+        {
+            "title": "Fulfilling your elegy",
+            "level": 3,
+            "page": 130
+        },
+        {
+            "title": "Advancing your \ncharacter",
+            "level": 3,
+            "page": 130
+        },
+        {
+            "title": "131",
+            "level": 4,
+            "page": 130
+        },
+        {
+            "title": "Descriptors ",
+            "level": 4,
+            "page": 133
+        },
+        {
+            "title": "Themes ",
+            "level": 4,
+            "page": 133
+        },
+        {
+            "title": "Occupation",
+            "level": 4,
+            "page": 134
+        },
+        {
+            "title": "Goal",
+            "level": 4,
+            "page": 134
+        },
+        {
+            "title": "Initial Disposition",
+            "level": 4,
+            "page": 134
+        },
+        {
+            "title": "Story",
+            "level": 2,
+            "page": 135
+        },
+        {
+            "title": "Clues",
+            "level": 4,
+            "page": 135
+        },
+        {
+            "title": "Complication",
+            "level": 4,
+            "page": 136
+        },
+        {
+            "title": "Yes/No",
+            "level": 4,
+            "page": 136
+        },
+        {
+            "title": "Ritual failure",
+            "level": 4,
+            "page": 136
+        },
+        {
+            "title": "City Events",
+            "level": 4,
+            "page": 136
+        },
+        {
+            "title": "Ambience",
+            "level": 2,
+            "page": 138
+        },
+        {
+            "title": "Streets",
+            "level": 4,
+            "page": 138
+        },
+        {
+            "title": "139",
+            "level": 4,
+            "page": 138
+        },
+        {
+            "title": "Indoors",
+            "level": 4,
+            "page": 139
+        },
+        {
+            "title": "Location",
+            "level": 2,
+            "page": 140
+        },
+        {
+            "title": "Generic",
+            "level": 4,
+            "page": 140
+        }
+    ]
+}
