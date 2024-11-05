@@ -19,6 +19,7 @@ const {
 <template>
   <q-drawer
     side="right"
+    overlay
     v-model="show"
     bordered
     :width="300"

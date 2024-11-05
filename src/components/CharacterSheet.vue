@@ -266,7 +266,6 @@ const combatTracks = computed(() =>
       </q-card>
 
       <!-- Progress Tracks -->
-      <div class="row q-col-gutter-md">
         <!-- Elegies -->
         <div class="col-12">
           <q-card>
@@ -362,7 +361,6 @@ const combatTracks = computed(() =>
             </q-card-section>
           </q-card>
         </div>
-      </div>
     </div>
 
   </q-page>
