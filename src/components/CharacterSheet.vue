@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
-import { type Character, type CharacterAsset, createDefaultCharacter, type Impact, type Meter, ProgressTrackDifficulty, type Stat } from '../types/character'
+import { ref, computed } from 'vue'
+import { type Impact, type Meter, type Stat } from '../types/character'
 import { ASSETS_LIST, type Asset } from '../data/assets'
 import Counter from './Counter.vue'
 import ProgressTrack from './ProgressTrack.vue'
-import DiceRoller from './DiceRoller.vue'
+import StatRoll from './StatRoll.vue'
+import { useCharacter } from '../composables/useCharacter'
 
-const STORAGE_KEY = 'elegy-character'
-
-// Load character from localStorage or create new one
-const savedCharacter = localStorage.getItem(STORAGE_KEY)
-const character = ref<Character>(
-  savedCharacter ? JSON.parse(savedCharacter) : createDefaultCharacter()
-)
+// Use the character composable
+const { 
+  character, 
+  resetFocus, 
+  addProgressTrack, 
+  removeProgressTrack,
+  addAsset,
+  removeAsset,
+  updateAsset
+} = useCharacter()
 
 // Asset management
 const selectedAsset = ref<Asset>()
@@ -25,34 +29,10 @@ const assetsByType = {
   General: ASSETS_LIST.filter(a => !['Power', 'Nature', 'Ritual'].includes(a.type))
 }
 
-const addAsset = () => {
+const handleAddAsset = () => {
   if (!selectedAsset.value) return
-  
-  const assetData = selectedAsset.value
-
-  character.value.assets.push({
-    name: assetData.name,
-    abilities: assetData.abilities,
-    unlockedLevels: { 1: false, 2: false, 3: false }
-  })
+  addAsset(selectedAsset.value)
 }
-
-const removeAsset = (index: number) => {
-  character.value.assets.splice(index, 1)
-}
-
-const updateAsset = (asset: CharacterAsset, level: number) => {
-    if (level.toString() === '1' && !asset.unlockedLevels[1])
-    {
-        asset.unlockedLevels[2] = false;
-        asset.unlockedLevels[3] = false;
-    }
-}
-
-// Save to localStorage whenever character changes
-watch(character, (newValue: Character) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(newValue))
-}, { deep: true })
 
 const impactsList = [
   'wounded',
@@ -63,38 +43,12 @@ const impactsList = [
   'traumatized'
 ]
 
-const getDefaultFocusValue = (impacts: Record<string, boolean>) => {
-  const activeImpacts = Object.values(impacts).filter(v => v).length
+const defaultFocusValue = computed(() => {
+  const activeImpacts = Object.values(character.value.impacts).filter(v => v).length
   if (activeImpacts === 0) return 2
   if (activeImpacts === 1) return 1
   return 0
-}
-
-const defaultFocusValue = computed(() => getDefaultFocusValue(character.value.impacts))
-
-const resetFocus = () => {
-  character.value.focus = defaultFocusValue.value
-}
-
-const addProgressTrack = (type: 'elegies' | 'connections' | 'combat') => {
-  const trackName = prompt(`Enter ${type === 'elegies' ? 'elegy' : type === 'connections' ? 'connection' : 'combat'} name:`)
-  if (trackName) {
-    character.value.progressTracks.push({
-      id: Date.now(),
-      title: trackName,
-      progress: 0,
-      difficulty: ProgressTrackDifficulty.dangerous,
-      type
-    })
-  }
-}
-
-const removeProgressTrack = (trackId: number) => {
-  const trackIndex = character.value.progressTracks.findIndex(t => t.id === trackId)
-  if (trackIndex !== -1) {
-    character.value.progressTracks.splice(trackIndex, 1)
-  }
-}
+})
 
 const elegiesTracks = computed(() => 
   character.value.progressTracks.filter(t => t.type === 'elegies')
@@ -108,8 +62,6 @@ const combatTracks = computed(() =>
   character.value.progressTracks.filter(t => t.type === 'combat')
 )
 
-const showDiceRoller = ref(false)
-const selectedActionScore = ref<number | null>(null)
 </script>
 <template>
   <q-page padding>
@@ -215,7 +167,9 @@ const selectedActionScore = ref<number | null>(null)
               :key="stat"
               class="col-12 col-sm-2"
             >
-              <div class="text-subtitle1 q-mb-sm">{{ stat }}</div>
+              <div class="text-subtitle1 q-mb-sm">
+                <StatRoll :statName="stat" />
+              </div>
               <q-btn-group spread>
                 <q-btn
                   flat
@@ -261,7 +215,7 @@ const selectedActionScore = ref<number | null>(null)
               <q-btn
                 color="primary"
                 :disable="!selectedAsset"
-                @click="addAsset"
+                @click="handleAddAsset"
                 label="Add Asset"
                 class="full-width"
               />
