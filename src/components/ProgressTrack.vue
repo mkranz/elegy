@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ProgressTrackDifficulty } from '@/types/character';
 import { computed, ref } from 'vue'
-import DiceRoller from './DiceRoller.vue'
+import { useDiceRoller } from '../composables/useDiceRoller'
 
 const props = defineProps<{
   title: string,
@@ -63,7 +63,7 @@ const getBoxSymbol = (index: number) => {
   }
 }
 
-const showDiceRoller = ref(false)
+const { open } = useDiceRoller()
 
 const rollTitle = computed(() => {
   switch (props.type) {
@@ -75,6 +75,13 @@ const rollTitle = computed(() => {
       return 'Fulfill your Elegy'
   }
 })
+
+const handleAttempt = () => {
+  open({
+    actionScore: Math.max(1, Math.floor(progress.value / 4)),
+    title: rollTitle.value
+  })
+}
 </script>
 
 <template>
@@ -149,16 +156,10 @@ const rollTitle = computed(() => {
         flat
         color="primary"
         label="Attempt"
-        @click="showDiceRoller = true"
+        @click="handleAttempt"
       />
     </div>
   </q-card>
-
-  <DiceRoller
-    v-model:show="showDiceRoller"
-    :action-score="Math.max(1, Math.floor(progress / 4))"
-    :title="rollTitle"
-  />
 </template>
 
 <style lang="sass">

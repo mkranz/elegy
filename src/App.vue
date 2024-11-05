@@ -11,11 +11,14 @@
     <q-page-container>
       <CharacterSheet />
     </q-page-container>
+
+    <DiceRoller />
   </q-layout>
 </template>
 
 <script setup lang="ts">
 import CharacterSheet from './components/CharacterSheet.vue'
+import DiceRoller from './components/DiceRoller.vue'
 </script>
 
 <style>

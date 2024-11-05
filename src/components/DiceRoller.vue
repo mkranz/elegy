@@ -1,45 +1,19 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { useDiceRoller } from '../composables/useDiceRoller'
 import Counter from './Counter.vue'
 
-const props = defineProps<{
-  actionScore?: number,
-  title?: string
-}>()
-
-const show = defineModel<boolean>('show', { required: true })
-const bonus = ref(0)
-
-const challengeDie1 = ref<number | null>(null)
-const challengeDie2 = ref<number | null>(null)
-
-const totalActionScore = computed(() => 
-  (props.actionScore || 0) + bonus.value
-)
-
-const rollResult = computed(() => {
-  if (!props.actionScore || challengeDie1.value === null || challengeDie2.value === null) {
-    return null
-  }
-
-  if (totalActionScore.value > challengeDie1.value && totalActionScore.value > challengeDie2.value) {
-    return 'Strong Hit'
-  } else if (totalActionScore.value > challengeDie1.value || totalActionScore.value > challengeDie2.value) {
-    return 'Weak Hit'
-  } else {
-    return 'Miss'
-  }
-})
-
-const roll = () => {
-  challengeDie1.value = Math.floor(Math.random() * 10) + 1
-  challengeDie2.value = Math.floor(Math.random() * 10) + 1
-}
-
-const close = () => {
-  show.value = false
-  bonus.value = 0 // Reset bonus when closing
-}
+const {
+  show,
+  bonus,
+  challengeDie1,
+  challengeDie2,
+  currentTitle,
+  currentActionScore,
+  totalActionScore,
+  rollResult,
+  roll,
+  close
+} = useDiceRoller()
 </script>
 
 <template>
@@ -52,11 +26,11 @@ const close = () => {
   >
     <q-card class="full-height">
       <q-card-section>
-        <div class="text-h6">{{ title || 'Dice Roller' }}</div>
+        <div class="text-h6">{{ currentTitle }}</div>
       </q-card-section>
 
       <q-card-section>
-        <div class="text-subtitle1">Action Score: {{ actionScore }}</div>
+        <div class="text-subtitle1">Action Score: {{ currentActionScore }}</div>
         
         <div class="row items-center q-mt-sm">
           <div class="col">
@@ -97,7 +71,6 @@ const close = () => {
           color="primary"
           label="Roll"
           @click="roll"
-          :disable="!actionScore"
         />
         <q-btn
           flat
