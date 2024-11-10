@@ -49,6 +49,9 @@ export function useCharacter() {
   const addAsset = (assetData: any) => {
     character.value.assets.push({
       name: assetData.name,
+      description: assetData.description,
+      icon: assetData.icon,
+      group: assetData.group,
       abilities: assetData.abilities,
       unlockedLevels: { 1: false, 2: false, 3: false }
     })

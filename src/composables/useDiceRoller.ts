@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 
 interface DiceRollOptions {
-  actionScore: number
+  actionScore?: number
   title?: string
 }
 
@@ -10,6 +10,7 @@ const bonus = ref(0)
 const challengeDie1 = ref<number | null>(null)
 const challengeDie2 = ref<number | null>(null)
 const currentActionScore = ref<number>(0)
+const canSelectActionScore = ref(true)
 const currentTitle = ref<string>('')
 
 const totalActionScore = computed(() => 
@@ -35,9 +36,10 @@ const roll = () => {
   challengeDie2.value = Math.floor(Math.random() * 10) + 1
 }
 
-const open = ({ actionScore, title = 'Dice Roller' }: DiceRollOptions) => {
-  currentActionScore.value = actionScore
-  currentTitle.value = title
+const open = (options: DiceRollOptions) => {
+  canSelectActionScore.value = options?.actionScore === undefined
+  currentActionScore.value = options?.actionScore || 5
+  currentTitle.value = options?.title || 'Custom Roll'
   bonus.value = 0
   challengeDie1.value = null
   challengeDie2.value = null
@@ -58,6 +60,7 @@ export function useDiceRoller() {
     challengeDie2,
     currentTitle,
     currentActionScore,
+    canSelectActionScore,
     totalActionScore,
     rollResult,
     

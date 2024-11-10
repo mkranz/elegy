@@ -1,38 +1,19 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { type Impact, type Meter, type Stat } from '../types/character'
-import { ASSETS_LIST, type Asset } from '../data/assets'
 import Counter from './Counter.vue'
 import ProgressTrack from './ProgressTrack.vue'
 import StatRoll from './StatRoll.vue'
 import { useCharacter } from '../composables/useCharacter'
+import Assets from './Assets.vue'
 
 // Use the character composable
 const { 
   character, 
   resetFocus, 
   addProgressTrack, 
-  removeProgressTrack,
-  addAsset,
-  removeAsset,
-  updateAsset
+  removeProgressTrack
 } = useCharacter()
-
-// Asset management
-const selectedAsset = ref<Asset>()
-
-// Organize assets by type
-const assetsByType = {
-  Power: ASSETS_LIST.filter(a => a.type === 'Power'),
-  Nature: ASSETS_LIST.filter(a => a.type === 'Nature'),
-  Ritual: ASSETS_LIST.filter(a => a.type === 'Ritual'),
-  General: ASSETS_LIST.filter(a => !['Power', 'Nature', 'Ritual'].includes(a.type))
-}
-
-const handleAddAsset = () => {
-  if (!selectedAsset.value) return
-  addAsset(selectedAsset.value)
-}
 
 const impactsList = [
   'wounded',
@@ -194,76 +175,8 @@ const combatTracks = computed(() =>
         </q-card-section>
       </q-card>
 
-      <!-- Assets Section -->
-      <q-card>
-        <q-card-section>
-          <div class="text-h6">Assets</div>
-          <div class="row q-col-gutter-md items-center">
-            <div class="col-12 col-sm-8">
-              <q-select
-                v-model="selectedAsset"
-                :options="ASSETS_LIST"
-                option-label="name"
-                option-group="type"
-                label="Add Asset"
-                outlined
-                emit-value
-                map-options
-                />
-            </div>
-            <div class="col-12 col-sm-4">
-              <q-btn
-                color="primary"
-                :disable="!selectedAsset"
-                @click="handleAddAsset"
-                label="Add Asset"
-                class="full-width"
-              />
-            </div>
-          </div>
-        </q-card-section>
-
-        <q-card-section>
-          <div class="row q-col-gutter-md">
-            <div 
-              v-for="(asset, index) in character.assets"
-              :key="index"
-              class="col-12 col-sm-6 col-md-4"
-            >
-              <q-card>
-                <q-card-section>
-                  <div class="text-h6">{{ asset.name }}</div>
-                  <div class="q-gutter-y-sm">
-                    <div 
-                      v-for="(ability, level) in asset.abilities"
-                      :key="level"
-                      class="row items-center"
-                    >
-                      <div class="col-auto">
-                        <q-checkbox
-                          v-model="asset.unlockedLevels[level]"
-                          :disable="level > 1 && !asset.unlockedLevels[1]"
-                          @update:model-value="updateAsset(asset, level)"
-                        />
-                      </div>
-                      <div v-if="level.toString() !== '3'" class="col" style="border-bottom: 1px solid rgba(0,0,0,0.12); padding-bottom: 8px">{{ ability }}</div>
-                      <div v-else class="col">{{ ability }}</div>
-                    </div>
-                  </div>
-                </q-card-section>
-                <q-card-actions align="right">
-                  <q-btn
-                    flat
-                    color="negative"
-                    @click="removeAsset(index)"
-                    label="Remove"
-                  />
-                </q-card-actions>
-              </q-card>
-            </div>
-          </div>
-        </q-card-section>
-      </q-card>
+      
+      <Assets />
 
       <!-- Progress Tracks -->
         <!-- Elegies -->
@@ -361,6 +274,7 @@ const combatTracks = computed(() =>
             </q-card-section>
           </q-card>
         </div>
+
     </div>
 
   </q-page>

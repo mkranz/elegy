@@ -8,11 +8,12 @@ const {
   challengeDie1,
   challengeDie2,
   currentTitle,
-  currentActionScore,
+  currentActionScore,  
+  canSelectActionScore,
   totalActionScore,
   rollResult,
   roll,
-  close
+  close,
 } = useDiceRoller()
 </script>
 
@@ -31,7 +32,15 @@ const {
       </q-card-section>
 
       <q-card-section>
-        <div class="text-subtitle1">Action Score: {{ currentActionScore }}</div>
+        <div v-if="canSelectActionScore">
+          <div class="text-subtitle2">Action Score</div>
+            <Counter
+              v-model="currentActionScore"
+              :min="0"
+              :max="10"
+            />
+        </div>
+        <div v-else class="text-subtitle1">Action Score: {{ totalActionScore }}</div>
         
         <div class="row items-center q-mt-sm">
           <div class="col">

@@ -1,5 +1,8 @@
 export interface CharacterAsset {
-    name: string
+    name: string,
+    description: string,
+    icon: string,
+    group: string,
     abilities: {
       1: string
       2: string
