@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { type Impact, type Meter, type Stat } from '../types/character'
+import { type Impact, type Meter } from '../types/character'
 import Counter from './Counter.vue'
 import ProgressTrack from './ProgressTrack.vue'
 import StatRoll from './StatRoll.vue'
 import { useCharacter } from '../composables/useCharacter'
 import Assets from './Assets.vue'
 import MeterTrack from './MeterTrack.vue'
+import Stats from './Stats.vue'
 
 // Use the character composable
 const { 
@@ -84,17 +85,16 @@ const combatTracks = computed(() =>
           <div class="text-h6">Condition Meters</div>
           <div class="row q-col-gutter-md">
             <!-- Focus -->
-            <div class="col-12 col-sm-6">
-              <div class="row items-center q-col-gutter-md">
-                <div class="col">
+            <div class="col-12 col-sm-12">
+              <div class="row items-center">
+                
                   <MeterTrack
                     v-model="character.focus"
                     :min="-6"
                     :max="10"
                     label="Focus"
                   />
-                </div>
-                <div class="col-auto">
+
                   <q-btn
                     flat
                     color="primary"
@@ -102,28 +102,10 @@ const combatTracks = computed(() =>
                     :title="'Reset focus to ' + defaultFocusValue"
                     @click="resetFocus"
                   />
-                </div>
+                
               </div>
             </div>
-
-            <!-- Impacts -->
-            <div class="col-12 col-sm-6">
-              <div class="text-h6">Impacts</div>
-              <div class="row q-col-gutter-sm">
-                <div 
-                  v-for="impact in impactsList" 
-                  :key="impact"
-                  class="col-12 col-sm-6"
-                >
-                  <q-checkbox
-                    v-model="character.impacts[impact as Impact]"
-                    :label="impact"
-                  />
-                </div>
-              </div>
-            </div>
-
-            
+           
             <!-- Health, Spirit, Blood -->
             <template v-for="meter in ['health', 'spirit', 'blood']" :key="meter">
               <div class="col-12 col-sm-4">
@@ -133,48 +115,31 @@ const combatTracks = computed(() =>
                 />
               </div>
             </template>
-          </div>
-        </q-card-section>
-      </q-card>
 
-      <!-- Stats Section -->
-      <q-card>
-        <q-card-section>
-          <div class="text-h6">Stats</div>
-          <div class="row q-col-gutter-md">
-            <div 
-              v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" 
-              :key="stat"
-              class="col-12 col-sm-2"
-            >
-              <div class="text-subtitle1 q-mb-sm">
-                <StatRoll :statName="stat" />
+            <!-- Impacts -->
+            <div class="col-12 col-sm-12">
+              <div class="text-h6">Impacts</div>
+              <div class="row q-col-gutter-sm">
+                <div 
+                  v-for="impact in impactsList" 
+                  :key="impact"
+                  class="col-12 col-sm-2"
+                >
+                  <q-checkbox
+                    v-model="character.impacts[impact as Impact]"
+                    :label="impact"
+                  />
+                </div>
               </div>
-              <q-btn-group spread>
-                <q-btn
-                  flat
-                  :disable="character.stats[stat as Stat] <= 5"
-                  @click="character.stats[stat as Stat]--"
-                  icon="remove"
-                />
-                <q-btn
-                  flat
-                  disable
-                  :label="character.stats[stat as Stat]"
-                />
-                <q-btn
-                  flat
-                  :disable="character.stats[stat as Stat] >= 10"
-                  @click="character.stats[stat as Stat]++"
-                  icon="add"
-                />
-              </q-btn-group>
             </div>
+
+
           </div>
         </q-card-section>
       </q-card>
 
-      
+      <Stats />
+
       <Assets />
 
       <!-- Progress Tracks -->

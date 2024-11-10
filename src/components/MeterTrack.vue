@@ -49,8 +49,8 @@ const handleClick = (value: number) => {
 </script>
 
 <template>
-  <div class="meter-track">
-    <div v-if="label" class="text-subtitle1 q-mb-sm">{{ label }} ({{ modelValue }})</div>
+  <div class="meter-track row items-center">
+    <div v-if="label" class="text-subtitle1 q-mr-md">{{ label }} ({{ modelValue }})</div>
     <div class="circles-container">
       <div class="zero-line" v-if="min < 0" />
       <div 
