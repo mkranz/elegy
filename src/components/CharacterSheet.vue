@@ -6,6 +6,7 @@ import ProgressTrack from './ProgressTrack.vue'
 import StatRoll from './StatRoll.vue'
 import { useCharacter } from '../composables/useCharacter'
 import Assets from './Assets.vue'
+import MeterTrack from './MeterTrack.vue'
 
 // Use the character composable
 const { 
@@ -86,11 +87,11 @@ const combatTracks = computed(() =>
             <div class="col-12 col-sm-6">
               <div class="row items-center q-col-gutter-md">
                 <div class="col">
-                  <div class="text-h6">Focus ({{ character.focus }})</div>
-                  <Counter
+                  <MeterTrack
                     v-model="character.focus"
                     :min="-6"
                     :max="10"
+                    label="Focus"
                   />
                 </div>
                 <div class="col-auto">
@@ -126,11 +127,9 @@ const combatTracks = computed(() =>
             <!-- Health, Spirit, Blood -->
             <template v-for="meter in ['health', 'spirit', 'blood']" :key="meter">
               <div class="col-12 col-sm-4">
-                <div class="text-subtitle1">{{ meter }} ({{ character.meters[meter as Meter] }})</div>
-                <Counter
+                <MeterTrack
                   v-model="character.meters[meter as Meter]"
-                  :min="0"
-                  :max="5"
+                  :label="meter"
                 />
               </div>
             </template>
