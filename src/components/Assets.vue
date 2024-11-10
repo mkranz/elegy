@@ -2,12 +2,10 @@
 import { ref } from 'vue'
 import { ASSETS_LIST, type Asset } from '../data/assets'
 import { useCharacter } from '../composables/useCharacter'
-
 const { character, addAsset, removeAsset, updateAsset } = useCharacter()
 
-// Asset management
-const selectedAsset = ref<Asset>()
-const assetsOptions = ref(ASSETS_LIST)
+const showAssetSelectorDialog = ref(false)
+const tab = ref('power')
 
 // Organize assets by type
 const assetsByType = {
@@ -17,10 +15,18 @@ const assetsByType = {
   General: ASSETS_LIST.filter(a => a.group === 'General')
 }
 
-const handleAddAsset = () => {
-  if (!selectedAsset.value) return
-  addAsset(selectedAsset.value)
+const assetColor = (group: string) => {
+  return group === 'Power' ? 'purple' : group === 'Nature' ? 'green' : group === 'Ritual' ? 'red' : 'blue'
 }
+
+const showAssetSelector = () => {
+  showAssetSelectorDialog.value = true
+}
+const handleAddAsset = (asset: Asset) => {
+  addAsset(asset)
+  showAssetSelectorDialog.value = false
+}
+
 </script>
 
 <template>
@@ -28,51 +34,12 @@ const handleAddAsset = () => {
     <q-card-section>
       <div class="text-h6">Assets</div>
       <div class="row q-col-gutter-md items-center">
-        <div class="col-12 col-sm-8">
-          <q-select
-            v-model="selectedAsset"
-            :options="assetsOptions"
-            option-label="name"
-            option-group="group"
-            label="Add Asset"
-            outlined
-            emit-value
-            map-options
-          >
-            <!-- Custom option slot to show icon and description -->
-            <template v-slot:option="{ itemProps, opt, selected, toggleOption }">
-              <q-item v-bind="itemProps" @click="toggleOption(opt)">
-                <q-item-section avatar>
-                  <q-icon :name="opt.icon" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>{{ opt.name }}</q-item-label>
-                  <q-item-label caption>{{ opt.description }}</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-icon name="check" v-if="selected" />
-                </q-item-section>
-              </q-item>
-            </template>
-
-            <!-- Selected item display -->
-            <template v-slot:selected>
-              <template v-if="selectedAsset">
-                <q-icon :name="selectedAsset.icon" class="q-mr-sm" />
-                <div>
-                  <div class="text-body2">{{ selectedAsset.name }}</div>
-                  <div class="text-caption">{{ selectedAsset.description }}</div>
-                </div>
-              </template>
-            </template>
-          </q-select>
-        </div>
-        <div class="col-12 col-sm-4">
+        <div class="col-12">
           <q-btn
             color="primary"
-            :disable="!selectedAsset"
-            @click="handleAddAsset"
+            @click="showAssetSelector"
             label="Add Asset"
+            icon="add"
             class="full-width"
           />
         </div>
@@ -99,9 +66,7 @@ const handleAddAsset = () => {
 
               <!-- Group badge -->
               <q-badge 
-                :color="asset.group === 'Power' ? 'purple' : 
-                       asset.group === 'Nature' ? 'green' : 
-                       asset.group === 'Ritual' ? 'red' : 'blue'"
+                :color="assetColor(asset.group)"
                 class="q-mb-sm"
               >
                 {{ asset.group }}
@@ -145,11 +110,77 @@ const handleAddAsset = () => {
       </div>
     </q-card-section>
   </q-card>
+
+  <q-dialog v-model="showAssetSelectorDialog" full-width full-height>
+    <q-card class="q-dialog-card">
+      <q-card-section>
+        <div class="text-h6">Select an Asset</div>
+      </q-card-section>
+
+      <q-card-section class="q-pa-none">
+        <q-tabs
+          v-model="tab"
+          dense
+          class="text-grey"
+          active-color="primary"
+          indicator-color="primary"
+          align="justify"
+          narrow-indicator
+        >
+          <q-tab name="power" label="Power" />
+          <q-tab name="nature" label="Nature" />
+          <q-tab name="ritual" label="Ritual" />
+          <q-tab name="general" label="General" />
+        </q-tabs>
+
+        <q-tab-panels v-model="tab" animated>
+          <q-tab-panel
+            v-for="(assets, group) in assetsByType"
+            :key="group"
+            :name="group.toLowerCase()"
+          >
+            <div class="row q-col-gutter-md">
+              <div
+                v-for="asset in assets"
+                :key="asset.name"
+                class="col-12 col-lg-3 col-md-4 col-sm-6"
+              >
+                <q-card
+                  class="cursor-pointer"
+                  @click="handleAddAsset(asset)"
+                  v-ripple
+                >
+                  <q-card-section>
+                    <div class="row items-center">
+                      <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
+                      <div class="column">
+                        <div class="text-subtitle1">{{ asset.name }}</div>
+                        <div class="text-caption">{{ asset.description }}</div>
+                      </div>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+            </div>
+          </q-tab-panel>
+        </q-tab-panels>
+      </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Cancel" color="primary" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
+
 </template>
 
 <style scoped>
 .ability-border {
   border-bottom: 1px solid rgba(0,0,0,0.12);
   padding-bottom: 8px;
+}
+.q-dialog-card {
+  width: 700px;
+  max-width: 80vw;
 }
 </style> 

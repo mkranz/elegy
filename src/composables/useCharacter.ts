@@ -53,7 +53,7 @@ export function useCharacter() {
       icon: assetData.icon,
       group: assetData.group,
       abilities: assetData.abilities,
-      unlockedLevels: { 1: false, 2: false, 3: false }
+      unlockedLevels: { 1: true, 2: false, 3: false }
     })
   }
 
