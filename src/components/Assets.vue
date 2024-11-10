@@ -32,17 +32,14 @@ const handleAddAsset = (asset: Asset) => {
 <template>
   <q-card>
     <q-card-section>
+      <div class="row items-center justify-between q-mb-md">
       <div class="text-h6">Assets</div>
-      <div class="row q-col-gutter-md items-center">
-        <div class="col-12">
           <q-btn
             color="primary"
             @click="showAssetSelector"
             label="Add Asset"
             icon="add"
-            class="full-width"
           />
-        </div>
       </div>
     </q-card-section>
 
@@ -56,24 +53,24 @@ const handleAddAsset = (asset: Asset) => {
           <q-card>
             <q-card-section>
               <!-- Asset header with icon and name -->
-              <div class="row items-center q-mb-sm">
-                <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
-                <div class="column">
+              <div class="row items-center justify-between q-mb-sm">
+                <div class="row items-center">
+                  <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
                   <div class="text-h6">{{ asset.name }}</div>
-                  <div class="text-caption">{{ asset.description }}</div>
                 </div>
-              </div>             
-
-              <!-- Group badge -->
-              <q-badge 
-                :color="assetColor(asset.group)"
-                class="q-mb-sm"
-              >
-                {{ asset.group }}
-              </q-badge>
+                <!-- Group badge -->
+                <q-badge 
+                  :color="assetColor(asset.group)"
+                >
+                  {{ asset.group }}
+                </q-badge>
+              </div>
+              
+              <!-- Description on its own line -->
+              <div class="text-caption q-mb-md">{{ asset.description }}</div>
 
               <!-- Abilities -->
-              <div class="q-gutter-y-sm">
+              <div>
                 <div 
                   v-for="(ability, level) in asset.abilities"
                   :key="level"
