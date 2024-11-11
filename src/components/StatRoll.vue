@@ -9,15 +9,12 @@
 import { useDiceRoller } from '@/composables/useDiceRoller'
 import { useCharacter } from '@/composables/useCharacter'
 import { computed } from 'vue'
+import type { MoveOutcomes } from '@/types/moves';
 
 const props = defineProps<{
   statName: string
   moveName?: string
-  outcomes?: {
-    strongHit?: string
-    weakHit?: string
-    miss?: string
-  }
+  outcomes?: MoveOutcomes
 }>()
 
 const { character } = useCharacter()

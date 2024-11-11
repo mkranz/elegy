@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useDiceRoller } from '../composables/useDiceRoller'
+import { useCharacter } from '../composables/useCharacter'
+import { ref } from 'vue'
 import Counter from './Counter.vue'
+import type { Character } from '@/types/character';
 
+const { character } = useCharacter()
 const {
   show,
   bonus,
@@ -17,6 +21,14 @@ const {
   currentStatName,
   currentOutcome,
 } = useDiceRoller()
+
+// Track which actions have been applied
+const appliedActions = ref<Set<string>>(new Set())
+
+const executeAction = (action: { label: string, execute: (character: Character) => void }) => {
+  action.execute(character.value)
+  appliedActions.value.add(action.label)
+}
 </script>
 
 <template>
@@ -82,7 +94,25 @@ const {
           </div>
           
           <div v-if="currentOutcome" class="text-body1 q-mt-md">
-            {{ currentOutcome }}
+            {{ currentOutcome.text }}
+            
+            <div v-if="currentOutcome.actions?.length" class="q-gutter-sm q-mt-md">
+              <div 
+                v-for="action in currentOutcome.actions"
+                :key="action.label"
+                class="row items-center q-gutter-x-sm"
+              >
+                <q-btn
+                  :label="action.label"
+                  color="secondary"
+                  size="sm"
+                  @click="() => executeAction(action)"
+                />
+                <span v-if="appliedActions.has(action.label)" class="text-positive text-caption">
+                  APPLIED
+                </span>
+              </div>
+            </div>
           </div>
         </template>
       </q-card-section>

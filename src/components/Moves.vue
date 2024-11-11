@@ -31,9 +31,9 @@
                 <div>With expertise, focus, or observation: <StatRoll statName="intellect" moveName="Face Danger" :outcomes="faceDangerOutcomes" /></div>
               </div>
 
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ faceDangerOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ faceDangerOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ faceDangerOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ faceDangerOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ faceDangerOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ faceDangerOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -51,9 +51,9 @@
                 <div>With expertise, focus, or observation: <StatRoll statName="intellect" moveName="Secure An Advantage" :outcomes="secureAdvantageOutcomes" /></div>
               </div>
 
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ secureAdvantageOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ secureAdvantageOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ secureAdvantageOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ secureAdvantageOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ secureAdvantageOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ secureAdvantageOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -63,9 +63,9 @@
               <div class="text-h6">Gather Information</div>
               <p>When you search for clues, conduct an investigation, analyze evidence, or do research, <StatRoll statName="intellect" moveName="Gather Information" :outcomes="gatherInformationOutcomes" /></p>
               
-              <p>On a <strong>strong hit</strong>, {{ gatherInformationOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ gatherInformationOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ gatherInformationOutcomes.miss }}</p>
+              <p>On a <strong>strong hit</strong>, {{ gatherInformationOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ gatherInformationOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ gatherInformationOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -89,9 +89,9 @@
                 <div>Pacify or encourage: <StatRoll statName="heart" moveName="Compel" :outcomes="compelOutcomes" /></div>
               </div>
 
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ compelOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ compelOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ compelOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ compelOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ compelOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ compelOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -110,9 +110,9 @@
               <div class="text-h6">Use Power</div>
               <p>When you use your supernatural abilities to activate a power, visualize the effects you want to manifest and roll the stat indicated in its asset card; if you use them to appear human for a scene (blushing, being able to have sex or consume food), <StatRoll statName="glamour" moveName="Use Power" :outcomes="usePowerOutcomes" /></p>
               
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ usePowerOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ usePowerOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ usePowerOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ usePowerOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ usePowerOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ usePowerOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -122,9 +122,9 @@
               <div class="text-h6">Perform Ritual</div>
               <p>When you perform a ritual of blood magic, envision what to want to achieve and how you perform it. Then, <StatRoll statName="intellect" moveName="Perform Ritual" :outcomes="performRitualOutcomes" /></p>
               
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ performRitualOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ performRitualOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ performRitualOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ performRitualOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ performRitualOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ performRitualOutcomes.miss.text }}</p>
               <ul>
                 <li>1-20: The ritual has the opposite effect</li>
                 <li>21-40: It attracts mortal attention</li>
@@ -330,9 +330,9 @@
                 :outcomes="makeConnectionOutcomes"
               /></p>
               
-              <p>On a <strong>strong hit</strong>, {{ makeConnectionOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ makeConnectionOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ makeConnectionOutcomes.miss }}</p>
+              <p>On a <strong>strong hit</strong>, {{ makeConnectionOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ makeConnectionOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ makeConnectionOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -363,9 +363,9 @@
                 :outcomes="testRelationshipOutcomes"
               />. If you share a bond, add +1.</p>
               
-              <p>On a <strong>strong hit</strong>, {{ testRelationshipOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ testRelationshipOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ testRelationshipOutcomes.miss }}</p>
+              <p>On a <strong>strong hit</strong>, {{ testRelationshipOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ testRelationshipOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ testRelationshipOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -379,9 +379,9 @@
                 :outcomes="formBondOutcomes"
               /></p>
               
-              <p>On a <strong>strong hit</strong>, {{ formBondOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ formBondOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ formBondOutcomes.miss }}</p>
+              <p>On a <strong>strong hit</strong>, {{ formBondOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ formBondOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ formBondOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -448,9 +448,9 @@
               <div class="text-h6">Endure Harm</div>
               <p>When you face physical damage, suffer -health equal to your foe's rank or as appropriate to the situation. If your health is 0, suffer -focus equal to any remaining -health. Then, <StatRoll statName="force" moveName="Endure Harm" :outcomes="endureHarmOutcomes" /></p>
               
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ endureHarmOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ endureHarmOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ endureHarmOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ endureHarmOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ endureHarmOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ endureHarmOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -460,9 +460,9 @@
               <div class="text-h6">Face Last Death</div>
               <p>When you are brought to the brink of your annihilation, and glimpse the world beyond, <StatRoll statName="heart" moveName="Face Last Death" :outcomes="faceLastDeathOutcomes" /></p>
               
-              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ faceLastDeathOutcomes.strongHit }}</p>
-              <p>On a <strong>weak hit</strong>, {{ faceLastDeathOutcomes.weakHit }}</p>
-              <p>On a <strong>miss</strong>, {{ faceLastDeathOutcomes.miss }}</p>
+              <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ faceLastDeathOutcomes.strongHit.text }}</p>
+              <p>On a <strong>weak hit</strong>, {{ faceLastDeathOutcomes.weakHit.text }}</p>
+              <p>On a <strong>miss</strong>, {{ faceLastDeathOutcomes.miss.text }}</p>
             </q-card-section>
           </q-card>
 
@@ -570,128 +570,494 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import StatRoll from './StatRoll.vue'
+import type { MoveOutcomes } from '@/types/moves'
+import type { Character } from '@/types/character'
 
 const isOpen = ref(false)
 
 // Move Outcomes
-const enterTheFrayOutcomes = {
-  strongHit: 'Take 2 focus.',
-  weakHit: 'Take 1 focus.',
-  miss: 'The fight begins with you in disadvantage. Lose 1 focus.'
+const enterTheFrayOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'Take 2 focus.',
+    actions: [{
+      label: 'Take +2 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+    }]
+  },
+  weakHit: {
+    text: 'Take 1 focus.',
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  miss: {
+    text: 'The fight begins with you in disadvantage. Lose 1 focus.',
+    actions: [{
+      label: 'Lose 1 Focus',
+      execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+    }]
+  }
 }
 
-const clashOutcomes = {
-  strongHit: 'Mark progress twice. You overwhelm your foe.',
-  weakHit: 'Mark progress, but you are dealt a counterblow or setback. Pay the Price.',
-  miss: 'Your foe dominates this exchange. Pay the Price.'
+const clashOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'Mark progress twice. You overwhelm your foe.',
+    actions: [{
+      label: 'Mark Progress (×2)',
+      execute: (character: Character) => {
+        // TODO: Implement progress marking
+        console.log('Mark progress twice')
+      }
+    }]
+  },
+  weakHit: {
+    text: 'Mark progress, but you are dealt a counterblow or setback. Pay the Price.',
+    actions: [{
+      label: 'Mark Progress',
+      execute: (character: Character) => {
+        // TODO: Implement progress marking
+        console.log('Mark progress once')
+      }
+    }]
+  },
+  miss: {
+    text: 'Your foe dominates this exchange. Pay the Price.',
+    actions: []
+  }
 }
 
-const faceDangerOutcomes = {
-  strongHit: 'You are successful. Take +1 focus.',
-  weakHit: 'You succeed, but not without a cost. Pay the Price.',
-  miss: 'You fail, or a momentary success is undermined by a dire turn of events. Pay the Price.'
+const faceDangerOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'You are successful. Take +1 focus.',
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  weakHit: {
+    text: 'You succeed, but not without a cost. Pay the Price.',
+    actions: []  // No automatic actions - requires GM interpretation
+  },
+  miss: {
+    text: 'You fail, or a momentary success is undermined by a dire turn of events. Pay the Price.',
+    actions: []  // No automatic actions - requires GM interpretation
+  }
 }
 
-const secureAdvantageOutcomes = {
-  strongHit: 'You succeed. Take both: Take +2 focus, and add +1 on your next roll (not a Conclusion Roll)',
-  weakHit: 'You succeed. Choose one: Take +2 focus, or add +1 on your next roll (not a Conclusion Roll)',
-  miss: 'You fail or your assumptions betray you. Pay the Price.'
+const secureAdvantageOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'You succeed. Take both: Take +2 focus, and add +1 on your next roll (not a Conclusion Roll)',
+    actions: [{
+      label: 'Take +2 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+    }]
+    // Note: +1 on next roll needs to be tracked separately
+  },
+  weakHit: {
+    text: 'You succeed. Choose one: Take +2 focus, or add +1 on your next roll (not a Conclusion Roll)',
+    actions: [{
+      label: 'Take +2 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+    }]
+    // Note: Alternative option needs to be tracked separately
+  },
+  miss: {
+    text: 'You fail or your assumptions betray you. Pay the Price.',
+    actions: []
+  }
 }
 
-const gatherInformationOutcomes = {
-  strongHit: 'You discover something helpful and specific. The path you must follow or action you must take to make progress is made clear. Envision what you learn. Then, take +2 focus.',
-  weakHit: 'The information provides new insight, but also complicates your quest. Envision what you discover. Then, take +1 focus.',
-  miss: 'Your investigation unearths a dire threat or reveals an unwelcome truth that undermines your quest. Pay the Price.'
+const gatherInformationOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'You discover something helpful and specific. The path you must follow or action you must take to make progress is made clear. Envision what you learn. Then, take +2 focus.',
+    actions: [{
+      label: 'Take +2 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+    }]
+  },
+  weakHit: {
+    text: 'The information provides new insight, but also complicates your quest. Envision what you discover. Then, take +1 focus.',
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  miss: {
+    text: 'Your investigation unearths a dire threat or reveals an unwelcome truth that undermines your quest. Pay the Price.',
+    actions: []
+  }
 }
 
-const compelOutcomes = {
-  strongHit: "They'll do what you want or agree to your conditions. Take +1 focus.",
-  weakHit: "As above, but their agreement comes with a demand or complication. Envision their counteroffer.",
-  miss: "They refuse or make a demand that costs you greatly. Pay the Price."
+const compelOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "They'll do what you want or agree to your conditions. Take +1 focus.",
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  weakHit: {
+    text: "As above, but their agreement comes with a demand or complication. Envision their counteroffer.",
+    actions: []
+  },
+  miss: {
+    text: "They refuse or make a demand that costs you greatly. Pay the Price.",
+    actions: []
+  }
 }
 
-const usePowerOutcomes = {
-  strongHit: "The power is activated successfully. Take 1 focus.",
-  weakHit: "The power is activated successfully, but you get hungrier. Spend 1 blood.",
-  miss: "You get hungrier and the power is activated, but not without consequences. Spend 1 blood and Pay the Price."
+const usePowerOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "The power is activated successfully. Take 1 focus.",
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  weakHit: {
+    text: "The power is activated successfully, but you get hungrier. Spend 1 blood.",
+    actions: [{
+      label: 'Spend 1 Blood',
+      execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+    }]
+  },
+  miss: {
+    text: "You get hungrier and the power is activated, but not without consequences. Spend 1 blood and Pay the Price.",
+    actions: [{
+      label: 'Spend 1 Blood',
+      execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+    }]
+  }
 }
 
-const performRitualOutcomes = {
-  strongHit: "The ritual is performed successfully. Take 1 focus.",
-  weakHit: "The ritual is performed successfully, but it consumes the blood within you. Spend 1 blood.",
-  miss: "The ritual consumes your blood and has undesired consequences. Spend 1 blood and roll on the list below."
+const performRitualOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "The ritual is performed successfully. Take 1 focus.",
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  weakHit: {
+    text: "The ritual is performed successfully, but it consumes the blood within you. Spend 1 blood.",
+    actions: [{
+      label: 'Spend 1 Blood',
+      execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+    }]
+  },
+  miss: {
+    text: "The ritual consumes your blood and has undesired consequences. Spend 1 blood and roll on the list below.",
+    actions: [{
+      label: 'Spend 1 Blood',
+      execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+    }]
+  }
 }
 
-const restOutcomes = {
-  strongHit: "You rest well, and get both bonuses: Restore 1 health and gain +2 focus.",
-  weakHit: "You have a regular day of sleep. Pick one: Restore 1 health or gain +2 focus.",
-  miss: "Pick one (on a match, pick both): You get hungrier (lose 1 blood) or you don't sleep well (lose 1 focus)."
+const restOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "You rest well, and get both bonuses: Restore 1 health and gain +2 focus.",
+    actions: [
+      {
+        label: 'Restore 1 Health',
+        execute: (character: Character) => character.meters.health = Math.min(5, character.meters.health + 1)
+      },
+      {
+        label: 'Take +2 Focus',
+        execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+      }
+    ]
+  },
+  weakHit: {
+    text: "You have a regular day of sleep. Pick one: Restore 1 health or gain +2 focus.",
+    actions: [
+      {
+        label: 'Restore 1 Health',
+        execute: (character: Character) => character.meters.health = Math.min(5, character.meters.health + 1)
+      },
+      {
+        label: 'Take +2 Focus',
+        execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+      }
+    ]
+  },
+  miss: {
+    text: "Pick one (on a match, pick both): You get hungrier (lose 1 blood) or you don't sleep well (lose 1 focus).",
+    actions: [
+      {
+        label: 'Lose 1 Blood',
+        execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+      },
+      {
+        label: 'Lose 1 Focus',
+        execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+      }
+    ]
+  }
 }
 
-const battleOutcomes = {
-  strongHit: "You achieve your objective unconditionally. You and any allies who joined the battle may take +2 focus.",
-  weakHit: "You achieve your objective, but not without cost. Pay the Price.",
-  miss: "You are defeated or the objective is lost. Pay the Price."
+const battleOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'You achieve your objective unconditionally. You and any allies who joined the battle may take +2 focus.',
+    actions: [{
+      label: 'Take +2 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+    }]
+  },
+  weakHit: {
+    text: 'You achieve your objective, but not without cost. Pay the Price.',
+    actions: []
+  },
+  miss: {
+    text: 'You are defeated or the objective is lost. Pay the Price.',
+    actions: []
+  }
 }
 
-const endTheFightOutcomes = {
-  strongHit: "This foe is no longer in the fight. They are killed, out of action, flee, or surrender as appropriate to the situation and your intent.",
-  weakHit: "As above, but you must also choose one consequence from the list.",
-  miss: "You have lost this fight. Pay the Price."
+const endTheFightOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'This foe is no longer in the fight. They are killed, out of action, flee, or surrender as appropriate to the situation and your intent.',
+    actions: []  // No automatic actions - narrative outcome
+  },
+  weakHit: {
+    text: 'As above, but you must also choose one consequence from the list.',
+    actions: []  // Requires player choice from list
+  },
+  miss: {
+    text: 'You have lost this fight. Pay the Price.',
+    actions: []
+  }
 }
 
-const makeConnectionOutcomes = {
-  strongHit: "You create a connection. Give them a role and rank. Whenever your connection aids you on a move closely associated with their role, add +1 and take +1 focus on a hit.",
-  weakHit: "As above, but this connection comes with a complication or cost. Envision what they reveal or demand.",
-  miss: "You don't make a connection and the situation worsens. Pay the Price."
+const makeConnectionOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'You create a connection. Give them a role and rank. Whenever your connection aids you on a move closely associated with their role, add +1 and take +1 focus on a hit.',
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  weakHit: {
+    text: 'As above, but this connection comes with a complication or cost. Envision what they reveal or demand.',
+    actions: [{
+      label: 'Take +1 Focus',
+      execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+    }]
+  },
+  miss: {
+    text: "You don't make a connection and the situation worsens. Pay the Price.",
+    actions: []
+  }
 }
 
-const testRelationshipOutcomes = {
-  strongHit: "Mark progress.",
-  weakHit: "Mark progress, but also envision a demand or complication as a fallout of this test.",
-  miss: "Choose one: Lose the connection (envision how this impacts you and Pay the Price) or prove your loyalty (envision what you offer or what they demand, and Sing an Elegy to see it done)."
+const testRelationshipOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: 'Mark progress.',
+    actions: [{
+      label: 'Mark Progress',
+      execute: (character: Character) => {
+        // TODO: Implement progress marking
+        console.log('Mark progress')
+      }
+    }]
+  },
+  weakHit: {
+    text: 'Mark progress, but also envision a demand or complication as a fallout of this test.',
+    actions: [{
+      label: 'Mark Progress',
+      execute: (character: Character) => {
+        // TODO: Implement progress marking
+        console.log('Mark progress')
+      }
+    }]
+  },
+  miss: {
+    text: 'Choose one: Lose the connection (envision how this impacts you and Pay the Price) or prove your loyalty (envision what you offer or what they demand, and Sing an Elegy to see it done).',
+    actions: []  // Requires player choice
+  }
 }
 
-const formBondOutcomes = {
-  strongHit: "A bond is established. Earn XP based on the connection's rank and pick one: Reinforce their influence or expand their influence.",
-  weakHit: "As above, but your connection seeks something more first. Envision the request and fulfill it to form the bond and earn the XP reward.",
-  miss: "They reveal a motivation or background that introduces tension. If you maintain this relationship, roll both challenge dice, take the lower value, and clear that number of progress boxes."
+const formBondOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "A bond is established. Earn XP based on the connection's rank and pick one: Reinforce their influence or expand their influence.",
+    actions: [{
+      label: 'Add Experience',
+      execute: (character: Character) => {
+        // TODO: Implement XP gain based on connection rank
+        character.experience += 1
+      }
+    }]
+  },
+  weakHit: {
+    text: 'As above, but your connection seeks something more first. Envision the request and fulfill it to form the bond and earn the XP reward.',
+    actions: []  // Requires fulfilling request first
+  },
+  miss: {
+    text: 'They reveal a motivation or background that introduces tension. If you maintain this relationship, roll both challenge dice, take the lower value, and clear that number of progress boxes.',
+    actions: []  // Complex outcome requiring dice roll
+  }
 }
 
-const endureHarmOutcomes = {
-  strongHit: "Choose one: Shake it off (if health > 0, suffer -1 focus for +1 health) or embrace the pain (take +1 focus).",
-  weakHit: "You press on.",
-  miss: "Also suffer -1 focus. If you are at 0 health, you must mark wounded or permanently harmed (if currently unmarked) or roll on the table."
+const endureHarmOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "Choose one: Shake it off (if health > 0, suffer -1 focus for +1 health) or embrace the pain (take +1 focus).",
+    actions: [
+      {
+        label: 'Shake it off (+1 Health, -1 Focus)',
+        execute: (character: Character) => {
+          if (character.meters.health > 0) {
+            character.meters.health = Math.min(5, character.meters.health + 1)
+            character.focus = Math.max(-6, character.focus - 1)
+          }
+        }
+      },
+      {
+        label: 'Embrace the pain (+1 Focus)',
+        execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+      }
+    ]
+  },
+  weakHit: {
+    text: "You press on.",
+    actions: []
+  },
+  miss: {
+    text: "Also suffer -1 focus. If you are at 0 health, you must mark wounded or permanently harmed (if currently unmarked) or roll on the table.",
+    actions: [{
+      label: 'Lose 1 Focus',
+      execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+    }]
+  }
 }
 
-const faceLastDeathOutcomes = {
-  strongHit: "You are cast back into the mortal world.",
-  weakHit: "Choose one: Die with a noble sacrifice, or accept Death's quest.",
-  miss: "You are destroyed."
+const faceLastDeathOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "You are cast back into the mortal world.",
+    actions: []
+  },
+  weakHit: {
+    text: "Choose one: Die with a noble sacrifice, or accept Death's quest.",
+    actions: []  // Narrative choice
+  },
+  miss: {
+    text: "You are destroyed.",
+    actions: []  // Game over
+  }
 }
 
-const endureHungerOutcomes = {
-  strongHit: "Choose one: Shake it off (if blood > 0, suffer -1 focus for +1 blood) or embrace the monster within (take +1 focus).",
-  weakHit: "You press on.",
-  miss: "Also suffer -1 focus. If you are at 0 blood, you must mark starving or sinner (if currently unmarked) or roll on the table."
+const endureHungerOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "Choose one: Shake it off (if blood > 0, suffer -1 focus for +1 blood) or embrace the monster within (take +1 focus).",
+    actions: [
+      {
+        label: 'Shake it off (+1 Blood, -1 Focus)',
+        execute: (character: Character) => {
+          if (character.meters.blood > 0) {
+            character.meters.blood = Math.min(5, character.meters.blood + 1)
+            character.focus = Math.max(-6, character.focus - 1)
+          }
+        }
+      },
+      {
+        label: 'Embrace the monster (+1 Focus)',
+        execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+      }
+    ]
+  },
+  weakHit: {
+    text: "You press on.",
+    actions: []
+  },
+  miss: {
+    text: "Also suffer -1 focus. If you are at 0 blood, you must mark starving or sinner (if currently unmarked) or roll on the table.",
+    actions: [
+      {
+        label: 'Lose 1 Focus',
+        execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+      },
+      {
+        label: 'Mark Starving',
+        execute: (character: Character) => {
+          if (!character.impacts.starving && !character.impacts.sinner) {
+            character.impacts.starving = true
+          }
+        }
+      }
+    ]
+  }
 }
 
-const faceStarvationOutcomes = {
-  strongHit: "You resist and press on.",
-  weakHit: "Pick one: Your humanity is devoured, or you commit something that angers your ruler.",
-  miss: "Your hunger destroys your humanity and you are forever a mindless beast."
+const faceStarvationOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "You resist and press on.",
+    actions: []
+  },
+  weakHit: {
+    text: "Pick one: Your humanity is devoured, or you commit something that angers your ruler.",
+    actions: []  // Narrative choice
+  },
+  miss: {
+    text: "Your hunger destroys your humanity and you are forever a mindless beast.",
+    actions: []  // Game over
+  }
 }
 
-const endureStressOutcomes = {
-  strongHit: "Choose one: Shake it off (if spirit > 0, suffer -1 focus for +1 spirit) or embrace the darkness (take +1 focus).",
-  weakHit: "You press on.",
-  miss: "Also suffer -1 focus. If you are at 0 spirit, you must mark shaken or corrupted (if currently unmarked) or roll on the table."
+const endureStressOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "Choose one: Shake it off (if spirit > 0, suffer -1 focus for +1 spirit) or embrace the darkness (take +1 focus).",
+    actions: [
+      {
+        label: 'Shake it off (+1 Spirit, -1 Focus)',
+        execute: (character: Character) => {
+          if (character.meters.spirit > 0) {
+            character.meters.spirit = Math.min(5, character.meters.spirit + 1)
+            character.focus = Math.max(-6, character.focus - 1)
+          }
+        }
+      },
+      {
+        label: 'Embrace the darkness (+1 Focus)',
+        execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+      }
+    ]
+  },
+  weakHit: {
+    text: "You press on.",
+    actions: []
+  },
+  miss: {
+    text: "Also suffer -1 focus. If you are at 0 spirit, you must mark shaken or corrupted (if currently unmarked) or roll on the table.",
+    actions: [
+      {
+        label: 'Lose 1 Focus',
+        execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+      },
+      {
+        label: 'Mark Shaken',
+        execute: (character: Character) => {
+          if (!character.impacts.shaken && !character.impacts.traumatized) {
+            character.impacts.shaken = true
+          }
+        }
+      }
+    ]
+  }
 }
 
-const faceDesolationOutcomes = {
-  strongHit: "You resist and press on.",
-  weakHit: "Choose one: Your spirit breaks with a noble sacrifice, or accept a vision quest.",
-  miss: "You succumb to despair or horror and are lost."
+const faceDesolationOutcomes: MoveOutcomes = {
+  strongHit: {
+    text: "You resist and press on.",
+    actions: []
+  },
+  weakHit: {
+    text: "Choose one: Your spirit breaks with a noble sacrifice, or accept a vision quest.",
+    actions: []  // Narrative choice
+  },
+  miss: {
+    text: "You succumb to despair or horror and are lost.",
+    actions: []  // Game over
+  }
 }
 
 defineExpose({

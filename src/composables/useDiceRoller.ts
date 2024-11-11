@@ -1,14 +1,11 @@
+import type { MoveOutcomes } from '@/types/moves'
 import { ref, computed } from 'vue'
 
 interface DiceRollOptions {
   actionScore?: number
   title?: string
   statName?: string
-  outcomes?: {
-    strongHit?: string
-    weakHit?: string
-    miss?: string
-  }
+  outcomes?: MoveOutcomes
 }
 
 const show = ref(false)
