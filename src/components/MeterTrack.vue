@@ -32,15 +32,16 @@ const circles = computed(() => {
 
 const handleClick = (value: number) => {
     let newValue;
-    if (value === 0) {
-        newValue = 1
-    }
-    else if (value > 0) {
+    if (value > 0) {
         newValue = value + 1
     }
     else if (value < 0) {
         newValue = value;
     }
+    else {
+      newValue = 1
+    }
+
     if (props.modelValue === newValue && (newValue === 1 || newValue === -1)) {
         newValue = 0;
     }
