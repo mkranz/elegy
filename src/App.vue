@@ -15,8 +15,8 @@
       </q-header>
 
       <Moves ref="moves" />      
-
       <DiceRoller />
+      <PayThePrice />
 
       <q-page-container>
         <CharacterSheet />
@@ -33,6 +33,7 @@ import CharacterSheet from './components/CharacterSheet.vue'
 import DiceRoller from './components/DiceRoller.vue'
 import Moves from './components/Moves.vue'
 import DiceFab from './components/DiceFab.vue'
+import PayThePrice from './components/PayThePrice.vue'
 
 const moves = ref<InstanceType<typeof Moves> | null>(null)
 </script>
