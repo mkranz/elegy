@@ -14,6 +14,8 @@ const {
   rollResult,
   roll,
   close,
+  currentStatName,
+  currentOutcome,
 } = useDiceRoller()
 </script>
 
@@ -34,13 +36,16 @@ const {
       <q-card-section>
         <div v-if="canSelectActionScore">
           <div class="text-subtitle2">Action Score</div>
-            <Counter
-              v-model="currentActionScore"
-              :min="0"
-              :max="10"
-            />
+          <Counter
+            v-model="currentActionScore"
+            :min="0"
+            :max="10"
+          />
         </div>
-        <div v-else class="text-subtitle1">Action Score: {{ totalActionScore }}</div>
+        <div v-else>
+          <div class="text-subtitle2">{{ currentStatName }} Score</div>
+          <div class="text-subtitle1">{{ totalActionScore }}</div>
+        </div>
         
         <div class="row items-center q-mt-sm">
           <div class="col">
@@ -67,13 +72,19 @@ const {
           </div>
         </div>
 
-        <div v-if="rollResult" class="text-h5 text-center q-mt-lg" :class="{
-          'text-positive': rollResult === 'Strong Hit',
-          'text-warning': rollResult === 'Weak Hit',
-          'text-negative': rollResult === 'Miss'
-        }">
-          {{ rollResult }}
-        </div>
+        <template v-if="rollResult">
+          <div class="text-h5 text-center q-mt-lg" :class="{
+            'text-positive': rollResult === 'Strong Hit',
+            'text-warning': rollResult === 'Weak Hit',
+            'text-negative': rollResult === 'Miss'
+          }">
+            {{ rollResult }}
+          </div>
+          
+          <div v-if="currentOutcome" class="text-body1 q-mt-md">
+            {{ currentOutcome }}
+          </div>
+        </template>
       </q-card-section>
 
       <q-card-actions align="center">

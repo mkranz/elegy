@@ -12,6 +12,12 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   statName: string
+  moveName?: string
+  outcomes?: {
+    strongHit?: string
+    weakHit?: string
+    miss?: string
+  }
 }>()
 
 const { character } = useCharacter()
@@ -25,7 +31,9 @@ const statValue = computed(() => {
 const handleRoll = () => {
   open({
     actionScore: statValue.value,
-    title: `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`
+    title: props.moveName || `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`,
+    statName: props.statName,
+    outcomes: props.outcomes
   })
 }
 </script>
