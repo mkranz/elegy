@@ -427,6 +427,14 @@
                 <p>89–95: You are delayed or put at a disadvantage</p>
                 <p>96–100: Roll twice</p>
               </div>
+
+              <div class="q-mt-md">
+                <q-btn
+                  color="primary"
+                  label="Roll on the table"
+                  @click="payThePrice"
+                />
+              </div>
             </q-card-section>
           </q-card>
 
@@ -572,6 +580,9 @@ import { ref } from 'vue'
 import StatRoll from './StatRoll.vue'
 import type { MoveOutcomes } from '@/types/moves'
 import type { Character } from '@/types/character'
+import { usePayThePrice } from '@/composables/usePayThePrice'
+
+const { payThePrice } = usePayThePrice()
 
 const isOpen = ref(false)
 
@@ -613,17 +624,26 @@ const clashOutcomes: MoveOutcomes = {
   },
   weakHit: {
     text: 'Mark progress, but you are dealt a counterblow or setback. Pay the Price.',
-    actions: [{
-      label: 'Mark Progress',
-      execute: (character: Character) => {
-        // TODO: Implement progress marking
-        console.log('Mark progress once')
+    actions: [
+      {
+        label: 'Mark Progress',
+        execute: (character: Character) => {
+          // TODO: Implement progress marking
+          console.log('Mark progress once')
+        }
+      },
+      {
+        label: 'Pay the Price',
+        execute: (character: Character) => payThePrice()
       }
-    }]
+    ]
   },
   miss: {
     text: 'Your foe dominates this exchange. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -637,11 +657,17 @@ const faceDangerOutcomes: MoveOutcomes = {
   },
   weakHit: {
     text: 'You succeed, but not without a cost. Pay the Price.',
-    actions: []  // No automatic actions - requires GM interpretation
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   },
   miss: {
     text: 'You fail, or a momentary success is undermined by a dire turn of events. Pay the Price.',
-    actions: []  // No automatic actions - requires GM interpretation
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -664,7 +690,10 @@ const secureAdvantageOutcomes: MoveOutcomes = {
   },
   miss: {
     text: 'You fail or your assumptions betray you. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -685,7 +714,10 @@ const gatherInformationOutcomes: MoveOutcomes = {
   },
   miss: {
     text: 'Your investigation unearths a dire threat or reveals an unwelcome truth that undermines your quest. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -703,7 +735,10 @@ const compelOutcomes: MoveOutcomes = {
   },
   miss: {
     text: "They refuse or make a demand that costs you greatly. Pay the Price.",
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -724,10 +759,16 @@ const usePowerOutcomes: MoveOutcomes = {
   },
   miss: {
     text: "You get hungrier and the power is activated, but not without consequences. Spend 1 blood and Pay the Price.",
-    actions: [{
-      label: 'Spend 1 Blood',
-      execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
-    }]
+    actions: [
+      {
+        label: 'Spend 1 Blood',
+        execute: (character: Character) => character.meters.blood = Math.max(0, character.meters.blood - 1)
+      },
+      {
+        label: 'Pay the Price',
+        execute: (character: Character) => payThePrice()
+      }
+    ]
   }
 }
 
@@ -807,11 +848,17 @@ const battleOutcomes: MoveOutcomes = {
   },
   weakHit: {
     text: 'You achieve your objective, but not without cost. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   },
   miss: {
     text: 'You are defeated or the objective is lost. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -826,7 +873,10 @@ const endTheFightOutcomes: MoveOutcomes = {
   },
   miss: {
     text: 'You have lost this fight. Pay the Price.',
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 
@@ -847,7 +897,10 @@ const makeConnectionOutcomes: MoveOutcomes = {
   },
   miss: {
     text: "You don't make a connection and the situation worsens. Pay the Price.",
-    actions: []
+    actions: [{
+      label: 'Pay the Price',
+      execute: (character: Character) => payThePrice()
+    }]
   }
 }
 

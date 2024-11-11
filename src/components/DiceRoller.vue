@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { useDiceRoller } from '../composables/useDiceRoller'
-import { useCharacter } from '../composables/useCharacter'
-import { ref } from 'vue'
 import Counter from './Counter.vue'
-import type { Character } from '@/types/character';
 
-const { character } = useCharacter()
 const {
   show,
   bonus,
@@ -20,15 +16,9 @@ const {
   close,
   currentStatName,
   currentOutcome,
+  appliedActions,
+  executeAction
 } = useDiceRoller()
-
-// Track which actions have been applied
-const appliedActions = ref<Set<string>>(new Set())
-
-const executeAction = (action: { label: string, execute: (character: Character) => void }) => {
-  action.execute(character.value)
-  appliedActions.value.add(action.label)
-}
 </script>
 
 <template>

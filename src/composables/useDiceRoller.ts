@@ -1,5 +1,7 @@
 import type { MoveOutcomes } from '@/types/moves'
+import type { Character } from '@/types/character'
 import { ref, computed } from 'vue'
+import { useCharacter } from './useCharacter'
 
 interface DiceRollOptions {
   actionScore?: number
@@ -17,6 +19,9 @@ const canSelectActionScore = ref(true)
 const currentTitle = ref<string>('')
 const currentStatName = ref<string>('')
 const currentOutcomes = ref<DiceRollOptions['outcomes']>()
+const appliedActions = ref<Set<string>>(new Set())
+
+const { character } = useCharacter()
 
 const totalActionScore = computed(() => 
   currentActionScore.value + bonus.value
@@ -51,6 +56,11 @@ const currentOutcome = computed(() => {
   }
 })
 
+const executeAction = (action: { label: string, execute: (character: Character) => void }) => {
+  action.execute(character.value)
+  appliedActions.value.add(action.label)
+}
+
 const roll = () => {
   challengeDie1.value = Math.floor(Math.random() * 10) + 1
   challengeDie2.value = Math.floor(Math.random() * 10) + 1
@@ -65,6 +75,7 @@ const open = (options: DiceRollOptions) => {
   bonus.value = 0
   challengeDie1.value = null
   challengeDie2.value = null
+  appliedActions.value.clear()
   show.value = true
 }
 
@@ -87,10 +98,12 @@ export function useDiceRoller() {
     totalActionScore,
     rollResult,
     currentOutcome,
+    appliedActions,
     
     // Methods
     roll,
     open,
-    close
+    close,
+    executeAction
   }
 } 
