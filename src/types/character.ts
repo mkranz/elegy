@@ -16,9 +16,16 @@ export interface CharacterAsset {
 }
 
 export interface Character {
-  name: string
-  looks: string
-  background: string
+  info: {
+    name: string
+    species: string
+    progenitor: string
+    characteristics: string
+    background: string
+    embrace: string
+    status: string
+    portrait: string
+  }
   stats: {
     force: number
     dexterity: number
@@ -42,7 +49,10 @@ export interface Character {
     shaken: boolean
     traumatized: boolean
   }
-  experience: number
+  experience: {
+    total: number
+    spent: number
+  }
   focus: number
   progressTracks: Array<{
     id: number
@@ -55,9 +65,16 @@ export interface Character {
 
 export function createDefaultCharacter(): Character {
   return {
-    name: '',
-    looks: '',
-    background: '',
+    info: {
+      name: '',
+      species: '',
+      progenitor: '',
+      characteristics: '',
+      background: '',
+      embrace: '',
+      status: '',
+      portrait: ''
+    },
     stats: {
       force: 5,
       dexterity: 5,
@@ -81,7 +98,10 @@ export function createDefaultCharacter(): Character {
       shaken: false,
       traumatized: false
     },
-    experience: 0,
+    experience: {
+      total: 0,
+      spent: 0
+    },
     focus: 10,
     progressTracks: []
   }
