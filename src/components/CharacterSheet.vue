@@ -88,8 +88,8 @@ const openInfoModal = () => {
               <CharacterPortrait v-model="character.info.portrait" />
             </div>
             <div class="col">
-              <div class="text-h4">{{ character.info.name }}</div>
-              <div class="text-subtitle1">{{ character.info.species }}</div>
+              <div class="text-h4 mason-font">{{ character.info.name }}</div>
+              <div class="text-subtitle1 mason-font">{{ character.info.species }}</div>
             </div>
             <div class="col-auto">
               <q-btn flat color="primary" label="Character Info" @click="openInfoModal" />
@@ -281,7 +281,18 @@ const openInfoModal = () => {
 </template>
 
 <style lang="sass">
+@font-face
+  font-family: 'Mason Serif OT'
+  src: url('@/assets/mason.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+
 .character-sheet
   max-width: 1200px
   margin: 0 auto
+
+.mason-font
+  font-family: 'Mason Serif OT', Serif
+  color: #8b0000
+
 </style>
