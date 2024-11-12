@@ -35,26 +35,22 @@ const handleRoll = () => {
 }
 </script>
 
-<style scoped>
-.stat-roll {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+<style lang="sass" scoped>
+.stat-roll
+  display: flex
+  align-items: center
+  gap: 0.5rem
 
-.stat-name {
-  text-transform: capitalize;
-}
+.stat-name
+  text-transform: capitalize
 
-.roll-button {
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #4a5568;
-  color: white;
-  cursor: pointer;
-}
+.roll-button
+  padding: 0.25rem 0.5rem
+  border-radius: 0.25rem
+  background-color: #4a5568
+  color: white
+  cursor: pointer
 
-.roll-button:hover {
-  background-color: #2d3748;
-}
+.roll-button:hover
+  background-color: #2d3748
 </style> 

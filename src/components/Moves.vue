@@ -1119,9 +1119,8 @@ defineExpose({
 })
 </script>
 
-<style>
-.q-expansion-item__content .q-card {
-  box-shadow: none;
-  border-radius: 0;
-}
+<style lang="sass" scoped>
+.q-expansion-item__content .q-card
+  box-shadow: none
+  border-radius: 0
 </style> 
