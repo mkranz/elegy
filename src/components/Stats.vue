@@ -89,7 +89,6 @@ const handleStatRoll = (stat: string) => {
   font-family: 'Mason Serif OT', Serif;
   text-transform: capitalize;
   font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.7);
   margin-bottom: 0.5rem;
 }
 

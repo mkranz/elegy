@@ -4,7 +4,6 @@
     side="left"
     bordered
     :width="400"
-    class="bg-grey-1"
   >
     <q-scroll-area class="fit">
       <q-list padding>

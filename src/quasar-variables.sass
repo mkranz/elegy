@@ -1,5 +1,23 @@
-$primary   : #1976D2
-$secondary : #26A69A
+@font-face
+  font-family: 'Mason Serif OT'
+  src: url('@/assets/mason.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Mason Serif OT'
+  src: url('@/assets/mason-bold.woff2') format('woff2')
+  font-weight: bold
+  font-style: normal
+
+@font-face
+  font-family: 'Maiola'
+  src: url('@/assets/Miola-Book.woff2') format('woff2')
+  font-weight: normal
+  font-style: normal
+
+$primary   : #8b0000
+$secondary : #2d2d2d
 $accent    : #9C27B0
 
 $dark      : #1D1D1D
@@ -8,3 +26,13 @@ $positive  : #21BA45
 $negative  : #C10015
 $info      : #31CCEC
 $warning   : #F2C037 
+
+$typography-font-family: 'Maiola', Serif
+
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6
+  font-family: 'Mason Serif OT', Serif
+  font-weight: bold
+  color: $primary
+
+html
+  font-size: 20px

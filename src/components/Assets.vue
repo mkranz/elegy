@@ -41,9 +41,6 @@ const handleAddAsset = (asset: Asset) => {
             icon="add"
           />
       </div>
-    </q-card-section>
-
-    <q-card-section>
       <div class="row q-col-gutter-md">
         <div 
           v-for="(asset, index) in character.assets"
@@ -67,7 +64,13 @@ const handleAddAsset = (asset: Asset) => {
               </div>
               
               <!-- Description on its own line -->
-              <div class="text-caption q-mb-md">{{ asset.description }}</div>
+              <div class="text-subtitle2">{{ asset.description }}</div>
+
+              </q-card-section>
+
+              <q-separator dark inset />
+
+              <q-card-section>
 
               <!-- Abilities -->
               <div>
