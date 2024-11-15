@@ -22,15 +22,11 @@ const {
 </script>
 
 <template>
-  <q-drawer
-    side="right"
-    overlay
+  <q-dialog
     v-model="show"
-    bordered
-    :width="300"
-    :breakpoint="500"
+    position="right"
   >
-    <q-card class="full-height">
+    <q-card style="min-width: 300px">
       <q-card-section>
         <div class="text-h6">{{ currentTitle }}</div>
       </q-card-section>
@@ -120,5 +116,5 @@ const {
         />
       </q-card-actions>
     </q-card>
-  </q-drawer>
-</template> 
+  </q-dialog>
+</template>

@@ -2,11 +2,28 @@
 import { type Stat } from '../types/character'
 import { useCharacter } from '../composables/useCharacter'
 import { useDiceRoller } from '../composables/useDiceRoller'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const { character } = useCharacter()
 const { open } = useDiceRoller()
 const isEditing = ref(false)
+const showXPDialog = ref(false)
+
+const availableXP = computed(() =>
+  character.value.experience.total - character.value.experience.spent
+)
+
+const incrementSpent = () => {
+  if (character.value.experience.spent < character.value.experience.total) {
+    character.value.experience.spent++
+  }
+}
+
+const decrementSpent = () => {
+  if (character.value.experience.spent > 0) {
+    character.value.experience.spent--
+  }
+}
 
 const handleStatRoll = (stat: string) => {
   if (!isEditing.value) {
@@ -30,7 +47,7 @@ const handleStatRoll = (stat: string) => {
           @click="isEditing = !isEditing"
         />
       </div>
-      <div class="row q-col-gutter-md ">
+      <div class="row q-col-gutter-md">
         <div 
           v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" 
           :key="stat"
@@ -62,9 +79,61 @@ const handleStatRoll = (stat: string) => {
             </div>
           </div>
         </div>
+        
+        <div class="col-12 col-sm-2">
+          <div 
+            class="stat-box cursor-pointer"
+            @click="showXPDialog = true"
+          >
+            <div class="stat-name">Experience</div>
+            <div class="stat-value">{{ availableXP }}</div>
+          </div>
+        </div>
       </div>
     </q-card-section>
   </q-card>
+  <q-dialog v-model="showXPDialog">
+    <q-card style="min-width: 350px">
+      <q-card-section>
+        <div class="text-h6">Experience</div>
+      </q-card-section>
+
+      <q-card-section>
+        <div class="row items-center q-gutter-md">
+          <div>
+            <div class="text-caption">Total</div>
+            <div class="row items-center q-gutter-sm">
+              <q-btn-group flat>
+                <q-btn flat dense icon="remove" @click="character.experience.total--" />
+                <div class="text-h6 text-center">{{ character.experience.total }}</div>
+                <q-btn flat dense icon="add" @click="character.experience.total++" />
+              </q-btn-group>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-caption">Spent</div>
+            <div class="row items-center q-gutter-sm">
+              <q-btn-group flat>
+                <q-btn flat dense icon="remove" @click="decrementSpent" />
+                <div class="text-h6 text-center">{{ character.experience.spent }}</div>
+                <q-btn flat dense icon="add" @click="incrementSpent" />
+              </q-btn-group>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-caption">Available</div>
+            <div class="text-h6 text-center">{{ availableXP }}</div>
+          </div>
+        </div>
+      </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Close" color="primary" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <style scoped>
