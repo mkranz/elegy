@@ -937,7 +937,7 @@ const formBondOutcomes: MoveOutcomes = {
       label: 'Add Experience',
       execute: (character: Character) => {
         // TODO: Implement XP gain based on connection rank
-        character.experience += 1
+        character.experience.total += 1
       }
     }]
   },

@@ -47,20 +47,20 @@ const handleStatRoll = (stat: string) => {
           @click="isEditing = !isEditing"
         />
       </div>
-      <div class="row q-col-gutter-md">
+      <div class="row q-col-gutter-sm">
         <div 
           v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" 
           :key="stat"
-          class="col-12 col-sm-2"
+          class="col-4 col-sm-4"
         >
           <div 
             class="stat-box cursor-pointer"
             @click="handleStatRoll(stat)"
           >
             <div class="stat-name">{{ stat }}</div>
-            <div class="stat-value">{{ character.stats[stat as Stat] }}</div>
-            <div v-if="isEditing" class="stat-controls">
+            <div class="stat-value-container">
               <q-btn
+                v-if="isEditing"
                 flat
                 dense
                 size="sm"
@@ -68,7 +68,9 @@ const handleStatRoll = (stat: string) => {
                 @click.stop="character.stats[stat as Stat]--"
                 icon="remove"
               />
+              <div class="stat-value">{{ character.stats[stat as Stat] }}</div>
               <q-btn
+                v-if="isEditing"
                 flat
                 dense
                 size="sm"
@@ -80,13 +82,15 @@ const handleStatRoll = (stat: string) => {
           </div>
         </div>
         
-        <div class="col-12 col-sm-2">
+        <div class="col-4 col-sm-4">
           <div 
             class="stat-box cursor-pointer"
             @click="showXPDialog = true"
           >
             <div class="stat-name">Experience</div>
-            <div class="stat-value">{{ availableXP }}</div>
+            <div class="stat-value-container">
+              <div class="stat-value">{{ availableXP }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -141,12 +145,12 @@ const handleStatRoll = (stat: string) => {
   position: relative;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
-  height: 120px;
+  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   transition: background-color 0.2s;
 }
 
@@ -157,24 +161,32 @@ const handleStatRoll = (stat: string) => {
 .stat-name {
   font-family: 'Mason Serif OT', Serif;
   text-transform: capitalize;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-grow: 1;
 }
 
 .stat-value {
   font-family: 'Mason Serif OT', Serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #8b0000;
 }
 
-.stat-controls {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+@media (max-width: 599px) {
+  .stat-name {
+    font-size: 0.8rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
 }
 </style> 

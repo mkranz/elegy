@@ -1,59 +1,142 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { type Impact, type Meter } from '../types/character'
 import { useCharacter } from '../composables/useCharacter'
-import MeterTrack from './MeterTrack.vue'
 
 const { character, resetFocus } = useCharacter()
+const meters = ['health', 'spirit', 'blood'] as const
 
-const impactsList = [
-  'wounded',
-  'permanently harmed',
-  'starving',
-  'sinner',
-  'shaken',
-  'traumatized'
-]
+const handleClick = ( value: number, meter: typeof meters[number]) => {
+    if (value === 1 && (meter && character.value.meters[meter] === value || !meter && character.value.focus === value)) {
+        value = 0;
+    }
+    character.value.meters[meter] = value;
+}
 
-const defaultFocusValue = computed(() => {
-  const activeImpacts = Object.values(character.value.impacts).filter(v => v).length
-  if (activeImpacts === 0) return 2
-  if (activeImpacts === 1) return 1
-  return 0
+const handleFocusClick = ( value: number) => {
+  let newValue;
+    if (value > 0) {
+        newValue = value + 1
+    }
+    else if (value < 0) {
+        newValue = value;
+    }
+    else {
+      newValue = 1
+    }
+
+    if (character.value.focus === newValue && (newValue === 1 || newValue === -1)) {
+        newValue = 0;
+    }
+    character.value.focus = newValue;
+}
+
+
+
+const circles = computed(() => {
+  const totalSpots = 16
+  return Array(totalSpots).fill(0).map((_, i) => {
+    const value = i - 6
+    return {
+      value,
+      active: value < 0 
+        ? value >= character.value.focus  // Fill right-to-left for negative
+        : value < character.value.focus,  // Fill left-to-right for positive
+    }
+  })
 })
+
+
 </script>
 
 <template>
   <q-card>
     <q-card-section>
-      <div class="text-h6">Condition Meters</div>
-      <div class="row q-col-gutter-md">
-        <!-- Focus -->
-        <div class="col-12 col-sm-12">
-          <div class="row items-center">
-            <MeterTrack v-model="character.focus" :min="-6" :max="10" label="Focus" />
-            <q-btn flat color="primary" label="Reset" :title="'Reset focus to ' + defaultFocusValue"
-              @click="resetFocus" />
+      <!-- Focus meter - full width with special styling -->
+      <div class="meter-container">
+        <div class="meter-label">Focus ({{ character.focus }})</div>
+        <div class="focus-track">
+          <div v-for="circle in circles" :key="circle.value" 
+               class="focus-pip" 
+               :class="{
+                 'negative': circle.value < 0,
+                 'positive': circle.value >= 0,
+                 'active': circle.active
+               }"
+               @click="handleFocusClick(circle.value)">
           </div>
+          <q-btn flat dense color="primary" icon="refresh" @click="resetFocus" />
         </div>
+        
+      </div>
 
-        <!-- Health, Spirit, Blood -->
-        <template v-for="meter in ['health', 'spirit', 'blood']" :key="meter">
-          <div class="col-12 col-sm-4">
-            <MeterTrack v-model="character.meters[meter as Meter]" :label="meter" />
-          </div>
-        </template>
-
-        <!-- Impacts -->
-        <div class="col-12 col-sm-12">
-          <div class="text-h6">Impacts</div>
-          <div class="row q-col-gutter-sm">
-            <div v-for="impact in impactsList" :key="impact" class="col-12 col-sm-2">
-              <q-checkbox v-model="character.impacts[impact as Impact]" :label="impact" />
+      <!-- Other meters in a grid -->
+      <div class="meters-grid">
+        <div v-for="meter in meters" :key="meter" class="meter-container">
+          <div class="meter-label">{{ meter }} ({{ character.meters[meter] }})</div>
+          <div class="meter-track">
+            <div v-for="n in 5" :key="n"
+                 class="meter-pip"
+                 :class="{ active: character.meters[meter] >= n }"
+                 @click="handleClick(n, meter)">
             </div>
           </div>
         </div>
       </div>
     </q-card-section>
   </q-card>
-</template> 
+</template>
+
+<style scoped>
+.meter-container {
+  margin-bottom: 0.5rem;
+}
+
+.meter-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.focus-track {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.focus-pip {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid currentColor;
+}
+
+.focus-pip.negative { background: #ff525240; }
+.focus-pip.positive { background: #52ff5240; }
+.focus-pip.active { background: currentColor; }
+.focus-pip.active.negative { background: #ff5252; }
+
+.meters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meter-track {
+  display: flex;
+  gap: 4px;
+}
+
+.meter-pip {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid currentColor;
+}
+
+.meter-pip.active {
+  background: currentColor;
+}
+</style> 

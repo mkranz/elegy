@@ -10,7 +10,10 @@
             icon="menu"
             @click="moves?.open()"
           />
-          <q-toolbar-title>Elegy Character Sheet</q-toolbar-title>
+          <q-toolbar-title class="text-h5 text-bold">
+            <div>{{ character.info.name }}</div>
+
+          </q-toolbar-title>
           <q-btn
             flat
             round
@@ -35,16 +38,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
 import CharacterSheet from './components/CharacterSheet.vue'
 import DiceRoller from './components/DiceRoller.vue'
 import Moves from './components/Moves.vue'
 import DiceFab from './components/DiceFab.vue'
 import PayThePrice from './components/PayThePrice.vue'
+import { useCharacter } from './composables/useCharacter'
 
 const moves = ref<InstanceType<typeof Moves> | null>(null)
 const $q = useQuasar()
+const { character } = useCharacter()
 
 onMounted(() => {
   // Set dark mode as default
