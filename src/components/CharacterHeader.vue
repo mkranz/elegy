@@ -21,22 +21,18 @@ const openInfoModal = () => {
 
 <template>
   <div>
-    <q-card class="header">
-      <q-card-section>
-        <div class="row items-center q-col-gutter-md">
-          <div class="col-auto">
-            <CharacterPortrait v-model="character.info.portrait" />
-          </div>
-          <div class="col">
-            <div class="text-h4 text-bold">{{ character.info.name }}</div>
-            <div class="text-subtitle2">{{ character.info.species }}</div>
-          </div>
-          <div class="col-auto">
-            <q-btn flat color="primary" icon="edit"  @click="openInfoModal" />
-          </div>
-        </div>
-      </q-card-section>
-    </q-card>
+    <div class="row items-center">
+      <div class="col-auto">
+        <CharacterPortrait v-model="character.info.portrait" />
+      </div>
+      <div class="col">
+        <div class="text-h4 text-bold">{{ character.info.name }}</div>
+        <div class="text-subtitle2">{{ character.info.species }}</div>
+      </div>
+      <div class="col-auto">
+        <q-btn flat color="primary" icon="edit" @click="openInfoModal" />
+      </div>
+    </div>
 
     <q-dialog v-model="showInfoModal">
       <q-card style="min-width: 350px">
@@ -77,4 +73,4 @@ const openInfoModal = () => {
       </q-card>
     </q-dialog>
   </div>
-</template> 
+</template>

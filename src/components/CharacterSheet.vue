@@ -6,7 +6,7 @@ import CharacterHeader from './CharacterHeader.vue'
 import CharacterMeters from './CharacterMeters.vue'
 import ProgressSection from './ProgressSection.vue'
 import Conditions from './Conditions.vue'
-
+import Moves from './Moves.vue'
 const tab = ref('character')
 </script>
 
@@ -31,20 +31,19 @@ const tab = ref('character')
 
     <q-tab-panels v-model="tab" animated class="q-pa-sm">
       <q-tab-panel name="character">
-        <div class="q-gutter-md">
+        <div class="q-gutter-sm">
           <CharacterHeader />
+          <q-separator />
           <CharacterMeters />
+          <q-separator />
           <Stats />          
+          <q-separator />
           <Conditions />
-          
         </div>
       </q-tab-panel>
 
       <q-tab-panel name="moves">
-        <!-- Moves component will go here -->
-        <div class="text-center text-grey-6">
-          Moves coming soon
-        </div>
+        <Moves />
       </q-tab-panel>
 
       <q-tab-panel name="assets">

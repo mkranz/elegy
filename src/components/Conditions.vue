@@ -15,14 +15,10 @@ const conditionsList = [
 </script>
 
 <template>
-    <q-card>
-        <q-card-section>
-            <div class="text-h6">Conditions</div>
-            <div class="row q-col-gutter-sm">
-                <div v-for="condition in conditionsList" :key="condition" class="col-4">
-                    <q-checkbox v-model="character.impacts[condition as Impact]" :label="condition" />
-                </div>
-            </div>
-        </q-card-section>
-    </q-card>
+    <div class="text-h6">Conditions</div>
+    <div class="row q-col-gutter-sm">
+        <div v-for="condition in conditionsList" :key="condition" class="col-4">
+            <q-checkbox v-model="character.impacts[condition as Impact]" :label="condition" />
+        </div>
+    </div>
 </template>

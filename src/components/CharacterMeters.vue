@@ -49,41 +49,37 @@ const circles = computed(() => {
 </script>
 
 <template>
-  <q-card>
-    <q-card-section>
-      <!-- Focus meter - full width with special styling -->
-      <div class="meter-container">
-        <div class="meter-label">Focus ({{ character.focus }})</div>
-        <div class="focus-track">
-          <div v-for="circle in circles" :key="circle.value" 
-               class="focus-pip" 
-               :class="{
-                 'negative': circle.value < 0,
-                 'positive': circle.value >= 0,
-                 'active': circle.active
-               }"
-               @click="handleFocusClick(circle.value)">
-          </div>
-          <q-btn flat dense color="primary" icon="refresh" @click="resetFocus" />
-        </div>
-        
+  <!-- Focus meter - full width with special styling -->
+  <div class="meter-container">
+    <div class="meter-label">Focus ({{ character.focus }})</div>
+    <div class="focus-track">
+      <div v-for="circle in circles" :key="circle.value" 
+            class="focus-pip" 
+            :class="{
+              'negative': circle.value < 0,
+              'positive': circle.value >= 0,
+              'active': circle.active
+            }"
+            @click="handleFocusClick(circle.value)">
       </div>
+      <q-btn flat dense color="primary" icon="refresh" @click="resetFocus" />
+    </div>
+    
+  </div>
 
-      <!-- Other meters in a grid -->
-      <div class="meters-grid">
-        <div v-for="meter in meters" :key="meter" class="meter-container">
-          <div class="meter-label">{{ meter }} ({{ character.meters[meter] }})</div>
-          <div class="meter-track">
-            <div v-for="n in 5" :key="n"
-                 class="meter-pip"
-                 :class="{ active: character.meters[meter] >= n }"
-                 @click="handleClick(n, meter)">
-            </div>
-          </div>
+  <!-- Other meters in a grid -->
+  <div class="meters-grid">
+    <div v-for="meter in meters" :key="meter" class="meter-container">
+      <div class="meter-label">{{ meter }} ({{ character.meters[meter] }})</div>
+      <div class="meter-track">
+        <div v-for="n in 5" :key="n"
+              class="meter-pip"
+              :class="{ active: character.meters[meter] >= n }"
+              @click="handleClick(n, meter)">
         </div>
       </div>
-    </q-card-section>
-  </q-card>
+    </div>
+  </div>
 </template>
 
 <style scoped>

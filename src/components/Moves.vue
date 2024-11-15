@@ -1,11 +1,4 @@
 <template>
-  <q-drawer
-    v-model="isOpen"
-    side="left"
-    bordered
-    :width="400"
-  >
-    <q-scroll-area class="fit">
       <q-list padding>
         <!-- Adventure Moves -->
         <q-expansion-item
@@ -570,20 +563,15 @@
           </q-card>
         </q-expansion-item>
       </q-list>
-    </q-scroll-area>
-  </q-drawer>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import StatRoll from './StatRoll.vue'
 import type { MoveOutcomes } from '@/types/moves'
 import type { Character } from '@/types/character'
 import { usePayThePrice } from '@/composables/usePayThePrice'
 
 const { payThePrice } = usePayThePrice()
-
-const isOpen = ref(false)
 
 // Move Outcomes
 const enterTheFrayOutcomes: MoveOutcomes = {
@@ -1112,10 +1100,6 @@ const faceDesolationOutcomes: MoveOutcomes = {
   }
 }
 
-defineExpose({
-  open: () => isOpen.value = true,
-  close: () => isOpen.value = false
-})
 </script>
 
 <style lang="sass" scoped>

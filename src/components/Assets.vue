@@ -30,86 +30,55 @@ const handleAddAsset = (asset: Asset) => {
 </script>
 
 <template>
-  <q-card>
-    <q-card-section>
-      <div class="row items-center justify-between q-mb-md">
-      <div class="text-h6">Assets</div>
-          <q-btn
-            color="primary"
-            @click="showAssetSelector"
-            label="Add Asset"
-            icon="add"
-          />
-      </div>
-      <div class="row q-col-gutter-md">
-        <div 
-          v-for="(asset, index) in character.assets"
-          :key="index"
-          class="col-12 col-sm-6 col-md-4"
-        >
-          <q-card>
-            <q-card-section>
-              <!-- Asset header with icon and name -->
-              <div class="row items-center justify-between q-mb-sm">
-                <div class="row items-center">
-                  <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
-                  <div class="text-h6">{{ asset.name }}</div>
-                </div>
-                <!-- Group badge -->
-                <q-badge 
-                  :color="assetColor(asset.group)"
-                >
-                  {{ asset.group }}
-                </q-badge>
+  <div class="row items-center justify-between q-mb-md">
+    <div class="text-h6">Assets</div>
+    <q-btn color="primary" @click="showAssetSelector" label="Asset" icon="add" />
+  </div>
+  <div class="row q-col-gutter-md">
+    <div v-for="(asset, index) in character.assets" :key="index" class="col-12 col-sm-6 col-md-4">
+      <q-card>
+        <q-card-section>
+          <!-- Asset header with icon and name -->
+          <div class="row items-center justify-between q-mb-sm">
+            <div class="row items-center">
+              <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
+              <div class="text-h6">{{ asset.name }}</div>
+            </div>
+            <!-- Group badge -->
+            <q-badge :color="assetColor(asset.group)">
+              {{ asset.group }}
+            </q-badge>
+          </div>
+
+          <!-- Description on its own line -->
+          <div class="text-subtitle2">{{ asset.description }}</div>
+
+        </q-card-section>
+
+        <q-separator dark inset />
+
+        <q-card-section>
+
+          <!-- Abilities -->
+          <div>
+            <div v-for="(ability, level) in asset.abilities" :key="level" class="row items-center">
+              <div class="col-auto">
+                <q-checkbox v-model="asset.unlockedLevels[level]" :disable="level > 1 && !asset.unlockedLevels[1]"
+                  @update:model-value="updateAsset(asset, level)" />
               </div>
-              
-              <!-- Description on its own line -->
-              <div class="text-subtitle2">{{ asset.description }}</div>
-
-              </q-card-section>
-
-              <q-separator dark inset />
-
-              <q-card-section>
-
-              <!-- Abilities -->
-              <div>
-                <div 
-                  v-for="(ability, level) in asset.abilities"
-                  :key="level"
-                  class="row items-center"
-                >
-                  <div class="col-auto">
-                    <q-checkbox
-                      v-model="asset.unlockedLevels[level]"
-                      :disable="level > 1 && !asset.unlockedLevels[1]"
-                      @update:model-value="updateAsset(asset, level)"
-                    />
-                  </div>
-                  <div 
-                    class="col" 
-                    :class="{ 'ability-border': level.toString() !== '3' }"
-                  >
-                    {{ ability }}
-                  </div>
-                </div>
+              <div class="col" :class="{ 'ability-border': level.toString() !== '3' }">
+                {{ ability }}
               </div>
-            </q-card-section>
-            
-            <q-card-actions align="right">
-              <q-btn
-                flat
-                color="negative"
-                @click="removeAsset(index)"
-                icon="delete"
-                label="Remove"
-              />
-            </q-card-actions>
-          </q-card>
-        </div>
-      </div>
-    </q-card-section>
-  </q-card>
+            </div>
+          </div>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat color="negative" @click="removeAsset(index)" icon="delete" label="Remove" />
+        </q-card-actions>
+      </q-card>
+    </div>
+  </div>
 
   <q-dialog v-model="showAssetSelectorDialog" full-width full-height>
     <q-card class="q-dialog-card">
@@ -118,15 +87,8 @@ const handleAddAsset = (asset: Asset) => {
       </q-card-section>
 
       <q-card-section class="q-pa-none">
-        <q-tabs
-          v-model="tab"
-          dense
-          class="text-grey"
-          active-color="primary"
-          indicator-color="primary"
-          align="justify"
-          narrow-indicator
-        >
+        <q-tabs v-model="tab" dense class="text-grey" active-color="primary" indicator-color="primary" align="justify"
+          narrow-indicator>
           <q-tab name="power" label="Power" />
           <q-tab name="nature" label="Nature" />
           <q-tab name="ritual" label="Ritual" />
@@ -134,22 +96,10 @@ const handleAddAsset = (asset: Asset) => {
         </q-tabs>
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel
-            v-for="(assets, group) in assetsByType"
-            :key="group"
-            :name="group.toLowerCase()"
-          >
+          <q-tab-panel v-for="(assets, group) in assetsByType" :key="group" :name="group.toLowerCase()">
             <div class="row q-col-gutter-md">
-              <div
-                v-for="asset in assets"
-                :key="asset.name"
-                class="col-12 col-lg-3 col-md-4 col-sm-6"
-              >
-                <q-card
-                  class="cursor-pointer"
-                  @click="handleAddAsset(asset)"
-                  v-ripple
-                >
+              <div v-for="asset in assets" :key="asset.name" class="col-12 col-lg-3 col-md-4 col-sm-6">
+                <q-card class="cursor-pointer" @click="handleAddAsset(asset)" v-ripple>
                   <q-card-section>
                     <div class="row items-center">
                       <q-icon :name="asset.icon" size="2em" class="q-mr-sm" />
@@ -176,11 +126,12 @@ const handleAddAsset = (asset: Asset) => {
 
 <style scoped>
 .ability-border {
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding-bottom: 8px;
 }
+
 .q-dialog-card {
   width: 700px;
   max-width: 80vw;
 }
-</style> 
+</style>

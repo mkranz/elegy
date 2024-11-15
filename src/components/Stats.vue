@@ -36,66 +36,34 @@ const handleStatRoll = (stat: string) => {
 </script>
 
 <template>
-  <q-card>
-    <q-card-section>
-      <div class="row items-center justify-between q-mb-md">
-        <div class="text-h6">Stats</div>
-        <q-btn
-          flat
-          round
-          :icon="isEditing ? 'done' : 'edit'"
-          @click="isEditing = !isEditing"
-        />
-      </div>
-      <div class="row q-col-gutter-sm">
-        <div 
-          v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" 
-          :key="stat"
-          class="col-4 col-sm-4"
-        >
-          <div 
-            class="stat-box cursor-pointer"
-            @click="handleStatRoll(stat)"
-          >
-            <div class="stat-name">{{ stat }}</div>
-            <div class="stat-value-container">
-              <q-btn
-                v-if="isEditing"
-                flat
-                dense
-                size="sm"
-                :disable="character.stats[stat as Stat] <= 5"
-                @click.stop="character.stats[stat as Stat]--"
-                icon="remove"
-              />
-              <div class="stat-value">{{ character.stats[stat as Stat] }}</div>
-              <q-btn
-                v-if="isEditing"
-                flat
-                dense
-                size="sm"
-                :disable="character.stats[stat as Stat] >= 10"
-                @click.stop="character.stats[stat as Stat]++"
-                icon="add"
-              />
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-4 col-sm-4">
-          <div 
-            class="stat-box cursor-pointer"
-            @click="showXPDialog = true"
-          >
-            <div class="stat-name">Experience</div>
-            <div class="stat-value-container">
-              <div class="stat-value">{{ availableXP }}</div>
-            </div>
-          </div>
+  <div class="row items-center justify-between q-mb-md">
+    <div class="text-h6">Stats</div>
+    <q-btn flat round :icon="isEditing ? 'done' : 'edit'" @click="isEditing = !isEditing" />
+  </div>
+  <div class="row q-col-gutter-sm q-px-xl">
+    <div v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" :key="stat" class="col-4 col-sm-4">
+      <div class="stat-box cursor-pointer" @click="handleStatRoll(stat)">
+        <div class="stat-name">{{ stat }}</div>
+        <div class="stat-value-container">
+          <q-btn v-if="isEditing" flat dense size="sm" :disable="character.stats[stat as Stat] <= 5"
+            @click.stop="character.stats[stat as Stat]--" icon="remove" />
+          <div class="stat-value">{{ character.stats[stat as Stat] }}</div>
+          <q-btn v-if="isEditing" flat dense size="sm" :disable="character.stats[stat as Stat] >= 10"
+            @click.stop="character.stats[stat as Stat]++" icon="add" />
         </div>
       </div>
-    </q-card-section>
-  </q-card>
+    </div>
+
+    <div class="col-4 col-sm-4">
+      <div class="stat-box cursor-pointer" @click="showXPDialog = true">
+        <div class="stat-name">Experience</div>
+        <div class="stat-value-container">
+          <div class="stat-value">{{ availableXP }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <q-dialog v-model="showXPDialog">
     <q-card style="min-width: 350px">
       <q-card-section>
@@ -184,9 +152,9 @@ const handleStatRoll = (stat: string) => {
   .stat-name {
     font-size: 0.8rem;
   }
-  
+
   .stat-value {
     font-size: 1.5rem;
   }
 }
-</style> 
+</style>

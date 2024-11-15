@@ -8,7 +8,7 @@
             round
             dense
             icon="menu"
-            @click="moves?.open()"
+            @click="menu?.open()"
           />
           <q-toolbar-title class="text-h5 text-bold">
             <div>{{ character.info.name }}</div>
@@ -24,7 +24,7 @@
         </q-toolbar>
       </q-header>
 
-      <Moves ref="moves" />      
+      <Menu ref="menu" />
       <DiceRoller />
       <PayThePrice />
 
@@ -43,11 +43,12 @@ import { useQuasar } from 'quasar'
 import CharacterSheet from './components/CharacterSheet.vue'
 import DiceRoller from './components/DiceRoller.vue'
 import Moves from './components/Moves.vue'
+import Menu from './components/Menu.vue'
 import DiceFab from './components/DiceFab.vue'
 import PayThePrice from './components/PayThePrice.vue'
 import { useCharacter } from './composables/useCharacter'
 
-const moves = ref<InstanceType<typeof Moves> | null>(null)
+const menu = ref<InstanceType<typeof Menu> | null>(null)
 const $q = useQuasar()
 const { character } = useCharacter()
 
