@@ -29,7 +29,9 @@
       <PayThePrice />
 
       <q-page-container>
-        <CharacterSheet />
+        <MobileCharacterSheet v-if="$q.screen.lt.md" />
+        <TabletCharacterSheet v-if="$q.screen.md" />
+        <DesktopCharacterSheet v-else />
       </q-page-container>
     </q-layout>
 
@@ -40,9 +42,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
-import CharacterSheet from './components/CharacterSheet.vue'
+import MobileCharacterSheet from './layouts/MobileCharacterSheet.vue'
+import DesktopCharacterSheet from './layouts/DesktopCharacterSheet.vue'
+import TabletCharacterSheet from './layouts/TabletCharacterSheet.vue'
 import DiceRoller from './components/DiceRoller.vue'
-import Moves from './components/Moves.vue'
 import Menu from './components/Menu.vue'
 import DiceFab from './components/DiceFab.vue'
 import PayThePrice from './components/PayThePrice.vue'

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Stats from './Stats.vue'
-import Assets from './Assets.vue'
-import CharacterHeader from './CharacterHeader.vue'
-import CharacterMeters from './CharacterMeters.vue'
-import ProgressSection from './ProgressSection.vue'
-import Conditions from './Conditions.vue'
-import Moves from './Moves.vue'
+
+import CharacterTab from '../components/CharacterTab.vue'
+import Moves from '../components/Moves.vue'
+import Assets from '../components/Assets.vue'
+import ProgressSection from '../components/ProgressSection.vue'
+
 const tab = ref('character')
 </script>
 
@@ -22,8 +21,8 @@ const tab = ref('character')
       narrow-indicator
     >
       <q-tab name="character" icon="person" />
-      <q-tab name="moves" icon="sports_martial_arts" />
       <q-tab name="assets" icon="inventory_2" />
+      <q-tab name="moves" icon="sports_martial_arts" />      
       <q-tab name="combat" icon="sports_kabaddi" />
       <q-tab name="bonds" icon="favorite" />
       <q-tab name="quests" icon="auto_stories" />
@@ -31,23 +30,15 @@ const tab = ref('character')
 
     <q-tab-panels v-model="tab" animated class="q-pa-sm">
       <q-tab-panel name="character">
-        <div class="q-gutter-sm">
-          <CharacterHeader />
-          <q-separator />
-          <CharacterMeters />
-          <q-separator />
-          <Stats />          
-          <q-separator />
-          <Conditions />
-        </div>
-      </q-tab-panel>
-
-      <q-tab-panel name="moves">
-        <Moves />
+        <CharacterTab />
       </q-tab-panel>
 
       <q-tab-panel name="assets">
         <Assets />
+      </q-tab-panel>
+
+      <q-tab-panel name="moves">
+        <Moves />
       </q-tab-panel>
 
       <q-tab-panel name="combat">
@@ -70,11 +61,5 @@ const tab = ref('character')
   .q-tab-panels
     background: transparent
   
-  .q-tab-panel
-    padding: 16px 0
 
-  // Hide labels on very small screens
-  @media (max-width: 350px)
-    .q-tabs .q-tab__label
-      display: none
 </style>

@@ -26,7 +26,7 @@ const titles = {
     <q-btn color="primary" icon="add" :label="`Add ${titles[type]}`" @click="addProgressTrack(type)" />
   </div>
   <div class="row q-col-gutter-md">
-    <div v-for="track in tracks" :key="track.id" class="col-12 col-md-6">
+    <div v-for="track in tracks" :key="track.id" class="col-12">
       <ProgressTrack :title="track.title" :type="type" v-model:difficulty="track.difficulty"
         v-model:progress="track.progress" @remove="removeProgressTrack(track.id)" />
     </div>

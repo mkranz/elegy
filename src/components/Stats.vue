@@ -40,7 +40,7 @@ const handleStatRoll = (stat: string) => {
     <div class="text-h6">Stats</div>
     <q-btn flat round :icon="isEditing ? 'done' : 'edit'" @click="isEditing = !isEditing" />
   </div>
-  <div class="row q-col-gutter-sm q-px-xl">
+  <div class="row q-col-gutter-sm q-px-lg">
     <div v-for="stat in ['force', 'dexterity', 'intellect', 'glamour', 'heart']" :key="stat" class="col-4 col-sm-4">
       <div class="stat-box cursor-pointer" @click="handleStatRoll(stat)">
         <div class="stat-name">{{ stat }}</div>

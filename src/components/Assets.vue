@@ -35,7 +35,7 @@ const handleAddAsset = (asset: Asset) => {
     <q-btn color="primary" @click="showAssetSelector" label="Asset" icon="add" />
   </div>
   <div class="row q-col-gutter-md">
-    <div v-for="(asset, index) in character.assets" :key="index" class="col-12 col-sm-6 col-md-4">
+    <div v-for="(asset, index) in character.assets" :key="index" class="col-12 ">
       <q-card>
         <q-card-section>
           <!-- Asset header with icon and name -->
@@ -124,14 +124,12 @@ const handleAddAsset = (asset: Asset) => {
 
 </template>
 
-<style scoped>
-.ability-border {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  padding-bottom: 8px;
-}
+<style lang="sass" scoped>
+.ability-border
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+  padding-bottom: 8px
 
-.q-dialog-card {
-  width: 700px;
-  max-width: 80vw;
-}
+.q-dialog-card
+  width: 700px
+  max-width: 80vw
 </style>
