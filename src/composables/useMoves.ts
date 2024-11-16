@@ -4,7 +4,7 @@ import { usePayThePrice } from './usePayThePrice'
 import { useProgressTrack } from './useProgressTrack'
 
 const { payThePrice } = usePayThePrice()
-const { getProgressIncrement } = useProgressTrack()
+const { increaseProgress, decreaseProgress } = useProgressTrack()
 
 export function useMoves() {
   const moves: Record<string, Move> = {
@@ -290,7 +290,8 @@ export function useMoves() {
             label: 'Mark Progress (×2)',
             execute: (character: Character, progressTrack?: ProgressTrack) => {
               if (progressTrack) {
-                progressTrack.progress = Math.min(40, progressTrack.progress + (2 * getProgressIncrement(progressTrack.difficulty)))
+                increaseProgress(progressTrack)
+                increaseProgress(progressTrack)
               }
             }
           }]
@@ -302,7 +303,7 @@ export function useMoves() {
               label: 'Mark Progress',
               execute: (character: Character, progressTrack?: ProgressTrack) => {
                 if (progressTrack) {
-                  progressTrack.progress = Math.min(40, progressTrack.progress + getProgressIncrement(progressTrack.difficulty))
+                  increaseProgress(progressTrack)
                 }
               }
             },
@@ -408,9 +409,10 @@ export function useMoves() {
           text: 'Mark progress.',
           actions: [{
             label: 'Mark Progress',
-            execute: (character: Character) => {
-              // TODO: Implement progress marking
-              console.log('Mark progress')
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              if (progressTrack) {
+                increaseProgress(progressTrack)
+              }
             }
           }]
         },
@@ -418,9 +420,10 @@ export function useMoves() {
           text: 'Mark progress, but also envision a demand or complication as a fallout of this test.',
           actions: [{
             label: 'Mark Progress',
-            execute: (character: Character) => {
-              // TODO: Implement progress marking
-              console.log('Mark progress')
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              if (progressTrack) {
+                decreaseProgress(progressTrack)
+              }
             }
           }]
         },

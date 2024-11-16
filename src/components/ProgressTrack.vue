@@ -15,24 +15,16 @@ const props = defineProps<{
 
 const { moves } = useMoves()
 const { open } = useDiceRoller()
-const { getProgressIncrement } = useProgressTrack()
+const { increaseProgress, decreaseProgress } = useProgressTrack()
 const emit = defineEmits(['remove'])
 
 const showEnterTheFray = computed(() => {
   return props.type === 'combat' && !props.progressTrack.isInitialized
 })
 
-var move = props.type === 'combat' ? moves.endTheFight : 
+var completionMove = props.type === 'combat' ? moves.endTheFight : 
              props.type === 'connections' ? moves.makeConnection : 
              props.type === 'elegies' ? moves.fulfillElegy : null
-
-const increaseProgress = () => {
-  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + getProgressIncrement(props.progressTrack.difficulty))
-}
-
-const decreaseProgress = () => {
-  props.progressTrack.progress = Math.max(0, props.progressTrack.progress - getProgressIncrement(props.progressTrack.difficulty))
-}
 
 const toggleBox = (index: number) => {
   const currentProgress = index * 4
@@ -66,11 +58,11 @@ const getBoxSymbol = (index: number) => {
 }
 
 const handleAttempt = () => {
-  if (move) {
+  if (completionMove) {
     open({
       actionScore: Math.max(1, Math.floor(props.progressTrack.progress / 4)),
-      title: move.name,
-      outcomes: move.outcomes,
+      title: completionMove.name,
+      outcomes: completionMove.outcomes,
       progressTrack: props.progressTrack
     })
   }
@@ -86,8 +78,26 @@ const handleClash = () => {
   }
 }
 
-const markProgress = (amount: number) => {
-  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + amount)
+const handleDevelopRelationship = () => {
+  if (props.type === 'connections') {
+    increaseProgress(props.progressTrack)
+  }
+}
+
+const handleTestRelationship = () => {
+  if (props.type === 'connections') {
+    open({
+      title: moves.testRelationship.name,
+      outcomes: moves.testRelationship.outcomes,
+      progressTrack: props.progressTrack
+    })
+  }
+}
+
+const handleReachMilestone = () => {
+  if (props.type === 'elegies') {
+    increaseProgress(props.progressTrack)
+  }
 }
 
 </script>
@@ -185,7 +195,7 @@ const markProgress = (amount: number) => {
             round
             icon="remove"
             :disable="props.progressTrack.progress === 0"
-            @click="decreaseProgress"
+            @click="decreaseProgress(props.progressTrack)"
           />
           <div class="text-subtitle1">{{ props.progressTrack.progress }} / 40</div>
           <q-btn
@@ -193,7 +203,7 @@ const markProgress = (amount: number) => {
             round
             icon="add"
             :disable="props.progressTrack.progress === 40"
-            @click="increaseProgress"
+            @click="increaseProgress(props.progressTrack)"
           />
         </div>
 
@@ -201,13 +211,41 @@ const markProgress = (amount: number) => {
           <q-btn
             flat
             color="primary"
+            v-if="type === 'combat'"
             label="Clash"
             @click="handleClash"
           />
+
           <q-btn
             flat
             color="primary"
-            label="End the Fight"
+            v-if="type === 'connections'"
+            label="Develop Relationship"
+            @click="handleDevelopRelationship"
+          />
+
+          <q-btn
+            flat
+            color="primary"
+            v-if="type === 'connections'"
+            label="Test Relationship"
+            @click="handleTestRelationship"
+          />
+
+
+          <q-btn
+            flat
+            color="primary"
+            v-if="type === 'elegies'"
+            label="Reach a Milestone"
+            @click="handleReachMilestone"
+          />
+
+
+          <q-btn
+            flat
+            color="primary"
+            :label="completionMove?.name"
             @click="handleAttempt"
           />
         </div>
