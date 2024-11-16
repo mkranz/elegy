@@ -3,6 +3,7 @@ import { ProgressTrackDifficulty } from '@/types/character';
 import { computed, ref } from 'vue'
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useMoves } from '@/composables/useMoves'
+import StatRoll from './StatRoll.vue'
 
 const props = defineProps<{
   title: string,
@@ -66,6 +67,12 @@ const getBoxSymbol = (index: number) => {
 
 const { open } = useDiceRoller()
 
+const isInitialized = ref(false)
+
+const showEnterTheFray = computed(() => {
+  return props.type === 'combat' && !isInitialized.value
+})
+
 const handleAttempt = () => {
   var move = props.type === 'combat' ? moves.endTheFight : 
              props.type === 'connections' ? moves.makeConnection : 
@@ -78,6 +85,17 @@ const handleAttempt = () => {
       outcomes: move.outcomes
     })
   }
+}
+
+const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
+  if (outcome === 'strongHit') {
+    character.value.focus = Math.min(10, character.value.focus + 2)
+  } else if (outcome === 'weakHit') {
+    character.value.focus = Math.min(10, character.value.focus + 1)
+  } else if (outcome === 'miss') {
+    character.value.focus = Math.max(-6, character.value.focus - 1)
+  }
+  isInitialized.value = true
 }
 </script>
 
@@ -112,50 +130,91 @@ const handleAttempt = () => {
         </div>
       </div>
 
-      <div class="row q-col-gutter-xs">
-        <div 
-          v-for="i in 10" 
-          :key="i" 
-          class="col"
-        >
+      <template v-if="showEnterTheFray">
+        <div class="text-h6 q-mb-md">Enter The Fray</div>
+        <div class="q-gutter-y-md">
+          <div>
+            Facing off against your foe:
+            <StatRoll 
+              statName="heart" 
+              :move="moves.enterTheFray"
+              @roll-outcome="handleInitialize" 
+            />
+          </div>
+          <div>
+            In the thick of it at close quarters:
+            <StatRoll 
+              statName="force" 
+              :move="moves.enterTheFray"
+              @roll-outcome="handleInitialize"
+            />
+          </div>
+          <div>
+            On the move or preparing to act:
+            <StatRoll 
+              statName="dexterity" 
+              :move="moves.enterTheFray"
+              @roll-outcome="handleInitialize"
+            />
+          </div>
+          <div>
+            Caught in a trap or sizing up the situation:
+            <StatRoll 
+              statName="intellect" 
+              :move="moves.enterTheFray"
+              @roll-outcome="handleInitialize"
+            />
+          </div>
+        </div>
+      </template>
+
+      <template v-else>
+        <div class="row q-col-gutter-xs">
+          <div 
+            v-for="i in 10" 
+            :key="i" 
+            class="col"
+          >
+            <q-btn
+              class="full-width box"
+              :class="getBoxClass(i-1)"
+              flat
+              no-caps
+              :label="getBoxSymbol(i-1)"
+              @click="toggleBox(i-1)"
+            />
+          </div>
+        </div>
+
+        <div class="row items-center justify-center q-mt-md q-gutter-md">
           <q-btn
-            class="full-width box"
-            :class="getBoxClass(i-1)"
             flat
-            no-caps
-            :label="getBoxSymbol(i-1)"
-            @click="toggleBox(i-1)"
+            round
+            icon="remove"
+            :disable="progress === 0"
+            @click="decreaseProgress"
+          />
+          <div class="text-subtitle1">{{ progress }} / 40</div>
+          <q-btn
+            flat
+            round
+            icon="add"
+            :disable="progress === 40"
+            @click="increaseProgress"
           />
         </div>
-      </div>
 
-      <div class="row items-center justify-center q-mt-md q-gutter-md">
-        <q-btn
-          flat
-          round
-          icon="remove"
-          :disable="progress === 0"
-          @click="decreaseProgress"
-        />
-        <div class="text-subtitle1">{{ progress }} / 40</div>
-        <q-btn
-          flat
-          round
-          icon="add"
-          :disable="progress === 40"
-          @click="increaseProgress"
-        />
-      </div>
+        <div class="row justify-between items-center q-mt-md">
+          <q-btn
+            flat
+            color="primary"
+            label="Attempt"
+            @click="handleAttempt"
+          />
+        </div>
+      </template>
+
     </q-card-section>
-
-    <div class="row justify-between items-center q-mt-md">
-      <q-btn
-        flat
-        color="primary"
-        label="Attempt"
-        @click="handleAttempt"
-      />
-    </div>
   </q-card>
 </template>
 

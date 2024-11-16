@@ -24,12 +24,17 @@ const statValue = computed(() => {
   return character.value.stats[stat] || 0
 })
 
+const emit = defineEmits(['roll-outcome'])
+
 const handleRoll = () => {
   open({
     actionScore: statValue.value,
     title: props.move?.name || `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`,
     statName: props.statName,
-    outcomes: props.move?.outcomes
+    outcomes: props.move?.outcomes,
+    onOutcome: (outcome: 'strongHit' | 'weakHit' | 'miss') => {
+      emit('roll-outcome', outcome)
+    }
   })
 }
 </script>

@@ -8,6 +8,7 @@ interface DiceRollOptions {
   title?: string
   statName?: string
   outcomes?: MoveOutcomes
+  onOutcome?: (outcome: 'strongHit' | 'weakHit' | 'miss') => void
 }
 
 const show = ref(false)
@@ -64,9 +65,16 @@ const executeAction = (action: { label: string, execute: (character: Character) 
 const roll = () => {
   challengeDie1.value = Math.floor(Math.random() * 10) + 1
   challengeDie2.value = Math.floor(Math.random() * 10) + 1
+  
+  if (currentOptions.value?.onOutcome && rollResult.value) {
+    currentOptions.value.onOutcome(rollResult.value.toLowerCase().replace(' ', '') as 'strongHit' | 'weakHit' | 'miss')
+  }
 }
 
+const currentOptions = ref<DiceRollOptions>()
+
 const open = (options: DiceRollOptions) => {
+  currentOptions.value = options
   canSelectActionScore.value = options?.actionScore === undefined
   currentActionScore.value = options?.actionScore || 5
   currentTitle.value = options?.title || 'Custom Roll'

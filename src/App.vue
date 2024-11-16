@@ -30,7 +30,7 @@
 
       <q-page-container>
         <MobileCharacterSheet v-if="$q.screen.lt.md" />
-        <TabletCharacterSheet v-if="$q.screen.md" />
+        <TabletCharacterSheet v-else-if="$q.screen.md" />
         <DesktopCharacterSheet v-else />
       </q-page-container>
     </q-layout>
