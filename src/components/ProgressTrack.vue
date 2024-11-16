@@ -52,11 +52,11 @@ const getBoxClass = (index: number) => {
 const getBoxSymbol = (index: number) => {
   const boxProgress = Math.min(4, Math.max(0, props.progressTrack.progress - (index * 4)))
   switch (boxProgress) {
-    case 1: return '/'
-    case 2: return 'X'
-    case 3: return '⊗'
-    case 4: return '✧'
-    default: return ''
+    case 1: return 'brightness_3'
+    case 2: return 'brightness_2'
+    case 3: return 'bedtime'
+    case 4: return 'brightness_1'
+    default: return 'radio_button_unchecked'
   }
 }
 
@@ -130,7 +130,6 @@ const handleReachMilestone = () => {
             emit-value
             style="min-width: 150px"
           />
-
           
           <q-btn
             flat
@@ -194,14 +193,14 @@ const handleReachMilestone = () => {
             :key="i" 
             class="col"
           >
-            <q-btn
-              class="full-width box"
-              :class="getBoxClass(i-1)"
-              flat
-              no-caps
-              :label="getBoxSymbol(i-1)"
-              @click="toggleBox(i-1)"
+          <q-icon
+                v-if="getBoxSymbol(i-1)"
+                :name="getBoxSymbol(i-1)"
+                @click="toggleBox(i-1)"
+                :class="getBoxClass(i-1)"
+              size="sm"
             />
+
           </div>
         </div>
 
@@ -272,26 +271,18 @@ const handleReachMilestone = () => {
 </template>
 
 <style lang="sass">
-.progress-track
-  .box
-    aspect-ratio: 1
-    border: 1px solid $grey-5
+.progress-track         
+    .box-tick1
+      color: $primary
     
-    &.box-empty
-      background: white
+    .box-tick2
+      color: $primary
     
-    &.box-tick1
-      background: $grey-2
+    .box-tick3
+      color: $primary
     
-    &.box-tick2
-      background: $grey-3
-    
-    &.box-tick3
-      background: $grey-4
-    
-    &.box-full
-      background: $primary
-      color: white
+    .box-full
+      color: $primary
 
 .line-height-1
   line-height: 1rem !important
