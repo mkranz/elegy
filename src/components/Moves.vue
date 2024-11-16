@@ -15,19 +15,19 @@
 
           <div class="q-gutter-y-sm">
             <div>With stealth, speed, or coordination:
-              <StatRoll statName="dexterity" :moveName="moves.faceDanger.name" :outcomes="moves.faceDanger.outcomes" />
+              <StatRoll statName="dexterity" :move="moves.faceDanger" />
             </div>
             <div>With courage, willpower, or empathy:
-              <StatRoll statName="heart" :moveName="moves.faceDanger.name" :outcomes="moves.faceDanger.outcomes" />
+              <StatRoll statName="heart" :move="moves.faceDanger" />
             </div>
             <div>With aggression, strength, or toughness:
-              <StatRoll statName="force" :moveName="moves.faceDanger.name" :outcomes="moves.faceDanger.outcomes" />
+              <StatRoll statName="force" :move="moves.faceDanger" />
             </div>
             <div>With charm, composure, or manipulation:
-              <StatRoll statName="glamour" :moveName="moves.faceDanger.name" :outcomes="moves.faceDanger.outcomes" />
+              <StatRoll statName="glamour" :move="moves.faceDanger" />
             </div>
             <div>With expertise, focus, or observation:
-              <StatRoll statName="intellect" :moveName="moves.faceDanger.name" :outcomes="moves.faceDanger.outcomes" />
+              <StatRoll statName="intellect" :move="moves.faceDanger" />
             </div>
           </div>
 
@@ -45,19 +45,19 @@
 
           <div class="q-gutter-y-sm">
             <div>With stealth, speed, or coordination:
-              <StatRoll statName="dexterity" :moveName="moves.secureAdvantage.name" :outcomes="moves.secureAdvantage.outcomes" />
+              <StatRoll statName="dexterity" :move="moves.secureAdvantage" />
             </div>
             <div>With courage, willpower, or empathy:
-              <StatRoll statName="heart" :moveName="moves.secureAdvantage.name" :outcomes="moves.secureAdvantage.outcomes" />
+              <StatRoll statName="heart" :move="moves.secureAdvantage" />
             </div>
             <div>With aggression, strength, or toughness:
-              <StatRoll statName="force" :moveName="moves.secureAdvantage.name" :outcomes="moves.secureAdvantage.outcomes" />
+              <StatRoll statName="force" :move="moves.secureAdvantage" />
             </div>
             <div>With charm, composure, or manipulation:
-              <StatRoll statName="glamour" :moveName="moves.secureAdvantage.name" :outcomes="moves.secureAdvantage.outcomes" />
+              <StatRoll statName="glamour" :move="moves.secureAdvantage" />
             </div>
             <div>With expertise, focus, or observation:
-              <StatRoll statName="intellect" :moveName="moves.secureAdvantage.name" :outcomes="moves.secureAdvantage.outcomes" />
+              <StatRoll statName="intellect" :move="moves.secureAdvantage" />
             </div>
           </div>
 
@@ -72,7 +72,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.gatherInformation.name }}</div>
           <p>{{ moves.gatherInformation.description }},
-            <StatRoll statName="intellect" :moveName="moves.gatherInformation.name" :outcomes="moves.gatherInformation.outcomes" />
+            <StatRoll statName="intellect" :move="moves.gatherInformation" />
           </p>
 
           <p>On a <strong>strong hit</strong>, {{ moves.gatherInformation.outcomes.strongHit.text }}</p>
@@ -97,13 +97,13 @@
 
           <div class="q-gutter-y-sm">
             <div>Charm or lie:
-              <StatRoll statName="glamour" :moveName="moves.compel.name" :outcomes="moves.compel.outcomes" />
+              <StatRoll statName="glamour" :move="moves.compel" />
             </div>
             <div>Threaten or incite:
-              <StatRoll statName="force" :moveName="moves.compel.name" :outcomes="moves.compel.outcomes" />
+              <StatRoll statName="force" :move="moves.compel" />
             </div>
             <div>Pacify or encourage:
-              <StatRoll statName="heart" :moveName="moves.compel.name" :outcomes="moves.compel.outcomes" />
+              <StatRoll statName="heart" :move="moves.compel" />
             </div>
           </div>
 
@@ -121,7 +121,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.usePower.name }}</div>
           <p>{{ moves.usePower.description }},
-            <StatRoll statName="glamour" :moveName="moves.usePower.name" :outcomes="moves.usePower.outcomes" />
+            <StatRoll statName="glamour" :move="moves.usePower" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.usePower.outcomes.strongHit.text }}</p>
@@ -135,7 +135,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.performRitual.name }}</div>
           <p>{{ moves.performRitual.description }},
-            <StatRoll statName="intellect" :moveName="moves.performRitual.name" :outcomes="moves.performRitual.outcomes" />
+            <StatRoll statName="intellect" :move="moves.performRitual" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.performRitual.outcomes.strongHit.text }}</p>
@@ -152,9 +152,9 @@
         <q-card-section>
           <div class="text-h6">{{ moves.rest.name }}</div>
           <p>{{ moves.rest.description }},
-            <StatRoll statName="heart" :moveName="moves.rest.name" :outcomes="moves.rest.outcomes" />
+            <StatRoll statName="heart" :move="moves.rest" />
             or
-            <StatRoll statName="intellect" :moveName="moves.rest.name" :outcomes="moves.rest.outcomes" />, whichever is higher.
+            <StatRoll statName="intellect" :move="moves.rest" />, whichever is higher.
           </p>
 
           <p>By default, you need the Lair asset to have access to a secure place to sleep you can call yours. If you
@@ -190,16 +190,16 @@
 
           <div class="q-gutter-y-sm">
             <div>Facing off against your foe:
-              <StatRoll statName="heart" moveName="Enter The Fray" :outcomes="moves.enterTheFray.outcomes.strongHit" />
+              <StatRoll statName="heart" :move="moves.enterTheFray" />
             </div>
             <div>In the thick of it at close quarters:
-              <StatRoll statName="force" moveName="Enter The Fray" :outcomes="moves.enterTheFray.outcomes.strongHit" />
+              <StatRoll statName="force" :move="moves.enterTheFray" />
             </div>
             <div>On the move or preparing to act against an unaware foe:
-              <StatRoll statName="dexterity" moveName="Enter The Fray" :outcomes="moves.enterTheFray.outcomes.strongHit" />
+              <StatRoll statName="dexterity" :move="moves.enterTheFray" />
             </div>
             <div>Caught in a trap or sizing up the situation:
-              <StatRoll statName="intellect" moveName="Enter The Fray" :outcomes="moves.enterTheFray.outcomes.strongHit" />
+              <StatRoll statName="intellect" :move="moves.enterTheFray" />
             </div>
           </div>
 
@@ -214,9 +214,9 @@
         <q-card-section>
           <div class="text-h6">{{ moves.clash.name }}</div>
           <p>{{ moves.clash.description }},
-            <StatRoll statName="force" :moveName="moves.clash.name" :outcomes="moves.clash.outcomes" />; when you exchange fire at a
+            <StatRoll statName="force" :move="moves.clash" />; when you exchange fire at a
             distance,
-            <StatRoll statName="dexterity" :moveName="moves.clash.name" :outcomes="moves.clash.outcomes" />.
+            <StatRoll statName="dexterity" :move="moves.clash" />.
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.clash.outcomes.strongHit.text }}</p>
@@ -233,16 +233,16 @@
 
           <div class="q-gutter-y-sm">
             <div>Fight at range or using your speed or trickery to your advantage:
-              <StatRoll statName="dexterity" :moveName="moves.battle.name" :outcomes="moves.battle.outcomes" />
+              <StatRoll statName="dexterity" :move="moves.battle" />
             </div>
             <div>Fight depending on your courage, leadership, or companions:
-              <StatRoll statName="heart" :moveName="moves.battle.name" :outcomes="moves.battle.outcomes" />
+              <StatRoll statName="heart" :move="moves.battle" />
             </div>
             <div>Fight in close to overpower your foe:
-              <StatRoll statName="force" :moveName="moves.battle.name" :outcomes="moves.battle.outcomes" />
+              <StatRoll statName="force" :move="moves.battle" />
             </div>
             <div>Fight using careful tactics to outsmart your foe:
-              <StatRoll statName="intellect" :moveName="moves.battle.name" :outcomes="moves.battle.outcomes" />
+              <StatRoll statName="intellect" :move="moves.battle" />
             </div>
           </div>
 
@@ -257,7 +257,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.endTheFight.name }}</div>
           <p>{{ moves.endTheFight.description }}</p>
-          <StatRoll statName="force" :moveName="moves.endTheFight.name" :outcomes="moves.endTheFight.outcomes" />
+          <StatRoll statName="force" :move="moves.endTheFight" />
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.endTheFight.outcomes.strongHit.text }}</p>
           <p>On a <strong>weak hit</strong>, {{ moves.endTheFight.outcomes.weakHit.text }}</p>
@@ -270,7 +270,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.makeConnection.name }}</div>
           <p>{{ moves.makeConnection.description }},
-            <StatRoll statName="heart" :moveName="moves.makeConnection.name" :outcomes="moves.makeConnection.outcomes" />
+            <StatRoll statName="heart" :move="moves.makeConnection" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.makeConnection.outcomes.strongHit.text }}</p>
@@ -284,12 +284,73 @@
         <q-card-section>
           <div class="text-h6">{{ moves.testRelationship.name }}</div>
           <p>{{ moves.testRelationship.description }},
-            <StatRoll statName="heart" :moveName="moves.testRelationship.name" :outcomes="moves.testRelationship.outcomes" />
+            <StatRoll statName="heart" :move="moves.testRelationship" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.testRelationship.outcomes.strongHit.text }}</p>
           <p>On a <strong>weak hit</strong>, {{ moves.testRelationship.outcomes.weakHit.text }}</p>
           <p>On a <strong>miss</strong>, {{ moves.testRelationship.outcomes.miss.text }}</p>
+        </q-card-section>
+      </q-card>
+    </q-expansion-item>
+
+    <!-- Quest Moves -->
+    <q-expansion-item group="moves" icon="book" label="Quest Moves" default-closed header-class="text-primary">
+      <!-- Sing An Elegy -->
+      <q-card flat bordered class="q-mb-md">
+        <q-card-section>
+          <div class="text-h6">{{ moves.singElegy.name }}</div>
+          <p>{{ moves.singElegy.description }},
+            <StatRoll statName="heart" :move="moves.singElegy" />. If you make this promise to a connection, add +1; if you share a bond, add +2.
+          </p>
+
+          <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.singElegy.outcomes.strongHit.text }}</p>
+          <p>On a <strong>weak hit</strong>, {{ moves.singElegy.outcomes.weakHit.text }}</p>
+          <p>On a <strong>miss</strong>, {{ moves.singElegy.outcomes.miss.text }}</p>
+        </q-card-section>
+      </q-card>
+
+      <!-- Reach A Milestone -->
+      <q-card flat bordered class="q-mb-md">
+        <q-card-section>
+          <div class="text-h6">{{ moves.reachMilestone.name }}</div>
+          <p>When you make significant progress in your quest by overcoming a critical obstacle, solving a complex mystery, defeating a powerful threat, gaining vital support, or acquiring a crucial item, you may mark progress:</p>
+          <ul>
+            <li>Troublesome quest: Mark 3 boxes</li>
+            <li>Dangerous quest: Mark 2 boxes</li>
+            <li>Formidable quest: Mark 1 box</li>
+            <li>Extreme quest: Mark 2 ticks</li>
+            <li>Epic quest: Mark 1 tick</li>
+          </ul>
+        </q-card-section>
+      </q-card>
+
+      <!-- Fulfill Your Elegy -->
+      <q-card flat bordered class="q-mb-md">
+        <q-card-section>
+          <div class="text-h6">{{ moves.fulfillElegy.name }}</div>
+          <p>{{ moves.fulfillElegy.description }}</p>
+
+          <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.fulfillElegy.outcomes.strongHit.text }}</p>
+          <p>On a <strong>weak hit</strong>, {{ moves.fulfillElegy.outcomes.weakHit.text }}</p>
+          <p>On a <strong>miss</strong>, {{ moves.fulfillElegy.outcomes.miss.text }}</p>
+        </q-card-section>
+      </q-card>
+
+      <!-- Forsake Your Elegy -->
+      <q-card flat bordered class="q-mb-md">
+        <q-card-section>
+          <div class="text-h6">{{ moves.forsakeElegy.name }}</div>
+          <p>When you renounce your quest, betray your promise, or the goal is lost to you, clear the elegy. Then, envision the impact of this failure and pick one or more as appropriate to the nature of the elegy:</p>
+          <ul>
+            <li>You are demoralized or dispirited: Lose spirit according to the situation</li>
+            <li>A connection loses faith: Test Your Relationship when you next interact</li>
+            <li>Your supernatural abilities weaken drastically: Discard a power asset</li>
+            <li>You must abandon a path or resource: Discard an asset (not a power or nature one)</li>
+            <li>Someone else pays a price: Envision how a person, being, or community bears the cost of the failure</li>
+            <li>Someone else takes advantage: Envision how an enemy gains power</li>
+            <li>Your reputation suffers: Envision how this failure marks you</li>
+          </ul>
         </q-card-section>
       </q-card>
     </q-expansion-item>
@@ -301,7 +362,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.makeConnection.name }}</div>
           <p>{{ moves.makeConnection.description }},
-            <StatRoll statName="heart" :moveName="moves.makeConnection.name" :outcomes="moves.makeConnection.outcomes" />
+            <StatRoll statName="heart" :move="moves.makeConnection" />
           </p>
 
           <p>On a <strong>strong hit</strong>, {{ moves.makeConnection.outcomes.strongHit.text }}</p>
@@ -323,7 +384,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.testRelationship.name }}</div>
           <p>{{ moves.testRelationship.description }},
-            <StatRoll statName="heart" :moveName="moves.testRelationship.name" :outcomes="moves.testRelationship.outcomes" />. If you
+            <StatRoll statName="heart" :move="moves.testRelationship" />. If you
             share a bond, add +1.
           </p>
 
@@ -338,7 +399,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.formBond.name }}</div>
           <p>{{ moves.formBond.description }},
-            <StatRoll statName="heart" :moveName="moves.formBond.name" :outcomes="moves.formBond.outcomes" />
+            <StatRoll statName="heart" :move="moves.formBond" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.formBond.outcomes.strongHit.text }}</p>
@@ -403,7 +464,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.endureHarm.name }}</div>
           <p>{{ moves.endureHarm.description }},
-            <StatRoll statName="force" :moveName="moves.endureHarm.name" :outcomes="moves.endureHarm.outcomes" />
+            <StatRoll statName="force" :move="moves.endureHarm" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.endureHarm.outcomes.strongHit.text }}</p>
@@ -417,7 +478,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.faceLastDeath.name }}</div>
           <p>{{ moves.faceLastDeath.description }},
-            <StatRoll statName="heart" :moveName="moves.faceLastDeath.name" :outcomes="moves.faceLastDeath.outcomes" />
+            <StatRoll statName="heart" :move="moves.faceLastDeath" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.faceLastDeath.outcomes.strongHit.text }}</p>
@@ -431,7 +492,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.endureHunger.name }}</div>
           <p>{{ moves.endureHunger.description }},
-            <StatRoll statName="intellect" :moveName="moves.endureHunger.name" :outcomes="moves.endureHunger.outcomes" />
+            <StatRoll statName="intellect" :move="moves.endureHunger" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.endureHunger.outcomes.strongHit.text }}</p>
@@ -445,7 +506,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.faceStarvation.name }}</div>
           <p>{{ moves.faceStarvation.description }},
-            <StatRoll statName="intellect" :moveName="moves.faceStarvation.name" :outcomes="moves.faceStarvation.outcomes" />
+            <StatRoll statName="intellect" :move="moves.faceStarvation" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.faceStarvation.outcomes.strongHit.text }}</p>
@@ -459,7 +520,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.endureStress.name }}</div>
           <p>{{ moves.endureStress.description }},
-            <StatRoll statName="heart" :moveName="moves.endureStress.name" :outcomes="moves.endureStress.outcomes" />
+            <StatRoll statName="heart" :move="moves.endureStress" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.endureStress.outcomes.strongHit.text }}</p>
@@ -473,7 +534,7 @@
         <q-card-section>
           <div class="text-h6">{{ moves.faceDesolation.name }}</div>
           <p>{{ moves.faceDesolation.description }},
-            <StatRoll statName="heart" :moveName="moves.faceDesolation.name" :outcomes="moves.faceDesolation.outcomes" />
+            <StatRoll statName="heart" :move="moves.faceDesolation" />
           </p>
 
           <p class="q-mt-sm">On a <strong>strong hit</strong>, {{ moves.faceDesolation.outcomes.strongHit.text }}</p>
@@ -496,7 +557,6 @@
 <script setup lang="ts">
 import StatRoll from './StatRoll.vue'
 import { useMoves } from '@/composables/useMoves'
-import type { Character } from '@/types/character'
 import { usePayThePrice } from '@/composables/usePayThePrice'
 
 const { moves } = useMoves()

@@ -634,9 +634,9 @@ export function useMoves() {
 
     developRelationship: {
       name: 'Develop A Relationship',
-      description: 'When a relationship with a connection is reinforced by accomplishing a mission that benefits them, seeking their assistance during dire situations, presenting them with a valuable gift, sharing a significant moment, standing by them in times of hardship, or successfully navigating a test of your relationship, mark progress according to the rank of the connection.',
+      description: 'When a relationship with a connection is reinforced by: accomplishing a mission that benefits them, seeking their assistance during dire situations, presenting them with a valuable gift, sharing a significant moment, standing by them in times of hardship, or successfully navigating a test of your relationship, mark progress according to the rank of the connection.',
       outcomes: {
-        strongHit: { text: '', actions: [] },  // This move doesn't use the standard outcome structure
+        strongHit: { text: '', actions: [] },  // This move uses progress marking instead of standard outcomes
         weakHit: { text: '', actions: [] },
         miss: { text: '', actions: [] }
       }
@@ -647,6 +647,82 @@ export function useMoves() {
       description: 'When your focus is at its minimum (-6), and you suffer additional -focus, choose one: Exchange each additional -focus for any combination of -health, -spirit, or -blood as appropriate to the circumstances, or envision an event or discovery which undermines your progress in a current quest, journey, or fight. Then, for each additional -focus, clear 1 unit of progress on that track per its rank (troublesome=clear 3 progress; dangerous=clear 2 progress; formidable=clear 1 progress; extreme=clear 2 ticks; epic=clear 1 tick).',
       outcomes: {
         strongHit: { text: '', actions: [] },  // This move doesn't use the standard outcome structure
+        weakHit: { text: '', actions: [] },
+        miss: { text: '', actions: [] }
+      }
+    },
+
+    singElegy: {
+      name: 'Sing An Elegy',
+      description: 'When you swear to complete a quest, write your elegy and give it a rank.',
+      outcomes: {
+        strongHit: {
+          text: 'You are emboldened, and it is clear what you must do next. Take +2 focus.',
+          actions: [{
+            label: 'Take +2 Focus',
+            execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+          }]
+        },
+        weakHit: {
+          text: 'You are determined but begin your quest with more questions than answers. Take +1 focus, and envision what you do to find a path forward.',
+          actions: [{
+            label: 'Take +1 Focus',
+            execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+          }]
+        },
+        miss: {
+          text: 'You must overcome a significant obstacle before you begin your quest. Envision what stands in your way.',
+          actions: []
+        }
+      }
+    },
+
+    reachMilestone: {
+      name: 'Reach A Milestone',
+      description: 'When you make significant progress in your quest...',
+      outcomes: {
+        strongHit: { text: '', actions: [] },
+        weakHit: { text: '', actions: [] },
+        miss: { text: '', actions: [] }
+      }
+    },
+
+    fulfillElegy: {
+      name: 'Fulfill Your Elegy',
+      description: 'When you achieve what you believe to be the fulfillment of your promise, roll the challenge dice and compare to your progress. Focus is ignored on this roll.',
+      outcomes: {
+        strongHit: {
+          text: 'Your quest is complete. Mark experience based on rank.',
+          actions: [{
+            label: 'Mark Experience',
+            execute: (character: Character) => {
+              // TODO: Implement experience marking based on rank
+              character.experience.total += 1
+            }
+          }]
+        },
+        weakHit: {
+          text: 'There is more to be done, or you realize the truth of your quest. Envision what you discover. Mark reduced experience.',
+          actions: [{
+            label: 'Mark Reduced Experience',
+            execute: (character: Character) => {
+              // TODO: Implement reduced experience marking
+              character.experience.total += 1
+            }
+          }]
+        },
+        miss: {
+          text: 'Your quest is undone. Choose to recommit (clear progress and raise rank) or give up (Forsake Your Elegy).',
+          actions: []  // Complex choice requiring player input
+        }
+      }
+    },
+
+    forsakeElegy: {
+      name: 'Forsake Your Elegy',
+      description: 'When you renounce your quest, betray your promise, or the goal is lost to you...',
+      outcomes: {
+        strongHit: { text: '', actions: [] },
         weakHit: { text: '', actions: [] },
         miss: { text: '', actions: [] }
       }

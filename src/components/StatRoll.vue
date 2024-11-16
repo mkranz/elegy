@@ -9,12 +9,11 @@
 import { useDiceRoller } from '@/composables/useDiceRoller'
 import { useCharacter } from '@/composables/useCharacter'
 import { computed } from 'vue'
-import type { MoveOutcomes } from '@/types/moves';
+import type { Move } from '@/types/moves';
 
 const props = defineProps<{
   statName: string
-  moveName?: string
-  outcomes?: MoveOutcomes
+  move?: Move
 }>()
 
 const { character } = useCharacter()
@@ -28,9 +27,9 @@ const statValue = computed(() => {
 const handleRoll = () => {
   open({
     actionScore: statValue.value,
-    title: props.moveName || `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`,
+    title: props.move?.name || `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`,
     statName: props.statName,
-    outcomes: props.outcomes
+    outcomes: props.move?.outcomes
   })
 }
 </script>

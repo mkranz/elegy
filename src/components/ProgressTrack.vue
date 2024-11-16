@@ -2,6 +2,7 @@
 import { ProgressTrackDifficulty } from '@/types/character';
 import { computed, ref } from 'vue'
 import { useDiceRoller } from '../composables/useDiceRoller'
+import { useMoves } from '@/composables/useMoves'
 
 const props = defineProps<{
   title: string,
@@ -10,7 +11,7 @@ const props = defineProps<{
 
 const progress = defineModel<number>('progress', { required: true })
 const difficulty = defineModel<ProgressTrackDifficulty>('difficulty', { default: ProgressTrackDifficulty.dangerous })
-
+const { moves } = useMoves()
 const emit = defineEmits(['remove'])
 
 const progressIncrement = computed(() => {
@@ -65,22 +66,18 @@ const getBoxSymbol = (index: number) => {
 
 const { open } = useDiceRoller()
 
-const rollTitle = computed(() => {
-  switch (props.type) {
-    case 'combat':
-      return 'End the Fight'
-    case 'connections':
-      return 'Form a Bond'
-    case 'elegies':
-      return 'Fulfill your Elegy'
-  }
-})
-
 const handleAttempt = () => {
-  open({
-    actionScore: Math.max(1, Math.floor(progress.value / 4)),
-    title: rollTitle.value
-  })
+  var move = props.type === 'combat' ? moves.endTheFight : 
+             props.type === 'connections' ? moves.makeConnection : 
+             props.type === 'elegies' ? moves.fulfillElegy : null
+
+  if (move) {
+    open({
+      actionScore: Math.max(1, Math.floor(progress.value / 4)),
+      title: move.name,
+      outcomes: move.outcomes
+    })
+  }
 }
 </script>
 
