@@ -27,8 +27,7 @@ const titles = {
   </div>
   <div class="row q-col-gutter-md">
     <div v-for="track in tracks" :key="track.id" class="col-12">
-      <ProgressTrack :title="track.title" :type="type" v-model:difficulty="track.difficulty"
-        v-model:progress="track.progress" @remove="removeProgressTrack(track.id)" />
+      <ProgressTrack :title="track.title" :type="type" :progress-track="track" @remove="removeProgressTrack(track.id)" />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 import type { Move } from '@/types/moves'
-import type { Character } from '@/types/character'
+import type { Character, ProgressTrack } from '@/types/character'
 import { usePayThePrice } from './usePayThePrice'
 
 const { payThePrice } = usePayThePrice()
@@ -14,21 +14,36 @@ export function useMoves() {
           text: 'Take 2 focus.',
           actions: [{
             label: 'Take +2 Focus',
-            execute: (character: Character) => character.focus = Math.min(10, character.focus + 2)
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              character.focus = Math.min(10, character.focus + 2)
+              if (progressTrack) {
+                progressTrack.isInitialized = true
+              }
+            }
           }]
         },
         weakHit: {
           text: 'Take 1 focus.',
           actions: [{
             label: 'Take +1 Focus',
-            execute: (character: Character) => character.focus = Math.min(10, character.focus + 1)
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              character.focus = Math.min(10, character.focus + 1)
+              if (progressTrack) {
+                progressTrack.isInitialized = true
+              }
+            }
           }]
         },
         miss: {
           text: 'The fight begins with you in disadvantage. Lose 1 focus.',
           actions: [{
             label: 'Lose 1 Focus',
-            execute: (character: Character) => character.focus = Math.max(-6, character.focus - 1)
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              character.focus = Math.max(-6, character.focus - 1)
+              if (progressTrack) {
+                progressTrack.isInitialized = true
+              }
+            }
           }]
         }
       }

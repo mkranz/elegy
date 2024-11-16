@@ -15,6 +15,15 @@ export interface CharacterAsset {
     }
 }
 
+export interface ProgressTrack {
+  id: number
+  isInitialized: boolean
+  title: string
+  progress: number
+  difficulty: ProgressTrackDifficulty
+  type: 'elegies' | 'connections' | 'combat'
+}
+
 export interface Character {
   info: {
     name: string
@@ -53,13 +62,7 @@ export interface Character {
     spent: number
   }
   focus: number
-  progressTracks: Array<{
-    id: number
-    title: string
-    progress: number
-    difficulty: ProgressTrackDifficulty
-    type: 'elegies' | 'connections' | 'combat'
-  }>
+  progressTracks: Array<ProgressTrack>
 }
 
 export function createDefaultCharacter(): Character {

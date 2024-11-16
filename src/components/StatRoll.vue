@@ -10,10 +10,12 @@ import { useDiceRoller } from '@/composables/useDiceRoller'
 import { useCharacter } from '@/composables/useCharacter'
 import { computed } from 'vue'
 import type { Move } from '@/types/moves';
+import type { ProgressTrack } from '@/types/character';
 
 const props = defineProps<{
   statName: string
   move?: Move
+  progressTrack?: ProgressTrack
 }>()
 
 const { character } = useCharacter()
@@ -32,6 +34,7 @@ const handleRoll = () => {
     title: props.move?.name || `${props.statName.charAt(0).toUpperCase() + props.statName.slice(1)} Roll`,
     statName: props.statName,
     outcomes: props.move?.outcomes,
+    progressTrack: props.progressTrack,
     onOutcome: (outcome: 'strongHit' | 'weakHit' | 'miss') => {
       emit('roll-outcome', outcome)
     }

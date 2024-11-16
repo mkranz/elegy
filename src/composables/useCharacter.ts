@@ -34,7 +34,8 @@ export function useCharacter() {
         title: trackName,
         progress: 0,
         difficulty: ProgressTrackDifficulty.dangerous,
-        type
+        type,
+        isInitialized: false
       })
     }
   }

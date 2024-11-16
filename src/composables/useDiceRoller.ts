@@ -1,14 +1,17 @@
 import type { MoveOutcomes } from '@/types/moves'
-import type { Character } from '@/types/character'
+import type { Character, ProgressTrack } from '@/types/character'
 import { ref, computed } from 'vue'
 import { useCharacter } from './useCharacter'
+
+type OutcomeCallback = (outcome: 'strongHit' | 'weakHit' | 'miss') => void
 
 interface DiceRollOptions {
   actionScore?: number
   title?: string
   statName?: string
   outcomes?: MoveOutcomes
-  onOutcome?: (outcome: 'strongHit' | 'weakHit' | 'miss') => void
+  progressTrack?: ProgressTrack
+  onOutcome?: OutcomeCallback
 }
 
 const show = ref(false)
@@ -19,8 +22,10 @@ const currentActionScore = ref<number>(0)
 const canSelectActionScore = ref(true)
 const currentTitle = ref<string>('')
 const currentStatName = ref<string>('')
-const currentOutcomes = ref<DiceRollOptions['outcomes']>()
+const currentOutcomes = ref<MoveOutcomes>()
+const onOutcome = ref<OutcomeCallback>()
 const appliedActions = ref<Set<string>>(new Set())
+const currentProgressTrack = ref<ProgressTrack | undefined>()
 
 const { character } = useCharacter()
 
@@ -57,8 +62,8 @@ const currentOutcome = computed(() => {
   }
 })
 
-const executeAction = (action: { label: string, execute: (character: Character) => void }) => {
-  action.execute(character.value)
+const executeAction = (action: { label: string, execute: (character: Character, progressTrack?: ProgressTrack) => void }) => {
+  action.execute(character.value, currentProgressTrack.value)
   appliedActions.value.add(action.label)
 }
 
@@ -66,15 +71,14 @@ const roll = () => {
   challengeDie1.value = Math.floor(Math.random() * 10) + 1
   challengeDie2.value = Math.floor(Math.random() * 10) + 1
   
-  if (currentOptions.value?.onOutcome && rollResult.value) {
-    currentOptions.value.onOutcome(rollResult.value.toLowerCase().replace(' ', '') as 'strongHit' | 'weakHit' | 'miss')
+  if (onOutcome.value && rollResult.value) {
+    onOutcome.value(rollResult.value.toLowerCase().replace(' ', '') as 'strongHit' | 'weakHit' | 'miss')
   }
 }
 
-const currentOptions = ref<DiceRollOptions>()
-
 const open = (options: DiceRollOptions) => {
-  currentOptions.value = options
+  onOutcome.value = options?.onOutcome
+  currentProgressTrack.value = options?.progressTrack
   canSelectActionScore.value = options?.actionScore === undefined
   currentActionScore.value = options?.actionScore || 5
   currentTitle.value = options?.title || 'Custom Roll'

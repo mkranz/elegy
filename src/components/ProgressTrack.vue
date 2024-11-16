@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { ProgressTrackDifficulty } from '@/types/character';
-import { computed, ref } from 'vue'
+import { ProgressTrackDifficulty, type ProgressTrack } from '@/types/character';
+import { computed } from 'vue'
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useMoves } from '@/composables/useMoves'
+import { useCharacter } from '@/composables/useCharacter'
 import StatRoll from './StatRoll.vue'
 
 const props = defineProps<{
   title: string,
-  type: 'elegies' | 'connections' | 'combat'
+  type: 'elegies' | 'connections' | 'combat',
+  progressTrack: ProgressTrack
 }>()
 
-const progress = defineModel<number>('progress', { required: true })
-const difficulty = defineModel<ProgressTrackDifficulty>('difficulty', { default: ProgressTrackDifficulty.dangerous })
+
 const { moves } = useMoves()
+const { open } = useDiceRoller()
+
 const emit = defineEmits(['remove'])
 
+const showEnterTheFray = computed(() => {
+  return props.type === 'combat' && !props.progressTrack.isInitialized
+})
+
 const progressIncrement = computed(() => {
-  switch (difficulty.value) {
+  switch (props.progressTrack.difficulty) {
     case ProgressTrackDifficulty.troublesome: return 12 // 3 boxes
     case ProgressTrackDifficulty.dangerous: return 8   // 2 boxes
     case ProgressTrackDifficulty.formidable: return 4  // 1 box
@@ -27,24 +34,24 @@ const progressIncrement = computed(() => {
 })
 
 const increaseProgress = () => {
-  progress.value = Math.min(40, progress.value + progressIncrement.value)
+  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + progressIncrement.value)
 }
 
 const decreaseProgress = () => {
-  progress.value = Math.max(0, progress.value - progressIncrement.value)
+  props.progressTrack.progress = Math.max(0, props.progressTrack.progress - progressIncrement.value)
 }
 
 const toggleBox = (index: number) => {
   const currentProgress = index * 4
-  if (progress.value > currentProgress) {
-    progress.value = currentProgress
+  if (props.progressTrack.progress > currentProgress) {
+    props.progressTrack.progress = currentProgress
   } else {
-    progress.value = currentProgress + 4
+    props.progressTrack.progress = currentProgress + 4
   }
 }
 
 const getBoxClass = (index: number) => {
-  const boxProgress = Math.min(4, Math.max(0, progress.value - (index * 4)))
+  const boxProgress = Math.min(4, Math.max(0, props.progressTrack.progress - (index * 4)))
   return {
     'box-empty': boxProgress === 0,
     'box-tick1': boxProgress === 1,
@@ -55,7 +62,7 @@ const getBoxClass = (index: number) => {
 }
 
 const getBoxSymbol = (index: number) => {
-  const boxProgress = Math.min(4, Math.max(0, progress.value - (index * 4)))
+  const boxProgress = Math.min(4, Math.max(0, props.progressTrack.progress - (index * 4)))
   switch (boxProgress) {
     case 1: return '/'
     case 2: return 'X'
@@ -65,14 +72,6 @@ const getBoxSymbol = (index: number) => {
   }
 }
 
-const { open } = useDiceRoller()
-
-const isInitialized = ref(false)
-
-const showEnterTheFray = computed(() => {
-  return props.type === 'combat' && !isInitialized.value
-})
-
 const handleAttempt = () => {
   var move = props.type === 'combat' ? moves.endTheFight : 
              props.type === 'connections' ? moves.makeConnection : 
@@ -80,23 +79,14 @@ const handleAttempt = () => {
 
   if (move) {
     open({
-      actionScore: Math.max(1, Math.floor(progress.value / 4)),
+      actionScore: Math.max(1, Math.floor(props.progressTrack.progress / 4)),
       title: move.name,
-      outcomes: move.outcomes
+      outcomes: move.outcomes,
+      progressTrack: props.progressTrack
     })
   }
 }
 
-const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
-  if (outcome === 'strongHit') {
-    character.value.focus = Math.min(10, character.value.focus + 2)
-  } else if (outcome === 'weakHit') {
-    character.value.focus = Math.min(10, character.value.focus + 1)
-  } else if (outcome === 'miss') {
-    character.value.focus = Math.max(-6, character.value.focus - 1)
-  }
-  isInitialized.value = true
-}
 </script>
 
 <template>
@@ -106,7 +96,7 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
         <div class="text-h6">{{ title }}</div>
         <div class="row q-gutter-sm">
           <q-select
-            v-model="difficulty"
+            v-model="props.progressTrack.difficulty"
             :options="[
               { label: 'Troublesome', value: ProgressTrackDifficulty.troublesome },
               { label: 'Dangerous', value: ProgressTrackDifficulty.dangerous },
@@ -138,7 +128,7 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
             <StatRoll 
               statName="heart" 
               :move="moves.enterTheFray"
-              @roll-outcome="handleInitialize" 
+              :progress-track="props.progressTrack"
             />
           </div>
           <div>
@@ -146,7 +136,7 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
             <StatRoll 
               statName="force" 
               :move="moves.enterTheFray"
-              @roll-outcome="handleInitialize"
+              :progress-track="props.progressTrack"
             />
           </div>
           <div>
@@ -154,7 +144,7 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
             <StatRoll 
               statName="dexterity" 
               :move="moves.enterTheFray"
-              @roll-outcome="handleInitialize"
+              :progress-track="props.progressTrack"
             />
           </div>
           <div>
@@ -162,7 +152,7 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
             <StatRoll 
               statName="intellect" 
               :move="moves.enterTheFray"
-              @roll-outcome="handleInitialize"
+              :progress-track="props.progressTrack"
             />
           </div>
         </div>
@@ -191,15 +181,15 @@ const handleInitialize = (outcome: 'strongHit' | 'weakHit' | 'miss') => {
             flat
             round
             icon="remove"
-            :disable="progress === 0"
+            :disable="props.progressTrack.progress === 0"
             @click="decreaseProgress"
           />
-          <div class="text-subtitle1">{{ progress }} / 40</div>
+          <div class="text-subtitle1">{{ props.progressTrack.progress }} / 40</div>
           <q-btn
             flat
             round
             icon="add"
-            :disable="progress === 40"
+            :disable="props.progressTrack.progress === 40"
             @click="increaseProgress"
           />
         </div>
