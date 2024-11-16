@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ProgressTrackDifficulty, type ProgressTrack } from '@/types/character';
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useMoves } from '@/composables/useMoves'
 import StatRoll from './StatRoll.vue'
@@ -18,6 +18,8 @@ const { open } = useDiceRoller()
 const { increaseProgress, decreaseProgress } = useProgressTrack()
 const emit = defineEmits(['remove'])
 
+const isEditing = ref(false)
+
 const showEnterTheFray = computed(() => {
   return props.type === 'combat' && !props.progressTrack.isInitialized
 })
@@ -27,6 +29,7 @@ var completionMove = props.type === 'combat' ? moves.endTheFight :
              props.type === 'elegies' ? moves.fulfillElegy : null
 
 const toggleBox = (index: number) => {
+  if (!isEditing.value) return
   const currentProgress = index * 4
   if (props.progressTrack.progress > currentProgress) {
     props.progressTrack.progress = currentProgress
@@ -105,10 +108,14 @@ const handleReachMilestone = () => {
 <template>
   <q-card class="progress-track">
     <q-card-section>
-      <div class="row items-center justify-between q-mb-md">
-        <div class="text-h6">{{ title }}</div>
-        <div class="row q-gutter-sm">
+      <div class="row items-center justify-between">
+        <div>
+          <div class="text-h6 line-height-1">{{ title }}</div>
+          <div v-if="!isEditing" class="text-subtitle2 line-height-1">{{ props.progressTrack.difficulty }}</div>
+        </div>
+        <div class="row">
           <q-select
+            v-if="isEditing"
             v-model="props.progressTrack.difficulty"
             :options="[
               { label: 'Troublesome', value: ProgressTrackDifficulty.troublesome },
@@ -123,6 +130,15 @@ const handleReachMilestone = () => {
             emit-value
             style="min-width: 150px"
           />
+
+          
+          <q-btn
+            flat
+            round
+            color="primary"
+            icon="edit"
+            @click="isEditing = !isEditing"
+          />
           <q-btn
             flat
             round
@@ -134,7 +150,7 @@ const handleReachMilestone = () => {
       </div>
 
       <template v-if="showEnterTheFray">
-        <div class="text-h6 q-mb-md">Enter The Fray</div>
+        <div class="text-subtitle1 q-my-md">Enter The Fray</div>
         <div class="q-gutter-y-md">
           <div>
             Facing off against your foe:
@@ -172,7 +188,7 @@ const handleReachMilestone = () => {
       </template>
 
       <template v-else>
-        <div class="row q-col-gutter-xs">
+        <div class="row q-col-gutter-xs q-mt-sm">
           <div 
             v-for="i in 10" 
             :key="i" 
@@ -189,7 +205,7 @@ const handleReachMilestone = () => {
           </div>
         </div>
 
-        <div class="row items-center justify-center q-mt-md q-gutter-md">
+        <div v-if="isEditing" class="row items-center justify-center q-mt-md q-gutter-md">
           <q-btn
             flat
             round
@@ -276,4 +292,7 @@ const handleReachMilestone = () => {
     &.box-full
       background: $primary
       color: white
+
+.line-height-1
+  line-height: 1rem !important
 </style> 
