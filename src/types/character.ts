@@ -24,7 +24,6 @@ export interface Character {
     background: string
     embrace: string
     status: string
-    portrait: string
   }
   stats: {
     force: number
@@ -72,8 +71,7 @@ export function createDefaultCharacter(): Character {
       characteristics: '',
       background: '',
       embrace: '',
-      status: '',
-      portrait: ''
+      status: ''
     },
     stats: {
       force: 5,

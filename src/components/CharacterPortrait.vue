@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { usePortrait } from '../composables/usePortrait'
 
-const props = defineProps<{
-  modelValue: string
-}>()
-
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
-}>()
+const { portrait, setPortrait } = usePortrait()
 
 const showUploadModal = ref(false)
 const previewImage = ref('')
@@ -45,7 +40,7 @@ const handleFile = (file: File) => {
 }
 
 const applyPortrait = () => {
-  emit('update:modelValue', previewImage.value)
+  setPortrait(previewImage.value)
   showUploadModal.value = false
 }
 
@@ -58,7 +53,7 @@ const cancelUpload = () => {
 <template>
   <div class="character-portrait">
     <div class="portrait-frame" @click="showUploadModal = true">
-      <img v-if="modelValue" :src="modelValue" alt="Character Portrait" />
+      <img v-if="portrait" :src="portrait" alt="Character Portrait" />
       <div v-else class="no-portrait">
         <q-icon name="person" size="3em" />
       </div>

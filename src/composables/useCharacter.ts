@@ -1,5 +1,5 @@
 import { ref, watch } from 'vue'
-import { type Character, createDefaultCharacter, type Impact, type Meter, type Stat } from '../types/character'
+import { type Character, createDefaultCharacter } from '../types/character'
 import { ProgressTrackDifficulty } from '../types/character'
 
 const STORAGE_KEY = 'elegy-character'

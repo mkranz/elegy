@@ -1,0 +1,132 @@
+{
+    "info": {
+        "name": "Penelope",
+        "species": "Adamus Lineage Vampire",
+        "progenitor": "Kaleb",
+        "characteristics": "Female, platinum hair, pale skin and lips. Very dark red / black eyes. Black claws. Dresses for warm weather out of habit, short lace.",
+        "background": "25 year old archaeology postdoc @ USM (University of Santa Maria)",
+        "embrace": "While on exchange from UCLA, was turned by progenitor Kaleb, circa 2011",
+        "status": "Continues to work at Kombina cafe and still lives on campus"
+    },
+    "stats": {
+        "force": 5,
+        "dexterity": 5,
+        "intellect": 5,
+        "glamour": 5,
+        "heart": 5
+    },
+    "meters": {
+        "health": 3,
+        "spirit": 2,
+        "blood": 4
+    },
+    "assets": [
+        {
+            "name": "Lunacy",
+            "description": "Make people lose touch with reality.",
+            "icon": "psychology_alt",
+            "group": "Power",
+            "abilities": {
+                "1": "Power, glamour. You are able to heighten or dull someone's current emotions (turn mild irritation into violent rage, or obsession into disinterest).",
+                "2": "You can disturb someone's senses with flashes of content of their unconscious that will make them lose touch with reality for one minute.",
+                "3": "You can make your victim mistake theirs or others' identity. For example, you can make someone think they're Napoleon, or think her wife is secretly an alien in disguise. This effect lasts for one scene."
+            },
+            "unlockedLevels": {
+                "1": true,
+                "2": false,
+                "3": false
+            }
+        },
+        {
+            "name": "Familiar",
+            "description": "Turn dead animals into familiars.",
+            "icon": "cruelty_free",
+            "group": "Power",
+            "abilities": {
+                "1": "Power, intellect. When you drain a small animal (cat, owl, raven, dog…) of its blood and feed him yours, its corpse comes back to life as a familiar for one week and efficiently obeys simple, single word commands.",
+                "2": "When you use your familiar's keen senses to track something or investigate a place, add +1 and take +1 focus on a hit.",
+                "3": "When you fight alongside your familiar and score a hit, inflict +1 harm or take +1 focus."
+            },
+            "unlockedLevels": {
+                "1": true,
+                "2": false,
+                "3": false
+            }
+        },
+        {
+            "name": "Path of the Spider",
+            "description": "Rites of curses and fatality.",
+            "icon": "pest_control",
+            "group": "Ritual",
+            "abilities": {
+                "1": "Ritual. When you wash your face in blood and speak the name of a victim, she will experience intense hunger. A vampire will be induced to starvation, and will act out of instinct, impulse and hunger.",
+                "2": "When you burn a piece of paper marked with your bloody hand print and say the name of a vampire within a one-kilometer radius, the victim will lose the reanimating power of blood and turn into a corpse for a whole night.",
+                "3": "This ceremony is only potent against living entities. By burning a strand of hair, a nail clipping, or any other refuse from the subject's body, and uttering mystical incantations, a curse is placed that can be activated at will. Upon activation, the victim's throat splits, and their bowels forcefully expel from their body, leading to almost certain death, even with immediate medical intervention."
+            },
+            "unlockedLevels": {
+                "1": true,
+                "2": false,
+                "3": false
+            }
+        }
+    ],
+    "bonds": 0,
+    "elegies": 0,
+    "impacts": {
+        "wounded": true,
+        "sinner": true,
+        "permanently harmed": true,
+        "shaken": true,
+        "starving": true,
+        "traumatized": true
+    },
+    "experience": {
+        "total": 4,
+        "spent": 2
+    },
+    "focus": 1,
+    "progressTracks": [
+        {
+            "id": 1731493466928,
+            "title": "TTT",
+            "progress": 20,
+            "difficulty": "dangerous",
+            "type": "elegies"
+        },
+        {
+            "id": 1731493477515,
+            "title": "Ratfolk",
+            "progress": 8,
+            "difficulty": "dangerous",
+            "type": "connections"
+        },
+        {
+            "id": 1731493484966,
+            "title": "Police Chief",
+            "progress": 14,
+            "difficulty": "extreme",
+            "type": "connections"
+        },
+        {
+            "id": 1731670257569,
+            "title": "ghghg",
+            "progress": 12,
+            "difficulty": "dangerous",
+            "type": "combat"
+        },
+        {
+            "id": 1731670259669,
+            "title": "hghgh",
+            "progress": 0,
+            "difficulty": "dangerous",
+            "type": "combat"
+        },
+        {
+            "id": 1731674025333,
+            "title": "yyyy",
+            "progress": 0,
+            "difficulty": "dangerous",
+            "type": "elegies"
+        }
+    ]
+}
