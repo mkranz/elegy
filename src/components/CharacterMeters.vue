@@ -82,57 +82,56 @@ const circles = computed(() => {
   </div>
 </template>
 
-<style scoped>
-.meter-container {
-  margin-bottom: 0.5rem;
-}
+<style lang="sass" scoped>
+.meter-container
+  margin-bottom: 0.5rem
 
-.meter-label {
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-}
+.meter-label
+  font-size: 0.9rem
+  margin-bottom: 0.25rem
 
-.focus-track {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  flex-grow: 1;
-}
+.focus-track
+  display: flex
+  gap: 4px
+  align-items: center
+  flex-grow: 1
 
-.focus-pip {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid currentColor;
-}
+.focus-pip
+  width: 12px
+  height: 12px
+  border-radius: 50%
+  cursor: pointer
+  border: 1px solid currentColor
 
-.focus-pip.negative { background: #ff525240; }
-.focus-pip.positive { background: #52ff5240; }
-.focus-pip.active { background: currentColor; }
-.focus-pip.active.negative { background: #ff5252; }
+  &.negative
+    background: #ff525240
+  
+  &.positive
+    background: #52ff5240
+  
+  &.active
+    background: currentColor
 
-.meters-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
+    &.negative
+      background: #ff5252
 
-.meter-track {
-  display: flex;
-  gap: 4px;
-}
+.meters-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))
+  gap: 1rem
+  margin-top: 1rem
 
-.meter-pip {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid currentColor;
-}
+.meter-track
+  display: flex
+  gap: 4px
 
-.meter-pip.active {
-  background: currentColor;
-}
-</style> 
+.meter-pip
+  width: 16px
+  height: 16px
+  border-radius: 50%
+  cursor: pointer
+  border: 1px solid currentColor
+
+  &.active
+    background: currentColor
+</style>
