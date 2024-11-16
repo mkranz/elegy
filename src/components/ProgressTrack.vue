@@ -3,8 +3,8 @@ import { ProgressTrackDifficulty, type ProgressTrack } from '@/types/character';
 import { computed } from 'vue'
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useMoves } from '@/composables/useMoves'
-import { useCharacter } from '@/composables/useCharacter'
 import StatRoll from './StatRoll.vue'
+import { useProgressTrack } from '@/composables/useProgressTrack'
 
 const props = defineProps<{
   title: string,
@@ -15,30 +15,23 @@ const props = defineProps<{
 
 const { moves } = useMoves()
 const { open } = useDiceRoller()
-
+const { getProgressIncrement } = useProgressTrack()
 const emit = defineEmits(['remove'])
 
 const showEnterTheFray = computed(() => {
   return props.type === 'combat' && !props.progressTrack.isInitialized
 })
 
-const progressIncrement = computed(() => {
-  switch (props.progressTrack.difficulty) {
-    case ProgressTrackDifficulty.troublesome: return 12 // 3 boxes
-    case ProgressTrackDifficulty.dangerous: return 8   // 2 boxes
-    case ProgressTrackDifficulty.formidable: return 4  // 1 box
-    case ProgressTrackDifficulty.extreme: return 2     // 2 ticks
-    case ProgressTrackDifficulty.epic: return 1        // 1 tick
-    default: return 4
-  }
-})
+var move = props.type === 'combat' ? moves.endTheFight : 
+             props.type === 'connections' ? moves.makeConnection : 
+             props.type === 'elegies' ? moves.fulfillElegy : null
 
 const increaseProgress = () => {
-  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + progressIncrement.value)
+  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + getProgressIncrement(props.progressTrack.difficulty))
 }
 
 const decreaseProgress = () => {
-  props.progressTrack.progress = Math.max(0, props.progressTrack.progress - progressIncrement.value)
+  props.progressTrack.progress = Math.max(0, props.progressTrack.progress - getProgressIncrement(props.progressTrack.difficulty))
 }
 
 const toggleBox = (index: number) => {
@@ -73,10 +66,6 @@ const getBoxSymbol = (index: number) => {
 }
 
 const handleAttempt = () => {
-  var move = props.type === 'combat' ? moves.endTheFight : 
-             props.type === 'connections' ? moves.makeConnection : 
-             props.type === 'elegies' ? moves.fulfillElegy : null
-
   if (move) {
     open({
       actionScore: Math.max(1, Math.floor(props.progressTrack.progress / 4)),
@@ -85,6 +74,20 @@ const handleAttempt = () => {
       progressTrack: props.progressTrack
     })
   }
+}
+
+const handleClash = () => {
+  if (props.type === 'combat') {
+    open({
+      title: moves.clash.name,
+      outcomes: moves.clash.outcomes,
+      progressTrack: props.progressTrack
+    })
+  }
+}
+
+const markProgress = (amount: number) => {
+  props.progressTrack.progress = Math.min(40, props.progressTrack.progress + amount)
 }
 
 </script>
@@ -198,7 +201,13 @@ const handleAttempt = () => {
           <q-btn
             flat
             color="primary"
-            label="Attempt"
+            label="Clash"
+            @click="handleClash"
+          />
+          <q-btn
+            flat
+            color="primary"
+            label="End the Fight"
             @click="handleAttempt"
           />
         </div>

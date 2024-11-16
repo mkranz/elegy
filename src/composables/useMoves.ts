@@ -1,8 +1,10 @@
 import type { Move } from '@/types/moves'
 import type { Character, ProgressTrack } from '@/types/character'
 import { usePayThePrice } from './usePayThePrice'
+import { useProgressTrack } from './useProgressTrack'
 
 const { payThePrice } = usePayThePrice()
+const { getProgressIncrement } = useProgressTrack()
 
 export function useMoves() {
   const moves: Record<string, Move> = {
@@ -286,9 +288,10 @@ export function useMoves() {
           text: 'Mark progress twice. You overwhelm your foe.',
           actions: [{
             label: 'Mark Progress (×2)',
-            execute: (character: Character) => {
-              // TODO: Implement progress marking
-              console.log('Mark progress twice')
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              if (progressTrack) {
+                progressTrack.progress = Math.min(40, progressTrack.progress + (2 * getProgressIncrement(progressTrack.difficulty)))
+              }
             }
           }]
         },
@@ -297,9 +300,10 @@ export function useMoves() {
           actions: [
             {
               label: 'Mark Progress',
-              execute: (character: Character) => {
-                // TODO: Implement progress marking
-                console.log('Mark progress once')
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  progressTrack.progress = Math.min(40, progressTrack.progress + getProgressIncrement(progressTrack.difficulty))
+                }
               }
             },
             {
