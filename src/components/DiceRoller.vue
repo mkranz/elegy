@@ -58,9 +58,8 @@ onUnmounted(() => {
   <q-dialog
     v-model="show"
     position="right"
-    @click="handleDialogClick"
   >
-    <q-card style="min-width: 300px">
+    <q-card style="min-width: 300px" @click="handleDialogClick">
       <q-card-section>
         <div class="text-h6">{{ currentTitle }}</div>
       </q-card-section>
@@ -153,12 +152,12 @@ onUnmounted(() => {
     </q-card>
   </q-dialog>
   
-  <div class="dice-canvas-container"> 
+  <div class="dice-canvas-container"  :class="{ hide: !canvasVisible }"> 
   </div>
 </template>
 <style>
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
 .dice-box-canvas {
