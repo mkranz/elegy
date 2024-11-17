@@ -3,13 +3,12 @@ import { onMounted, onUnmounted } from 'vue'
 
 let diceBox: any = null
 
-export function useDiceBox(id: string, container: string) {
+export function useDiceBox() {
   const initDiceBox = async () => {
     diceBox = new DiceBox({
-      id: id,
       assetPath: '/assets/dice-box/',
-      container: container,
-      theme: 'default',
+      theme: 'theme-smooth',
+      themeColor: '#8b0000',
       scale: 6,
       gravity: 1,
       mass: 1,
@@ -22,6 +21,7 @@ export function useDiceBox(id: string, container: string) {
       enableShadows: true,
       lightIntensity: 1,
       shadowTransparency: 0.8,
+      settleTimeout: 3000
     })
 
     await diceBox.init()
@@ -40,9 +40,36 @@ export function useDiceBox(id: string, container: string) {
     }
   }
 
+  const hide = (className?: string) => {
+    if (diceBox) {
+      diceBox.hide(className)
+    }
+  }
+
+  const show = () => {
+    if (diceBox) {
+      diceBox.show()
+    }
+  } 
+
+  const clear = () => {
+    if (diceBox) {
+      diceBox.clear()
+    }
+  }
+
+  onMounted(() => {
+    initDiceBox()
+  })
+
+  onUnmounted(() => {
+    cleanup()
+  })
+
   return {
-    initDiceBox,
-    cleanup,
-    rollDice
+    rollDice,
+    hide,
+    show,
+    clear
   }
 } 

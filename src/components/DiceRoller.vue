@@ -2,10 +2,10 @@
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useDiceBox } from '../composables/useDiceBox'
 import Counter from './Counter.vue' 
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const {
-  show,
+  show: showRoller,
   bonus,
   challengeDie1,
   challengeDie2,
@@ -21,42 +21,40 @@ const {
   executeAction
 } = useDiceRoller()
 
-const { initDiceBox, cleanup,rollDice } = useDiceBox('dice-canvas','.dice-canvas-container')
-const canvasVisible = ref(false)
+const { rollDice, show: showDiceBox, hide: hideDiceBox, clear } = useDiceBox()
+
+watch(showRoller, (newVal) => {
+  if (newVal) {
+    showDiceBox()
+  } else {
+    hideDiceBox()
+  }
+})
 
 const roll = async () => {
-  canvasVisible.value = true
+  challengeDie1.value = null
+  challengeDie2.value = null
+  showDiceBox()
   const results = await rollDice('2d10')
   challengeDie1.value = results[0]
   challengeDie2.value = results[1]
 }
 
 const close = () => {
-  canvasVisible.value = false
   closeRoller()
 }
 
 const handleDialogClick = () => {
   if (challengeDie1.value !== null && challengeDie2.value !== null) {
-    canvasVisible.value = false
+    hideDiceBox('hide')
   }
 }
-
-onMounted(() => {
-  canvasVisible.value = true
-  initDiceBox()
-})
-
-onUnmounted(() => {
-  canvasVisible.value = false
-  cleanup()
-})
 
 </script>
 
 <template>
   <q-dialog
-    v-model="show"
+    v-model="showRoller"
     position="right"
   >
     <q-card style="min-width: 300px" @click="handleDialogClick">
@@ -152,8 +150,6 @@ onUnmounted(() => {
     </q-card>
   </q-dialog>
   
-  <div class="dice-canvas-container"  :class="{ hide: !canvasVisible }"> 
-  </div>
 </template>
 <style>
 .hide {
