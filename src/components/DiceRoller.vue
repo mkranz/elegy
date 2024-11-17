@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDiceRoller } from '../composables/useDiceRoller'
+import { useDiceBox } from '../composables/useDiceBox'
 import Counter from './Counter.vue'
 
 const {
@@ -12,13 +13,21 @@ const {
   canSelectActionScore,
   totalActionScore,
   rollResult,
-  roll,
   close,
   currentStatName,
   currentOutcome,
   appliedActions,
   executeAction
 } = useDiceRoller()
+
+const { rollDice } = useDiceBox()
+
+const roll = async () => {
+  // Roll 2d10 for challenge dice
+  const results = await rollDice('2d10')
+  challengeDie1.value = results[0]
+  challengeDie2.value = results[1]
+}
 </script>
 
 <template>
@@ -115,6 +124,15 @@ const {
           @click="close"
         />
       </q-card-actions>
+
+      <div id="dice-canvas" style="width: 100%; height: 200px; position: relative;"></div>
     </q-card>
   </q-dialog>
 </template>
+
+<style scoped>
+#dice-canvas {
+  background: transparent;
+  pointer-events: none;
+}
+</style>

@@ -74,6 +74,9 @@ export default defineConfig(({ mode }) => {
             https: {
                 key: fs.readFileSync(keyFilePath),
                 cert: fs.readFileSync(certFilePath),
+            },
+            fs: {
+                allow: ['..']
             }
         }
     }
