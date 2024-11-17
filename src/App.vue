@@ -72,4 +72,9 @@ const toggleDarkMode = () => {
 body {
   margin: 0;
 }
+
+.q-layout-container > div {
+    transform: none !important;
+}
+
 </style> 

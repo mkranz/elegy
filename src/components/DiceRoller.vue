@@ -153,7 +153,7 @@ onUnmounted(() => {
     </q-card>
   </q-dialog>
   
-  <div class="dice-canvas-container" :class="{ hide: !canvasVisible }"> 
+  <div class="dice-canvas-container"> 
   </div>
 </template>
 <style>
