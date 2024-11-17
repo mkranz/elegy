@@ -3,11 +3,12 @@ import { onMounted, onUnmounted } from 'vue'
 
 let diceBox: any = null
 
-export function useDiceBox() {
+export function useDiceBox(id: string, container: string) {
   const initDiceBox = async () => {
     diceBox = new DiceBox({
-      id: 'dice-canvas',
+      id: id,
       assetPath: '/assets/dice-box/',
+      container: container,
       theme: 'default',
       scale: 6,
       gravity: 1,
@@ -35,20 +36,13 @@ export function useDiceBox() {
 
   const cleanup = () => {
     if (diceBox) {
-      // Clean up dice box resources if needed
       diceBox = null
     }
   }
 
-  onMounted(() => {
-    initDiceBox()
-  })
-
-  onUnmounted(() => {
-    cleanup()
-  })
-
   return {
+    initDiceBox,
+    cleanup,
     rollDice
   }
 } 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useDiceRoller } from '../composables/useDiceRoller'
 import { useDiceBox } from '../composables/useDiceBox'
-import Counter from './Counter.vue'
+import Counter from './Counter.vue' 
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const {
   show,
@@ -13,27 +14,51 @@ const {
   canSelectActionScore,
   totalActionScore,
   rollResult,
-  close,
+  close: closeRoller,
   currentStatName,
   currentOutcome,
   appliedActions,
   executeAction
 } = useDiceRoller()
 
-const { rollDice } = useDiceBox()
+const { initDiceBox, cleanup,rollDice } = useDiceBox('dice-canvas','.dice-canvas-container')
+const canvasVisible = ref(false)
 
 const roll = async () => {
-  // Roll 2d10 for challenge dice
+  canvasVisible.value = true
   const results = await rollDice('2d10')
   challengeDie1.value = results[0]
   challengeDie2.value = results[1]
 }
+
+const close = () => {
+  canvasVisible.value = false
+  closeRoller()
+}
+
+const handleDialogClick = () => {
+  if (challengeDie1.value !== null && challengeDie2.value !== null) {
+    canvasVisible.value = false
+  }
+}
+
+onMounted(() => {
+  canvasVisible.value = true
+  initDiceBox()
+})
+
+onUnmounted(() => {
+  canvasVisible.value = false
+  cleanup()
+})
+
 </script>
 
 <template>
   <q-dialog
     v-model="show"
     position="right"
+    @click="handleDialogClick"
   >
     <q-card style="min-width: 300px">
       <q-card-section>
@@ -125,14 +150,25 @@ const roll = async () => {
         />
       </q-card-actions>
 
-      <div id="dice-canvas" style="width: 100%; height: 200px; position: relative;"></div>
     </q-card>
   </q-dialog>
+  
+  <div class="dice-canvas-container" :class="{ hide: !canvasVisible }"> 
+  </div>
 </template>
+<style>
+.hide {
+  display: none;
+}
 
-<style scoped>
-#dice-canvas {
+.dice-box-canvas {
   background: transparent;
   pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
 }
 </style>
