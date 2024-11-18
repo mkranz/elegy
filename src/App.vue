@@ -11,7 +11,7 @@
             @click="menu?.open()"
           />
           <q-toolbar-title class="text-h5 text-bold">
-            <div>{{ character.info.name }}</div>
+            <div>{{ character?.info?.name }}</div>
 
           </q-toolbar-title>
           <q-btn

@@ -1,5 +1,14 @@
 A simple character editor for the Elegy game.
 
+# Installing
+
+```
+npm install
+npm run dev
+```
+
+# Roadmap
+
 Up next:
  - Automatically roll the appropriate suffer moves when meters reach zero and add impacts accordingly
 
