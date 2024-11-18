@@ -1,8 +1,8 @@
 <template>
-  <div class="stat-roll">
-    <span class="stat-name">{{ statName }}</span>
+  <span class="stat-roll">
     <button @click="handleRoll" class="roll-button">Roll</button>
-  </div>
+    <span class="stat-name">{{ statName }}</span>    
+  </span>
 </template>
 
 <script setup lang="ts">
@@ -44,7 +44,7 @@ const handleRoll = () => {
 
 <style lang="sass" scoped>
 .stat-roll
-  display: flex
+  display: inline-flex
   align-items: center
   gap: 0.5rem
 
@@ -57,6 +57,8 @@ const handleRoll = () => {
   background-color: #4a5568
   color: white
   cursor: pointer
+  line-height: 1
+
 
 .roll-button:hover
   background-color: #2d3748

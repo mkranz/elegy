@@ -25,6 +25,7 @@ const { rollDice, show: showDiceBox, hide: hideDiceBox, clear } = useDiceBox()
 
 watch(showRoller, (newVal) => {
   if (newVal) {
+    clear()
     showDiceBox()
   } else {
     hideDiceBox()

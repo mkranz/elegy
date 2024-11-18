@@ -6,7 +6,7 @@ Up next:
 Possible future features:
 - [x] Wire up combat, connections, and elegy moves to the appropriate meter
 - [x] Automatically apply more things, eg. conclusion rolls
-- [ ] Wire up experience and suffer moves
+- [ ] Wire up experience and suffer moves, and XP costs for assets
 - [ ] Export/Import character data
 - [ ] Multiple character support
 - [x] Dice rolling functionality
@@ -14,3 +14,8 @@ Possible future features:
 - [ ] Tooltips explaining the different attributes
 - [ ] Add world features ('Truths' in [Chapter 4](/docs/elegy/chapters/chapter4-world.md) )
 - [ ] Character journal, markdown editor, similar to starjournal or obsidian
+- [x] Dice box animation
+- [ ] Dice box sound effects
+- [ ] Add dice box to Pay the Price
+- [ ] Add details for connections, bonds and elegies
+- [ ] Improve display of bonus, add selection (eg. from preparations, bonds, etc)
