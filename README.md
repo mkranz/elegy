@@ -16,7 +16,7 @@ Possible future features:
 - [x] Wire up combat, connections, and elegy moves to the appropriate meter
 - [x] Automatically apply more things, eg. conclusion rolls
 - [ ] Wire up experience and suffer moves, and XP costs for assets
-- [ ] Export/Import character data
+- [x] Export/Import character data
 - [ ] Multiple character support
 - [x] Dice rolling functionality
 - [x] Validation for the various stats

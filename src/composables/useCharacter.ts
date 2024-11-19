@@ -69,6 +69,10 @@ export function useCharacter() {
     }
   }
 
+  const importCharacterData = (newCharacter: Character) => {
+    character.value = newCharacter;
+  };
+
   return {
     character,
     getDefaultFocusValue,
@@ -77,6 +81,7 @@ export function useCharacter() {
     removeProgressTrack,
     addAsset,
     removeAsset,
-    updateAsset
+    updateAsset,
+    importCharacterData
   }
 } 
