@@ -5,6 +5,7 @@ let diceBox: any = null
 
 export function useDiceBox() {
   const initDiceBox = async () => {
+    if (diceBox) return
     diceBox = new DiceBox({
       assetPath: '/assets/dice-box/',
       theme: 'theme-smooth',

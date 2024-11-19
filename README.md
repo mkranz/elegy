@@ -25,6 +25,6 @@ Possible future features:
 - [ ] Character journal, markdown editor, similar to starjournal or obsidian
 - [x] Dice box animation
 - [ ] Dice box sound effects
-- [ ] Add dice box to Pay the Price
+- [x] Add dice box to Pay the Price
 - [ ] Add details for connections, bonds and elegies
 - [ ] Improve display of bonus, add selection (eg. from preparations, bonds, etc)

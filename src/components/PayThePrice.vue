@@ -1,28 +1,29 @@
 <template>
   <q-dialog
     v-model="isPayingPrice"
-    persistent
+    persistent    
   >
-    <q-card style="min-width: 350px">
+    <q-card style="min-width: 350px" @click="handleDialogClick">
       <q-card-section class="row items-center">
         <div class="text-h6">Pay The Price</div>
       </q-card-section>
 
-      <q-card-section class="q-pt-none">
-        <div class="text-h5 q-mb-md">Roll: {{ currentRoll }}</div>
+      <q-card-section class="q-pt-none" v-if="hasRolled">
+        <div class="text-h5 q-mb-md">Roll: {{ currentRoll ?? '-' }}</div>
         <div class="text-body1">{{ currentResult }}</div>
       </q-card-section>
 
       <q-card-actions align="right" class="text-primary">
         <q-btn 
           flat 
-          label="Reroll" 
+          :label="hasRolled ? 'Reroll' : 'Roll'" 
+          @click.stop
           @click="roll" 
         />
         <q-btn 
           flat 
           label="Close" 
-          v-close-popup 
+          @click="close" 
         />
       </q-card-actions>
     </q-card>
@@ -32,9 +33,12 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
 import { usePayThePrice } from '@/composables/usePayThePrice'
+import { useDiceBox } from '@/composables/useDiceBox'
 
 const { isPayingPrice } = usePayThePrice()
+const { rollDice, show: showDiceBox, hide: hideDiceBox, clear } = useDiceBox()
 
+const hasRolled = ref(false)
 const currentRoll = ref<number>(0)
 
 const priceTable = {
@@ -78,14 +82,50 @@ const currentResult = computed(() => {
   return entry[1]
 })
 
-const roll = () => {
-  currentRoll.value = Math.floor(Math.random() * 100) + 1
+const roll = async () => {
+  showDiceBox()
+  const results = await rollDice('1d100')
+  hasRolled.value = true
+  currentRoll.value = results[0]
+}
+
+const close = () => {
+  hideDiceBox('hide')
+  isPayingPrice.value = false
+}
+
+const handleDialogClick = () => {
+  if (currentRoll.value !== 0) {
+    hideDiceBox('hide')
+  }
 }
 
 // Watch for dialog opening and roll automatically
 watch(isPayingPrice, (newValue) => {
   if (newValue) {
+    showDiceBox()
     roll()
+  } else {
+    clear()
+    hideDiceBox('hide')
+    hasRolled.value = false
   }
 })
-</script> 
+</script>
+
+<style>
+.hide {
+  visibility: hidden;
+}
+
+.dice-box-canvas {
+  background: transparent;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+</style> 
