@@ -11,12 +11,6 @@ import fs from 'fs';
 export default defineConfig(({ mode }) => {
     process.env = loadEnv(mode, process.cwd(), '')
 
-    const VITE_API_ENDPOINT_URL = process.env.VITE_API_ENDPOINT_URL
-
-    if (VITE_API_ENDPOINT_URL == null) {
-        throw new Error('VITE_API_ENDPOINT_URL need to be defined')
-    }
-
     return {
         plugins: [
             vue({
@@ -69,6 +63,7 @@ export default defineConfig(({ mode }) => {
             fs: {
                 allow: ['..']
             }
-        }
+        },
+        base: '/elegy/'
     }
 })
