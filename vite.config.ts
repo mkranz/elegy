@@ -29,6 +29,9 @@ export default defineConfig(({ mode }) => {
                 registerType: 'autoUpdate',
                 devOptions: { enabled: false },
                 includeAssets: ['favicon.ico', 'favicon.svg', 'favicon-96x96.png', 'apple-touch-icon.png', 'mask-icon.svg'],
+                workbox: {
+                    globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,json,wasm}']
+                },
                 manifest: {
                     name: 'Elegy Character Sheet',
                     short_name: 'Elegy',

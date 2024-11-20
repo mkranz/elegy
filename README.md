@@ -42,10 +42,7 @@ Consider using a service like [localtunnel](https://github.com/localtunnel/local
 
 PWA manifests are generated automatically for production builds via [vite-pwa-org](https://vite-pwa-org.netlify.app/).
 
-Change ```devOptions: false``` to true in ```vite.config.ts``` to enable PWA in development.
-
-TODO: currently installs PWA but does NOT work correctly offlines, looks like some config for asset preloading/caching is missing.
-
+Change ```devOptions: false``` to true in ```vite.config.ts``` to enable PWA in development. Note that it currently has some issues with file caching/offline support in dev mode
 
 # Roadmap
 
@@ -68,4 +65,4 @@ Possible future features:
 - [x] Add dice box to Pay the Price
 - [ ] Add details for connections, bonds and elegies
 - [ ] Improve display of bonus, add selection (eg. from preparations, bonds, etc)
-- [ ] Fix PWA 
+- [x] Fix PWA 
