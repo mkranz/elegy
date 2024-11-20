@@ -32,7 +32,7 @@ Generated via [RealFaviconGenerator](https://realfavicongenerator.net/).
 
 # Hosting
 
-The app is available at http://localhost:5173/elegy/
+The app is available at http://localhost:5173/elegy/ for development or http://localhost:4173/elegy/ for production preview.
 
 Local development is done over http. To enable https for local development we can use [basicSsl](https://github.com/vitejs/vite-plugin-basic-ssl) + [https](https://v4.vitejs.dev/config/server-options.html#server-https) (see comments in vite.config for details). However the PWA will NOT be available with self-signed certificates..
 
