@@ -66,3 +66,4 @@ Possible future features:
 - [ ] Add details for connections, bonds and elegies
 - [ ] Improve display of bonus, add selection (eg. from preparations, bonds, etc)
 - [x] Fix PWA 
+- [ ] Setup hosting via github pages, check [gh-pages](https://github.com/tschaub/gh-pages) for ideas and options
