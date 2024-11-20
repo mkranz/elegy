@@ -48,7 +48,8 @@ const { portrait, setPortrait } = usePortrait();
 
 defineExpose({
   open: () => isOpen.value = true,
-  close: () => isOpen.value = false
+  close: () => isOpen.value = false,
+  toggle: () => isOpen.value = !isOpen.value
 });
 
 const exportCharacter = () => {
@@ -62,7 +63,7 @@ const exportCharacter = () => {
   
   const a = document.createElement('a');
   a.href = url;
-  a.download = `character-${character.value.name || 'export'}.json`;
+  a.download = `character-${character.value.info.name || 'export'}.json`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

@@ -1,11 +1,30 @@
 A simple character editor for the Elegy game.
 
-# Installing
+# Install
+
+Setup
 
 ```
 npm install
+```
+
+Run development mode
+
+```
 npm run dev
 ```
+
+Preview production build
+
+```
+npm run preview
+```
+
+Build for productions
+
+```
+npm run build
+``` 
 
 # Roadmap
 

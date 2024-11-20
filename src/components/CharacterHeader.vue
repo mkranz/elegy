@@ -23,7 +23,7 @@ const openInfoModal = () => {
   <div>
     <div class="row items-center">
       <div class="col-auto">
-        <CharacterPortrait v-model="character.info.portrait" />
+        <CharacterPortrait />
       </div>
       <div class="col">
         <div class="text-h4 text-bold">{{ character.info.name }}</div>

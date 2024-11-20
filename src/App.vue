@@ -8,7 +8,7 @@
             round
             dense
             icon="menu"
-            @click="menu?.open()"
+            @click="menu?.toggle()"
           />
           <q-toolbar-title class="text-h5 text-bold">
             <div>{{ character?.info?.name }}</div>

@@ -76,7 +76,7 @@ const roll = () => {
   }
 }
 
-const open = (options: DiceRollOptions) => {
+const open = (options?: DiceRollOptions) => {
   onOutcome.value = options?.onOutcome
   currentProgressTrack.value = options?.progressTrack
   canSelectActionScore.value = options?.actionScore === undefined
