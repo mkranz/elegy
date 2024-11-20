@@ -38,13 +38,13 @@ Local development is done over http. To enable https for local development we ca
 
 Consider using a service like [localtunnel](https://github.com/localtunnel/localtunnel) for test the app over SSL and on various devices.
 
-
 # PWA
 
 PWA manifests are generated automatically for production builds via [vite-pwa-org](https://vite-pwa-org.netlify.app/).
 
 Change ```devOptions: false``` to true in ```vite.config.ts``` to enable PWA in development.
 
+TODO: currently installs PWA but does NOT work correctly offlines, looks like some config for asset preloading/caching is missing.
 
 
 # Roadmap
@@ -68,3 +68,4 @@ Possible future features:
 - [x] Add dice box to Pay the Price
 - [ ] Add details for connections, bonds and elegies
 - [ ] Improve display of bonus, add selection (eg. from preparations, bonds, etc)
+- [ ] Fix PWA 
