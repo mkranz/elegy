@@ -145,7 +145,7 @@ const handleStatRoll = (stat: string) => {
   font-family: 'Mason Serif OT', Serif;
   font-size: 2rem;
   font-weight: bold;
-  color: #8b0000;
+  color: var(--q-primary);
 }
 
 @media (max-width: 599px) {
