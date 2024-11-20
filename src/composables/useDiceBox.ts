@@ -7,7 +7,7 @@ export function useDiceBox() {
   const initDiceBox = async () => {
     if (diceBox) return
     diceBox = new DiceBox({
-      assetPath: '/assets/dice-box/',
+      assetPath: `${import.meta.env.BASE_URL}assets/dice-box/`,
       theme: 'theme-smooth',
       themeColor: '#8b0000',
       scale: 6,
