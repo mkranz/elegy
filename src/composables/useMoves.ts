@@ -356,12 +356,26 @@ export function useMoves() {
       description: 'When you make a move to take decisive action, roll the challenge dice and compare to your progress. Focus is ignored on this roll.',
       outcomes: {
         strongHit: {
-          text: 'This foe is no longer in the fight. They are killed, out of action, flee, or surrender as appropriate to the situation and your intent.',
-          actions: []  // No automatic actions - narrative outcome
+          text: "This foe is no longer in the fight. They are killed, out of action, flee, or surrender as appropriate to the situation and your intent.",
+          actions: [{
+            label: 'Complete Combat',
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              if (progressTrack) {
+                progressTrack.completed = true
+              }
+            }
+          }]
         },
         weakHit: {
-          text: 'As above, but you must also choose one consequence from the list.',
-          actions: []  // Requires player choice from list
+          text: "As above, but you must also choose one consequence from the list.",
+          actions: [{
+            label: 'Complete Combat',
+            execute: (character: Character, progressTrack?: ProgressTrack) => {
+              if (progressTrack) {
+                progressTrack.completed = true
+              }
+            }
+          }]
         },
         miss: {
           text: 'You have lost this fight. Pay the Price.',
@@ -455,17 +469,35 @@ export function useMoves() {
       outcomes: {
         strongHit: {
           text: "A bond is established. Earn XP based on the connection's rank and pick one: Reinforce their influence or expand their influence.",
-          actions: [{
-            label: 'Add Experience',
-            execute: (character: Character) => {
-              // TODO: Implement XP gain based on connection rank
-              character.experience.total += 1
+          actions: [
+            {
+              label: 'Add Experience',
+              execute: (character: Character) => {
+                character.experience.total += 1
+              }
+            },
+            {
+              label: 'Complete Connection',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  progressTrack.completed = true
+                }
+              }
             }
-          }]
+          ]
         },
         weakHit: {
           text: 'As above, but your connection seeks something more first. Envision the request and fulfill it to form the bond and earn the XP reward.',
-          actions: []  // Requires fulfilling request first
+          actions: [
+            {
+              label: 'Complete Connection',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  progressTrack.completed = true
+                }
+              }
+            }
+          ]
         },
         miss: {
           text: 'They reveal a motivation or background that introduces tension. If you maintain this relationship, roll both challenge dice, take the lower value, and clear that number of progress boxes.',
@@ -729,21 +761,29 @@ export function useMoves() {
       description: 'When you achieve what you believe to be the fulfillment of your promise, roll the challenge dice and compare to your progress. Focus is ignored on this roll.',
       outcomes: {
         strongHit: {
-          text: 'Your quest is complete. Mark experience based on rank.',
-          actions: [{
-            label: 'Mark Experience',
-            execute: (character: Character) => {
-              // TODO: Implement experience marking based on rank
-              character.experience.total += 1
+          text: "Your quest is complete. Mark experience based on rank.",
+          actions: [
+            {
+              label: 'Mark Experience',
+              execute: (character: Character) => {
+                character.experience.total += 1
+              }
+            },
+            {
+              label: 'Complete Elegy',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  progressTrack.completed = true
+                }
+              }
             }
-          }]
+          ]
         },
         weakHit: {
           text: 'There is more to be done, or you realize the truth of your quest. Envision what you discover. Mark reduced experience.',
           actions: [{
             label: 'Mark Reduced Experience',
             execute: (character: Character) => {
-              // TODO: Implement reduced experience marking
               character.experience.total += 1
             }
           }]

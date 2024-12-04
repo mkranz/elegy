@@ -13,6 +13,13 @@ const tracks = computed(() =>
   character.value.progressTracks.filter(t => t.type === props.type)
 )
 
+const sortedTracks = computed(() => {
+  return [...tracks.value].sort((a, b) => {
+    if (a.completed === b.completed) return 0;
+    return a.completed ? 1 : -1;
+  });
+});
+
 const titles = {
   elegies: 'Elegies',
   connections: 'Connections',
@@ -26,7 +33,7 @@ const titles = {
     <q-btn color="primary" icon="add" :label="`Add ${titles[type]}`" @click="addProgressTrack(type)" />
   </div>
   <div class="row q-col-gutter-md">
-    <div v-for="track in tracks" :key="track.id" class="col-12">
+    <div v-for="track in sortedTracks" :key="track.id" class="col-12">
       <ProgressTrack :title="track.title" :type="type" :progress-track="track" @remove="removeProgressTrack(track.id)" />
     </div>
   </div>

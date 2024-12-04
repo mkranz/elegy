@@ -22,6 +22,7 @@ export interface ProgressTrack {
   progress: number
   difficulty: ProgressTrackDifficulty
   type: 'elegies' | 'connections' | 'combat'
+  completed: boolean
 }
 
 export interface Character {

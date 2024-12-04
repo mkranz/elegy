@@ -30,7 +30,7 @@ var completionMove = props.type === 'combat' ? moves.endTheFight :
              props.type === 'elegies' ? moves.fulfillElegy : null
 
 const toggleBox = (index: number) => {
-  if (!isEditing.value) return
+  if (!isEditing.value || props.progressTrack.completed) return
   const currentProgress = index * 4
   if (props.progressTrack.progress > currentProgress) {
     props.progressTrack.progress = currentProgress
@@ -104,19 +104,28 @@ const handleReachMilestone = () => {
   }
 }
 
+const shouldShowMoves = computed(() => {
+  return !props.progressTrack.completed && (
+    !showInitialMove.value || props.progressTrack.isInitialized
+  )
+})
+
 </script>
 
 <template>
-  <q-card class="progress-track">
+  <q-card :class="['progress-track', { 'completed-track': progressTrack.completed }]">
     <q-card-section>
       <div class="row items-center justify-between">
         <div>
           <div class="text-h6 line-height-1">{{ title }}</div>
-          <div v-if="!isEditing" class="text-subtitle2 line-height-1">{{ props.progressTrack.difficulty }}</div>
+          <div v-if="!isEditing" class="text-subtitle2 line-height-1">
+            {{ props.progressTrack.difficulty }}
+            <q-badge v-if="progressTrack.completed" color="positive">Completed</q-badge>
+          </div>
         </div>
         <div class="row">
           <q-select
-            v-if="isEditing"
+            v-if="isEditing && !progressTrack.completed"
             v-model="props.progressTrack.difficulty"
             :options="[
               { label: 'Troublesome', value: ProgressTrackDifficulty.troublesome },
@@ -133,6 +142,7 @@ const handleReachMilestone = () => {
           />
           
           <q-btn
+            v-if="!progressTrack.completed"
             flat
             round
             color="primary"
@@ -140,6 +150,7 @@ const handleReachMilestone = () => {
             @click="isEditing = !isEditing"
           />
           <q-btn
+            v-if="!progressTrack.completed"
             flat
             round
             color="negative"
@@ -239,7 +250,7 @@ const handleReachMilestone = () => {
           />
         </div>
 
-        <div class="row justify-between items-center q-mt-md">
+        <div v-if="shouldShowMoves" class="row justify-between items-center q-mt-md">
           <q-btn
             flat
             color="primary"
@@ -288,18 +299,15 @@ const handleReachMilestone = () => {
 </template>
 
 <style lang="sass">
-.progress-track         
-    .box-tick1
-      color: $primary
+.progress-track
+  &.completed-track
+    opacity: 0.7
     
-    .box-tick2
-      color: $primary
-    
-    .box-tick3
-      color: $primary
-    
+    .box-tick1,
+    .box-tick2,
+    .box-tick3,
     .box-full
-      color: $primary
+      color: $positive
 
 .line-height-1
   line-height: 1rem !important
