@@ -20,12 +20,13 @@ const emit = defineEmits(['remove'])
 
 const isEditing = ref(false)
 
-const showEnterTheFray = computed(() => {
-  return props.type === 'combat' && !props.progressTrack.isInitialized
+const showInitialMove = computed(() => {
+  return (props.type === 'combat' && !props.progressTrack.isInitialized) ||
+         (props.type === 'connections' && !props.progressTrack.isInitialized)
 })
 
 var completionMove = props.type === 'combat' ? moves.endTheFight : 
-             props.type === 'connections' ? moves.makeConnection : 
+             props.type === 'connections' ? moves.formBond : 
              props.type === 'elegies' ? moves.fulfillElegy : null
 
 const toggleBox = (index: number) => {
@@ -148,45 +149,61 @@ const handleReachMilestone = () => {
         </div>
       </div>
 
-      <template v-if="showEnterTheFray">
-        <div class="text-subtitle1 q-my-md">Enter The Fray</div>
-        <div class="q-gutter-y-md">
-          <div>
-            Facing off against your foe:
-            <StatRoll 
-              statName="heart" 
-              :move="moves.enterTheFray"
-              :progress-track="props.progressTrack"
-            />
+      <template v-if="showInitialMove">
+        <template v-if="props.type === 'combat'">
+          <div class="text-subtitle1 q-my-md">Enter The Fray</div>
+          <div class="q-gutter-y-md">
+            <div>
+              Facing off against your foe:
+              <StatRoll 
+                statName="heart" 
+                :move="moves.enterTheFray"
+                :progress-track="props.progressTrack"
+              />
+            </div>
+            <div>
+              In the thick of it at close quarters:
+              <StatRoll 
+                statName="force" 
+                :move="moves.enterTheFray"
+                :progress-track="props.progressTrack"
+              />
+            </div>
+            <div>
+              On the move or preparing to act:
+              <StatRoll 
+                statName="dexterity" 
+                :move="moves.enterTheFray"
+                :progress-track="props.progressTrack"
+              />
+            </div>
+            <div>
+              Caught in a trap or sizing up the situation:
+              <StatRoll 
+                statName="intellect" 
+                :move="moves.enterTheFray"
+                :progress-track="props.progressTrack"
+              />
+            </div>
           </div>
-          <div>
-            In the thick of it at close quarters:
-            <StatRoll 
-              statName="force" 
-              :move="moves.enterTheFray"
-              :progress-track="props.progressTrack"
-            />
-          </div>
-          <div>
-            On the move or preparing to act:
-            <StatRoll 
-              statName="dexterity" 
-              :move="moves.enterTheFray"
-              :progress-track="props.progressTrack"
-            />
-          </div>
-          <div>
-            Caught in a trap or sizing up the situation:
-            <StatRoll 
-              statName="intellect" 
-              :move="moves.enterTheFray"
-              :progress-track="props.progressTrack"
-            />
-          </div>
-        </div>
-      </template>
+        </template>
 
-      <template v-else>
+        <template v-if="props.type === 'connections'">
+          <div class="text-subtitle1 q-my-md">Make A Connection</div>
+          <div class="q-gutter-y-md">
+            <div>
+              <StatRoll 
+                statName="heart" 
+                :move="moves.makeConnection"
+                :progress-track="props.progressTrack"
+              />
+            </div>
+          </div>
+        </template>
+        </template>
+
+        <template v-else>
+
         <div class="row q-col-gutter-xs q-mt-sm">
           <div 
             v-for="i in 10" 

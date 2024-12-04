@@ -65,7 +65,7 @@ const handleDialogClick = () => {
 
       <q-card-section>
         <div v-if="canSelectActionScore">
-          <div class="text-subtitle2">Action Score</div>
+          <div class="text-subtitle2">Action Score:</div>
           <Counter
             v-model="currentActionScore"
             :min="0"
@@ -73,12 +73,12 @@ const handleDialogClick = () => {
           />
         </div>
         <div v-else>
-          <div class="text-subtitle2">{{ currentStatName }} Score</div>
-          <div class="text-subtitle1">{{ totalActionScore }}</div>
+          <span class="text-subtitle2">{{ currentStatName }} Score:</span>
+          <span class="text-h5 q-ml-md">{{ currentActionScore }}</span>
         </div>
         
-        <div class="row items-center q-mt-sm">
-          <div class="col">
+        <div class="row items-center q-mt-md">
+          <div class="col-12">
             <div class="text-subtitle2">Bonus</div>
             <Counter
               v-model="bonus"
@@ -86,18 +86,23 @@ const handleDialogClick = () => {
               :max="10"
             />
           </div>
-          <div class="col-auto q-ml-md">
-            <div class="text-subtitle1">Total: {{ totalActionScore }}</div>
+          <div class="col-12 q-mt-md">
+            <span class="text-subtitle1">Total:</span>
+            <span class="text-h5 q-ml-md">{{ totalActionScore }}</span>
           </div>
         </div>
         
+        
         <div class="row q-col-gutter-md q-mt-md">
+          <div class="col-12">
+            <div class="text-subtitle1">Challenge</div>
+          </div>
           <div class="col-6">
-            <div class="text-subtitle2">Challenge Die 1</div>
+            <div class="text-subtitle2">Die 1</div>
             <div class="text-h4">{{ challengeDie1 ?? '-' }}</div>
           </div>
           <div class="col-6">
-            <div class="text-subtitle2">Challenge Die 2</div>
+            <div class="text-subtitle2">Die 2</div>
             <div class="text-h4">{{ challengeDie2 ?? '-' }}</div>
           </div>
         </div>

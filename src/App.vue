@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-layout view="hHh Lpr lff" container style="height: calc(100vh - 50px)" class="shadow-2 rounded-borders">
+    <q-layout view="hHh Lpr lff" container style="height: calc(100vh)">
       <q-header elevated :class="$q.dark.isActive ? 'bg-secondary' : 'bg-black'">
         <q-toolbar>
           <q-btn
