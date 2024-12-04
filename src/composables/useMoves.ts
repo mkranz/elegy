@@ -393,27 +393,55 @@ export function useMoves() {
       outcomes: {
         strongHit: {
           text: 'You create a connection. Give them a role and rank. Whenever your connection aids you on a move closely associated with their role, add +1 and take +1 focus on a hit.',
-          actions: [{
-            label: 'Take +1 Focus',
-            execute: (character: Character, progressTrack?: ProgressTrack) => {
-              character.focus = Math.min(10, character.focus + 1)
-              if (progressTrack) {
-                progressTrack.isInitialized = true
+          actions: [
+            {
+              label: 'Take +1 Focus',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                character.focus = Math.min(10, character.focus + 1)
+                if (progressTrack) {
+                  progressTrack.isInitialized = true
+                }
               }
+            },
+            {
+              label: 'Set Connection Role',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  // This will be handled by the UI prompt
+                  progressTrack.isInitialized = true
+                }
+              },
+              prompt: true,
+              promptType: 'text',
+              promptLabel: 'Enter the connection\'s role'
             }
-          }]
+          ]
         },
         weakHit: {
           text: 'As above, but this connection comes with a complication or cost. Envision what they reveal or demand.',
-          actions: [{
-            label: 'Take +1 Focus',
-            execute: (character: Character, progressTrack?: ProgressTrack) => {
-              character.focus = Math.min(10, character.focus + 1)
-              if (progressTrack) {
-                progressTrack.isInitialized = true
+          actions: [
+            {
+              label: 'Take +1 Focus',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                character.focus = Math.min(10, character.focus + 1)
+                if (progressTrack) {
+                  progressTrack.isInitialized = true
+                }
               }
+            },
+            {
+              label: 'Set Connection Role',
+              execute: (character: Character, progressTrack?: ProgressTrack) => {
+                if (progressTrack) {
+                  // This will be handled by the UI prompt
+                  progressTrack.isInitialized = true
+                }
+              },
+              prompt: true,
+              promptType: 'text',
+              promptLabel: 'Enter the connection\'s role'
             }
-          }]
+          ]
         },
         miss: {
           text: "You don't make a connection and the situation worsens. Pay the Price.",

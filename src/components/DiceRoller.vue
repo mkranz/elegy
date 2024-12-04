@@ -18,7 +18,7 @@ const {
   currentStatName,
   currentOutcome,
   appliedActions,
-  executeAction
+  executeAction: originalExecuteAction
 } = useDiceRoller()
 
 const { rollDice, show: showDiceBox, hide: hideDiceBox, clear } = useDiceBox()
@@ -49,6 +49,34 @@ const handleDialogClick = () => {
   if (challengeDie1.value !== null && challengeDie2.value !== null) {
     hideDiceBox('hide')
   }
+}
+
+const promptValue = ref('')
+const showPrompt = ref(false)
+const currentAction = ref<any>(null)
+
+const handleActionClick = async (action: any) => {
+  if (action.prompt) {
+    currentAction.value = action
+    promptValue.value = ''
+    showPrompt.value = true
+    return
+  }
+
+  originalExecuteAction(action)
+}
+
+const handlePromptConfirm = () => {
+  if (!currentAction.value) return
+  
+  originalExecuteAction(currentAction.value, promptValue.value)
+  showPrompt.value = false
+  currentAction.value = null
+}
+
+const handlePromptCancel = () => {
+  showPrompt.value = false
+  currentAction.value = null
 }
 
 </script>
@@ -129,7 +157,7 @@ const handleDialogClick = () => {
                   :label="action.label"
                   color="secondary"
                   size="sm"
-                  @click="() => executeAction(action)"
+                  @click="() => handleActionClick(action)"
                 />
                 <span v-if="appliedActions.has(action.label)" class="text-positive text-caption">
                   APPLIED
@@ -156,6 +184,29 @@ const handleDialogClick = () => {
     </q-card>
   </q-dialog>
   
+  <q-dialog v-model="showPrompt">
+    <q-card style="min-width: 300px">
+      <q-card-section>
+        <div class="text-h6">{{ currentAction?.promptLabel }}</div>
+      </q-card-section>
+
+      <q-card-section>
+        <q-input
+          v-model="promptValue"
+          :type="currentAction?.promptType"
+          outlined
+          dense
+          @keyup.enter="handlePromptConfirm"
+        />
+      </q-card-section>
+
+      <q-card-actions align="right">
+        <q-btn flat label="Cancel" color="primary" @click="handlePromptCancel" />
+        <q-btn flat label="Confirm" color="primary" @click="handlePromptConfirm" />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
+
 </template>
 <style>
 .hide {

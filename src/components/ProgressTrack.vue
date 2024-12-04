@@ -122,6 +122,9 @@ const shouldShowMoves = computed(() => {
             {{ props.progressTrack.difficulty }}
             <q-badge v-if="progressTrack.completed" color="positive">Completed</q-badge>
           </div>
+          <div v-if="type === 'connections' && progressTrack.role" class="text-subtitle2 line-height-1 q-mt-xs">
+            Role: {{ progressTrack.role }}
+          </div>
         </div>
         <div class="row">
           <q-select

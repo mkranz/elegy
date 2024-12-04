@@ -62,7 +62,10 @@ const currentOutcome = computed(() => {
   }
 })
 
-const executeAction = (action: { label: string, execute: (character: Character, progressTrack?: ProgressTrack) => void }) => {
+const executeAction = (action: { label: string, execute: (character: Character, progressTrack?: ProgressTrack) => void }, role?: string) => {
+  if (currentProgressTrack.value && role) {
+    currentProgressTrack.value.role = role
+  }
   action.execute(character.value, currentProgressTrack.value)
   appliedActions.value.add(action.label)
 }

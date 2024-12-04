@@ -5,6 +5,9 @@ export interface MoveOutcome {
   actions?: Array<{
     label: string
     execute: (character: Character, progressTrack?: ProgressTrack) => void
+    prompt?: boolean
+    promptType?: 'text'
+    promptLabel?: string
   }>
 }
 
